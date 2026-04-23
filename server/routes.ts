@@ -278,10 +278,11 @@ export function registerRoutes(app: Express) {
     // visibility (preserves the existing ?product= query-param logic on the
     // thank-you page).
     const PRODUCT_SLUG: Record<string, string> = {
-      prod_UIVNFDZzok4SZf: "billing",  // Hospitalist Shift Economics ($37)
-      prod_UIVN9EesbBvLid: "rvu",      // IM wRVU Playbook ($47)
-      prod_UIVNEWo3geIr7s: "scripts",  // Negotiation Script Pack ($67)
-      prod_UJqJP9Zksl0AA7: "bundle",   // Complete MedCI Contract Toolkit ($197) — corrected 2026-04-15
+      prod_UO4aJ7yxy2HU6Z: "shift-economics", // Shift Economics Analyzer ($37)
+      prod_UO4aJBAYjGjNv0: "rvu",              // wRVU Compensation Calculator ($47)
+      prod_UO4aYFhkanuNpp: "scripts",           // Negotiation Script Pack ($67)
+      prod_UO4a2irKl6Z49k: "analyzer",          // AI Contract Analyzer standalone ($97)
+      prod_UO4a8a58qiED8T: "bundle",            // Complete Physician Contract Bundle ($197)
     };
     let stripe: Stripe;
     try {

@@ -3,11 +3,12 @@
  *
  * Must be registered BEFORE express.json() so the raw body is intact for signature verification.
  *
- * Product ID → PDF mapping:
- *   prod_UIVNFDZzok4SZf → Hospitalist Shift Economics ($37)       → med-shift-economics.pdf
- *   prod_UIVN9EesbBvLid → wRVU Playbook ($47)               → med-wrvu-playbook.pdf
- *   prod_UIVNEWo3geIr7s → Negotiation Script Pack ($67)    → med-negotiation-script-pack.pdf
- *   prod_UJqJP9Zksl0AA7 → Bundle ($197)                    → all 3 PDFs + analyzer credit
+ * Product ID → PDF mapping (MedCI products created 2026-04-23):
+ *   prod_UO4aJ7yxy2HU6Z → Shift Economics Analyzer ($37)    → med-shift-economics.pdf
+ *   prod_UO4aJBAYjGjNv0 → wRVU Compensation Calculator ($47) → med-wrvu-playbook.pdf
+ *   prod_UO4aYFhkanuNpp → Negotiation Script Pack ($67)     → med-negotiation-script-pack.pdf
+ *   prod_UO4a2irKl6Z49k → AI Contract Analyzer ($97)        → grants analyzer credit (no PDF)
+ *   prod_UO4a8a58qiED8T → Bundle ($197)                     → all 3 PDFs + analyzer credit
  *
  * After deploying, register the webhook in Stripe Dashboard:
  *   URL: https://medcontractintel.com/api/stripe/webhook
@@ -156,23 +157,20 @@ interface ProductConfig {
 }
 
 const PRODUCT_MAP: Record<string, ProductConfig> = {
-  prod_UIVNFDZzok4SZf: {
-    name: "Hospitalist Shift Economics",
+  prod_UO4aJ7yxy2HU6Z: {
+    name: "Shift Economics Analyzer",
     pdfs: ["med-shift-economics.pdf"],
   },
-  prod_UIVN9EesbBvLid: {
-    name: "IM wRVU Playbook",
+  prod_UO4aJBAYjGjNv0: {
+    name: "wRVU Compensation Calculator",
     pdfs: ["med-wrvu-playbook.pdf"],
   },
-  prod_UIVNEWo3geIr7s: {
+  prod_UO4aYFhkanuNpp: {
     name: "Negotiation Script Pack",
     pdfs: ["med-negotiation-script-pack.pdf"],
   },
-  prod_UJqJP9Zksl0AA7: {
-    // Correct live Stripe product ID (verified 2026-04-15). Previous ID
-    // prod_UIVN7avX9UwmZ1 was stale — bundle was recreated in Stripe Dashboard
-    // at some point, silently breaking all bundle PDF delivery since launch.
-    name: "Complete MedCI Contract Toolkit (Bundle)",
+  prod_UO4a8a58qiED8T: {
+    name: "Complete Physician Contract Bundle",
     pdfs: [
       "med-shift-economics.pdf",
       "med-wrvu-playbook.pdf",
@@ -276,12 +274,25 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   // Bundle product ID — grants an analyzer credit to the buyer's email in
   // addition to delivering the PDFs. Kept as a constant here so the webhook
   // can recognize bundle purchases without touching PRODUCT_MAP structure.
-  // Corrected 2026-04-15: live Stripe product is prod_UJqJP9Zksl0AA7.
-  const BUNDLE_PRODUCT_ID = "prod_UJqJP9Zksl0AA7";
+  // Corrected 2026-04-15: live Stripe product is prod_UO4a8a58qiED8T.
+  const BUNDLE_PRODUCT_ID = "prod_UO4a8a58qiED8T";
+  // Standalone analyzer payment-link purchase (no PDF delivered — grants credit only)
+  const ANALYZER_PRODUCT_ID = "prod_UO4a2irKl6Z49k";
 
   for (const item of lineItems) {
     const product = item.price?.product as Stripe.Product | undefined;
     if (!product || typeof product === "string") continue;
+
+    // Standalone analyzer purchase via payment link: grant credit, no PDFs.
+    if (product.id === ANALYZER_PRODUCT_ID) {
+      try {
+        const remaining = storage.grantBundleCredit(customerEmail);
+        console.log(`[Webhook:analyzer] Granted analyzer credit to ${customerEmail} — total now ${remaining}`);
+      } catch (err: any) {
+        console.error(`[Webhook:analyzer] Failed to grant credit to ${customerEmail}:`, err?.message || err);
+      }
+      continue;
+    }
 
     const config = PRODUCT_MAP[product.id];
     if (!config) {
@@ -292,8 +303,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
     console.log(`[Webhook] Sending "${config.name}" PDFs to ${customerEmail}`);
     await sendProductEmail(customerEmail, customerName, config);
 
-    // Bundle grants an analyzer credit — store keyed to the buyer's email so
-    // they can redeem it later on /analyzer without paying again.
+    // Bundle also grants an analyzer credit on top of PDF delivery.
     if (product.id === BUNDLE_PRODUCT_ID) {
       try {
         const remaining = storage.grantBundleCredit(customerEmail);
@@ -466,7 +476,7 @@ export async function replayProductDelivery(session: Stripe.Checkout.Session): P
   }
   const customerName = session.customer_details?.name || "";
   const lineItems = session.line_items?.data || [];
-  const BUNDLE_PRODUCT_ID = "prod_UJqJP9Zksl0AA7"; // corrected 2026-04-15
+  const BUNDLE_PRODUCT_ID = "prod_UO4a8a58qiED8T"; // corrected 2026-04-15
   const delivered: string[] = [];
   let creditsGranted = 0;
   for (const item of lineItems) {
