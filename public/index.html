@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedContractIntel™ — Physician Contract Analysis for Internal Medicine & Hospitalist</title>
+  <meta name="description" content="Anonymous internal medicine and hospitalist contract analysis with RVU benchmarks and negotiation tools. Know what your contract is worth before you sign." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="MedContractIntel™" />
+  <meta property="og:url" content="https://medcontractintel.com" />
+  <meta property="og:title" content="MedContractIntel™ — Physician Contract Analysis for Internal Medicine & Hospitalist" />
+  <meta property="og:description" content="Know what your internal medicine or hospitalist employment contract is actually worth. Compensation benchmarks, red flag analysis, and negotiation priorities for internal medicine & hospitalist physicians." />
+  <meta property="og:image" content="https://medcontractintel.com/assets/images/brand_symbol.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://medcontractintel.com/assets/images/brand_symbol.png" />
+  <link rel="icon" type="image/png" href="/assets/images/brand_symbol.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9fafb; color: #1f2937; line-height: 1.6; }
+
+    /* ── Colors ── */
+    :root {
+      --navy: #1a2744;
+      --navy-dark: #0f1e3d;
+      --gold: #c9a84c;
+      --gold-hover: #b8973b;
+      --teal: #1a6b6b;
+      --teal-light: #2ec4b6;
+    }
+
+    /* ── Typography ── */
+    .eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+    h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; line-height: 1.15; }
+    h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); font-weight: 700; line-height: 1.25; }
+    h3 { font-size: 1.125rem; font-weight: 700; }
+
+    /* ── Layout ── */
+    .container { max-width: 72rem; margin: 0 auto; padding: 0 1.25rem; }
+    .section { padding: 4rem 0; }
+
+    /* ── Buttons ── */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.75rem; border-radius: 0.625rem; font-weight: 700; font-size: 0.9375rem; cursor: pointer; text-decoration: none; transition: all 0.15s ease; border: none; }
+    .btn-gold { background: var(--gold); color: var(--navy-dark); }
+    .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(201,168,76,0.35); }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+    .btn-teal { background: var(--teal-light); color: #fff; }
+    .btn-teal:hover { background: #28b0a3; transform: translateY(-1px); }
+    .btn-lg { padding: 1rem 2.25rem; font-size: 1rem; }
+    .btn-full { width: 100%; }
+
+    /* ── Nav — brand banner ── */
+    nav { position: sticky; top: 0; z-index: 100; width: 100%; }
+    .nav-banner-inner { background: #0f1e3d; display: flex; align-items: center; padding: 1.5rem 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-brand { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
+    .nav-brand-mark { height: 125px; width: 125px; flex-shrink: 0; border-radius: 4px; }
+    .nav-brand-text { display: flex; flex-direction: column; }
+    .nav-wordmark { color: #fff; font-weight: 800; font-size: 2.4rem; line-height: 1.1; white-space: nowrap; }
+    .nav-wordmark-short { display: none; }
+    .nav-tagline { color: #c9a84c; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.25rem; }
+    .nav-sub-text { color: rgba(255,255,255,0.65); font-size: 0.9rem; margin-top: 0.15rem; }
+    /* ── Nav — links strip ── */
+    .nav-strip { background: #162040; padding: 0.6rem 2.5rem; display: flex; gap: 2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .nav-strip a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.15s; white-space: nowrap; }
+    .nav-strip a:hover { color: #fff; }
+    nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.4); }
+
+    /* ── Hero ── */
+    .hero { background: radial-gradient(ellipse at 30% 50%, #1e3060 0%, #0f1e3d 60%); color: #fff; padding: 4rem 0 5rem; overflow: hidden; position: relative; }
+    .hero-inner { position: relative; z-index: 1; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 300px; gap: 5rem; align-items: center; }
+    .hero-content { min-width: 0; }
+    .hero-stats-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.25); border-radius: 1.25rem; padding: 1.75rem; min-width: 220px; flex-shrink: 0; }
+    .stat-row { padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .stat-row:last-child { border-bottom: none; }
+    .stat-label { font-size: 0.7rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
+    .stat-value { font-size: 1.25rem; font-weight: 800; color: var(--gold); }
+    .stat-sub { font-size: 0.7rem; color: rgba(255,255,255,0.5); margin-top: 0.1rem; }
+    .hero-trust { font-size: 0.8125rem; color: rgba(255,255,255,0.45); margin-top: 1rem; }
+    @media (max-width: 800px) { .hero-grid { grid-template-columns: 1fr; } .hero-stats-card { display: none; } }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3); color: var(--gold); font-size: 0.75rem; font-weight: 600; padding: 0.375rem 0.875rem; border-radius: 9999px; margin-bottom: 1.5rem; }
+    .hero-headline { color: #fff; margin-bottom: 1rem; }
+    .hero-headline span { color: var(--gold); }
+    .hero-tagline { color: var(--gold); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.75); max-width: 38rem; margin-bottom: 2rem; line-height: 1.7; }
+    .hero-actions { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; max-width: 340px; }
+    .hero-proof { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; }
+    .proof-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; color: rgba(255,255,255,0.6); }
+    .proof-dot { width: 0.375rem; height: 0.375rem; border-radius: 50%; background: var(--teal-light); flex-shrink: 0; }
+
+    /* ── How it works ── */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .step { background: #fff; border-radius: 1rem; padding: 1.75rem; border: 1px solid #e5e7eb; position: relative; }
+    .step-num { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; font-size: 1rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; flex-shrink: 0; }
+    .step-connector { display: none; }
+
+    /* ── What you get ── */
+    .deliverables { background: #fff; }
+    .deliverable-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
+    @media (max-width: 900px) { .deliverable-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .deliverable-grid { grid-template-columns: 1fr; } }
+    .deliverable { background: #f9fafb; border-radius: 0.875rem; padding: 1.5rem; border: 1px solid #e5e7eb; }
+    .deliverable-icon { width: 2.75rem; height: 2.75rem; border-radius: 0.625rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; background: rgba(26,107,107,0.1); }
+    .deliverable h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.375rem; }
+    .deliverable p { font-size: 0.875rem; color: #6b7280; }
+
+    /* ── Sample report ── */
+    .sample { background: linear-gradient(135deg, var(--navy-dark), #1a3060); color: #fff; }
+    .report-preview { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 1rem; padding: 1.5rem; margin-top: 2rem; }
+    .risk-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; }
+    .risk-high { background: rgba(239,68,68,0.2); color: #fca5a5; }
+    .risk-med { background: rgba(245,158,11,0.2); color: #fcd34d; }
+    .risk-low { background: rgba(34,197,94,0.2); color: #86efac; }
+    .report-row { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 0.875rem; }
+    .report-row:last-child { border-bottom: none; }
+    .report-label { color: rgba(255,255,255,0.7); }
+    .report-val { font-weight: 600; color: #fff; }
+
+    /* ── Products ── */
+    .products { background: #f3f4f6; }
+    .product-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+    .product-card { background: #fff; border-radius: 1rem; padding: 1.5rem; border: 1px solid #e5e7eb; display: flex; flex-direction: column; }
+    .product-card.featured { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.15); }
+    .product-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.2rem 0.6rem; border-radius: 9999px; margin-bottom: 0.75rem; display: inline-block; }
+    .tag-featured { background: var(--gold); color: var(--navy-dark); }
+    .tag-pdf { background: #e0f2fe; color: #0369a1; }
+    .tag-free { background: #dcfce7; color: #15803d; }
+    .product-price { font-size: 1.75rem; font-weight: 800; color: var(--navy-dark); margin: 0.5rem 0; }
+    .product-price span { font-size: 0.875rem; font-weight: 400; color: #6b7280; }
+    .product-features { list-style: none; margin: 1rem 0; flex: 1; }
+    .product-features li { font-size: 0.875rem; color: #374151; padding: 0.3rem 0; padding-left: 1.25rem; position: relative; }
+    .product-features li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+
+    /* ── Social proof ── */
+    .social { background: #fff; }
+    .quote-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+    .quote { background: #f9fafb; border-radius: 1rem; padding: 1.5rem; border-left: 4px solid var(--gold); position: relative; }
+    .quote-text { font-size: 0.9375rem; color: #374151; line-height: 1.7; font-style: italic; margin-bottom: 1rem; padding-top: 0.5rem; }
+    .quote-text::before { content: '\201C'; font-size: 3rem; color: var(--gold); opacity: 0.4; line-height: 0; vertical-align: -0.75rem; margin-right: 0.15rem; font-style: normal; }
+    .quote-author { font-size: 0.8125rem; color: #6b7280; font-weight: 600; }
+
+    /* ── FAQ ── */
+    .faq { background: #f3f4f6; }
+    .faq-list { max-width: 44rem; margin: 2.5rem auto 0; }
+    details { background: #fff; border-radius: 0.75rem; margin-bottom: 0.75rem; border: 1px solid #e5e7eb; overflow: hidden; }
+    summary { padding: 1.125rem 1.25rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.9375rem; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; font-size: 1.25rem; color: #9ca3af; flex-shrink: 0; transition: transform 0.2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-answer { padding: 0 1.25rem 1.25rem; font-size: 0.9rem; color: #4b5563; line-height: 1.7; }
+
+    /* ── CTA ── */
+    .cta-section { background: linear-gradient(135deg, var(--navy-dark), var(--teal)); color: #fff; text-align: center; padding: 5rem 0; }
+    .cta-section h2 { color: #fff; margin-bottom: 1rem; }
+    .cta-section p { color: rgba(255,255,255,0.75); max-width: 32rem; margin: 0 auto 2rem; font-size: 1.0625rem; }
+
+    /* ── Footer ── */
+    footer { background: var(--navy-dark); color: rgba(255,255,255,0.5); padding: 2.5rem 0; font-size: 0.8125rem; }
+    .footer-inner { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; }
+    .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+    .footer-social { display: flex; gap: 0.875rem; align-items: center; }
+    .footer-social a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.15s; display: flex; align-items: center; }
+    .footer-social a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ── Utils ── */
+    .text-center { text-align: center; }
+    .text-gold { color: var(--gold); }
+    .text-teal { color: var(--teal-light); }
+    .text-muted { color: #6b7280; }
+    .mb-1 { margin-bottom: 0.25rem; }
+    .mb-2 { margin-bottom: 0.5rem; }
+    .mb-3 { margin-bottom: 0.75rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mt-2 { margin-top: 0.5rem; }
+    .divider { width: 3rem; height: 3px; background: var(--gold); border-radius: 9999px; margin: 1rem auto; }
+    .section-label { text-align: center; margin-bottom: 0.5rem; }
+    .section-title { text-align: center; color: var(--navy-dark); margin-bottom: 0.5rem; }
+    .section-sub { text-align: center; color: #6b7280; max-width: 36rem; margin: 0 auto; font-size: 1rem; }
+
+    /* ── Mobile nav ── */
+    @media (max-width: 768px) {
+      .nav-banner-inner { padding: 0.875rem 1.25rem 1rem; flex-wrap: wrap; gap: 0.625rem; }
+      .nav-brand { flex: 1 1 100%; }
+      .nav-brand-mark { height: 83px; width: 83px; }
+      .nav-wordmark-full { display: none; }
+      .nav-wordmark-short { display: block; font-size: 1.95rem; } /* +30% */
+      .nav-tagline { font-size: 0.78rem; margin-top: 0.15rem; }   /* +30% */
+      .nav-sub-text { font-size: 0.78rem; margin-top: 0.1rem; }   /* +30% */
+      .nav-strip { padding: 0.5rem 1rem; gap: 1.25rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    }
+
+    /* ── Mobile general ── */
+    @media (max-width: 640px) {
+      .section { padding: 3rem 0; }
+      .hero { padding: 3rem 0 3.5rem; }
+      .btn-lg { width: 100%; }
+      .hero-actions { flex-direction: column; }
+      .cta-section { padding: 3.5rem 0; }
+    }
+
+    /* ── Pulse-on-view for sample CTAs and hero sample card ── */
+    /* Per user direction, amplified glow — bigger shadow spread + stronger colour */
+    @keyframes gentle-pulse-glow {
+      0%, 100% { transform: scale(1);    box-shadow: 0 6px 18px rgba(201,168,76,0.38); }
+      50%      { transform: scale(1.03); box-shadow: 0 18px 54px rgba(201,168,76,0.85); }
+    }
+    .pulse-on-view.in-view { animation: gentle-pulse-glow 2.5s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      .pulse-on-view.in-view { animation: none; }
+    }
+
+    /* Sample-CTA link buttons — 1.5x larger per user direction. Desktop + mobile. */
+    .sample-cta-link {
+      display: inline-block;
+      font-weight: 800;
+      font-size: 1.4rem;
+      padding: 1.3rem 2.5rem;
+      border-radius: 0.625rem;
+      text-decoration: none;
+      line-height: 1.2;
+    }
+    @media (max-width: 640px) {
+      .sample-cta-link { font-size: 1.25rem; padding: 1.1rem 1.75rem; width: 100%; box-sizing: border-box; text-align: center; }
+    }
+
+    /* Hero stats card hover lift */
+    a.hero-stats-card:hover { transform: translateY(-3px); box-shadow: 0 18px 48px rgba(0,0,0,0.35); }
+
+    /* ── Sample report preview — mobile overlap fix ──
+       On desktop .report-row uses justify-content: space-between with a long red value
+       next to a short label. On mobile that forces the two inline spans to compete
+       for width and the red value overlaps the label. Stack vertically < 640px. */
+    @media (max-width: 640px) {
+      .report-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+      }
+      .report-row .report-val,
+      .report-row .risk-badge { max-width: 100%; word-break: break-word; }
+      .report-header-row { flex-direction: column !important; align-items: flex-start !important; }
+      .report-header-row > div { width: 100%; }
+      .report-header-row .risk-badge { align-self: flex-start; }
+    }
+
+    /* ── Sample report lightbox modal ── */
+    .sample-modal {
+      display: none; position: fixed; inset: 0; z-index: 10000;
+      background: rgba(0,0,0,0.78); padding: 1rem; overflow: auto;
+      animation: fadeIn 0.18s ease;
+    }
+    .sample-modal.open { display: block; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .sample-modal-inner {
+      max-width: 960px; margin: 1.5rem auto; background: #fff;
+      border-radius: 1rem; overflow: hidden; display: flex; flex-direction: column;
+      max-height: calc(100vh - 3rem); box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+    }
+    .sample-modal-head {
+      padding: 0.9rem 1.25rem; border-bottom: 1px solid #e5e7eb;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+      background: #f9fafb;
+    }
+    .sample-tabs { display: flex; gap: 0.4rem; }
+    .sample-tab {
+      background: transparent; border: 1px solid #e5e7eb; color: #6b7280;
+      font-weight: 700; font-size: 0.8125rem; padding: 0.45rem 0.9rem;
+      border-radius: 9999px; cursor: pointer; transition: all 0.15s;
+    }
+    .sample-tab:hover { color: #0f1e3d; border-color: #c9a84c; }
+    .sample-tab.active { background: #0f1e3d; color: #fff; border-color: #0f1e3d; }
+    .sample-close {
+      background: none; border: none; font-size: 1.75rem; color: #6b7280;
+      cursor: pointer; line-height: 1; padding: 0 0.25rem;
+    }
+    .sample-close:hover { color: #0f1e3d; }
+    .sample-frame-wrap { flex: 1; overflow: hidden; background: #f3f4f6; min-height: 50vh; }
+    .sample-frame { width: 100%; height: 65vh; border: 0; display: block; }
+    .sample-modal-foot {
+      padding: 0.9rem 1.25rem; border-top: 1px solid #e5e7eb;
+      display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      background: #fff;
+    }
+    .sample-download {
+      color: #0f1e3d; background: #f3f4f6; font-weight: 700; font-size: 0.875rem;
+      padding: 0.65rem 1rem; border-radius: 0.5rem; text-decoration: none; border: 1px solid #e5e7eb;
+    }
+    .sample-download:hover { background: #e5e7eb; }
+    .sample-cta-primary {
+      background: #c9a84c; color: #0f1e3d; font-weight: 800; font-size: 0.9375rem;
+      padding: 0.75rem 1.25rem; border-radius: 0.5rem; text-decoration: none;
+      box-shadow: 0 4px 14px rgba(201,168,76,0.35);
+    }
+    .sample-cta-primary:hover { background: #b8973b; }
+
+    @media (max-width: 640px) {
+      .sample-modal-inner { margin: 0.5rem auto; max-height: calc(100vh - 1rem); border-radius: 0.75rem; }
+      .sample-frame { height: 60vh; }
+      .sample-modal-foot { flex-direction: column-reverse; }
+      .sample-download, .sample-cta-primary { width: 100%; text-align: center; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of IM & hospitalist contracts does this analyze?",
+        "acceptedAnswer": {"@type": "Answer", "text": "All IM and hospitalist employment contracts — national staffing companies, regional staffing groups, hospital direct, democratic groups, and regional staffing companies. Works for RVU-based, hourly, salary, hybrid, and collections-based compensation structures."}
+      },
+      {
+        "@type": "Question",
+        "name": "Is this a substitute for a healthcare attorney?",
+        "acceptedAnswer": {"@type": "Answer", "text": "No. This tool provides data-driven financial and structural analysis against market benchmarks. It identifies what to negotiate and by how much. For contracts with High or Critical risk ratings — particularly non-compete clauses or complex RVU formulas — we recommend consulting a healthcare attorney."}
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate are the compensation benchmarks?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Benchmarks are sourced from MGMA 2025 + AMGA 2025 + Doximity 2025 + SHM 2024 benchmarks. We use work RVU (wRVU) benchmarks specifically — not total RVUs — and break them down by employer type."}
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this on my phone?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. The analyzer is fully mobile-optimized. On iPhone, save your contract PDF to the Files app and tap to upload. On Android, save to Downloads and select from your file browser. You can also paste contract text directly."}
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to my contract data?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Your contract is processed securely for analysis and not shared with third parties. It is not used for any purpose beyond delivering your analysis. Results are tied to your analysis session and email for PDF delivery."}
+      },
+      {
+        "@type": "Question",
+        "name": "What is the $97 payment for?",
+        "acceptedAnswer": {"@type": "Answer", "text": "One-time payment for a single contract analysis. Includes the full report, counter-proposal letter generator, 15 Q&A questions, and PDF download and email delivery. No subscription, no recurring charges."}
+      }
+    ]
+  }
+  </script>
+  <link rel="canonical" href="https://medcontractintel.com/" />
+</head>
+<body>
+
+<!-- NAV BANNER -->
+<nav id="main-nav">
+  <div class="nav-banner-inner">
+    <a href="/" class="nav-brand">
+      <img src="/images/brand-icon.png" height="56" width="56" alt="Internal Medicine & Hospitalist Contract Intel" class="nav-brand-mark">
+      <div class="nav-brand-text">
+        <span class="nav-wordmark nav-wordmark-full">MedContractIntel<sup style="font-size:0.5em;vertical-align:super;">™</sup></span>
+        <span class="nav-wordmark nav-wordmark-short">MedContractIntel<sup style="font-size:0.5em;vertical-align:super;">™</sup></span>
+        <span class="nav-tagline">DATA · LEVERAGE · FAIR PAY.</span>
+      </div>
+    </a>
+  </div>
+  <div class="nav-strip">
+    <a href="/analyzer">Analyzer</a>
+    <a href="/calculator">Calculator</a>
+    <a href="#products">Products</a>
+    <a href="/about">About</a>
+  </div>
+</nav>
+
+<!-- EXIT INTENT POPUP — disabled (no free downloads at this time, per user directive 2026-04-15) -->
+<div id="exit-popup" style="display:none !important; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.6); align-items:center; justify-content:center; padding:1rem;">
+  <div style="background:#fff; border-radius:1.25rem; padding:2rem; max-width:420px; width:100%; position:relative; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+    <button id="exit-popup-close" style="position:absolute; top:0.75rem; right:1rem; background:none; border:none; font-size:1.5rem; color:#9ca3af; cursor:pointer; line-height:1;">&times;</button>
+  </div>
+</div>
+
+<!-- SAMPLE REPORT LIGHTBOX MODAL — opened by hero card and any element with data-open-sample -->
+<div id="sample-modal" class="sample-modal" role="dialog" aria-modal="true" aria-label="Sample contract analysis report" aria-hidden="true">
+  <div class="sample-modal-inner">
+    <div class="sample-modal-head">
+      <div class="sample-tabs">
+        <button type="button" class="sample-tab active" data-sample="rvu">RVU Sample</button>
+        <button type="button" class="sample-tab" data-sample="hourly">Hourly Sample</button>
+      </div>
+      <button type="button" id="sample-close" class="sample-close" aria-label="Close sample viewer">&times;</button>
+    </div>
+    <div class="sample-frame-wrap">
+      <iframe id="sample-frame" class="sample-frame" src="" title="Sample contract analysis report" loading="lazy"></iframe>
+    </div>
+    <div class="sample-modal-foot">
+      <a id="sample-download" class="sample-download" href="/assets/sample-analysis-rvu.pdf" download>Download PDF</a>
+      <a class="sample-cta-primary" href="/analyzer">Analyze My Contract — $97 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-headline">
+          Know exactly what your<br><span>contract is worth.</span>
+        </h1>
+        <p class="hero-sub">Upload your internal medicine or hospitalist employment contract and get a full compensation benchmark, red flag report, negotiation priorities, and counter-proposal letter in under 5 minutes.</p>
+        <div class="hero-actions">
+          <a href="/calculator" class="btn btn-lg btn-full" style="background:#1a9090; color:#fff; font-weight:700;">Calculate Your Value →</a>
+          <p style="font-size: 0.8rem; color: rgba(255,255,255,0.55); margin:-0.25rem 0 0;">Free instant estimate · 60 seconds · No email required</p>
+          <a href="/analyzer" class="btn btn-gold btn-lg btn-full">Analyze My Contract</a>
+          <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">$97 per analysis · No subscription · Instant results</p>
+        </div>
+      </div>
+      <!-- Hero stats card — clickable preview that opens the full sample-report modal -->
+      <a href="/assets/sample-analysis-rvu.pdf" data-open-sample="rvu" class="hero-stats-card pulse-on-view" style="max-width:420px; font-size:0.82rem; display:block; cursor:pointer; text-decoration:none; position:relative; transition:transform 0.18s ease, box-shadow 0.18s ease;">
+        <span style="position:absolute; top:0.65rem; right:0.65rem; background:#c9a84c; color:#0f1e3d; font-size:0.96rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; padding:0.35rem 0.96rem; border-radius:9999px; z-index:1;">▶ See full sample</span>
+
+          <!-- Header -->
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; padding-bottom:0.75rem; border-bottom:1px solid rgba(255,255,255,0.1);">
+            <span style="font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase;"><span style="color:rgba(255,255,255,0.4);">Analysis &mdash; </span><span style="color:#2ec4b6; font-weight:700;">Simplified</span></span>
+            <span style="background:rgba(239,68,68,0.15); color:#fca5a5; font-size:0.65rem; font-weight:700; padding:0.25rem 0.6rem; border-radius:99px; border:1px solid rgba(239,68,68,0.3);">&#9888; HIGH RISK</span>
+          </div>
+
+          <!-- Score row -->
+          <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem; padding-bottom:0.75rem; border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div style="text-align:center; min-width:64px;">
+              <div style="font-size:2rem; font-weight:800; color:#fca5a5; line-height:1;">42</div>
+              <div style="font-size:0.58rem; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:0.08em;">/100 Score</div>
+            </div>
+            <div style="flex:1;">
+              <div style="height:6px; background:rgba(255,255,255,0.08); border-radius:3px; overflow:hidden;">
+                <div style="width:42%; height:100%; background:linear-gradient(90deg, #ef4444, #f97316); border-radius:3px;"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-top:4px; font-size:0.58rem; color:rgba(255,255,255,0.3);">
+                <span>High Risk</span><span>Favorable</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Risk by section -->
+          <div style="margin-bottom:1rem; padding-bottom:0.75rem; border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div style="font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.35); margin-bottom:0.5rem;">Risk by Section</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.35rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(239,68,68,0.08); border-radius:6px; padding:0.3rem 0.5rem;">
+                <span style="color:rgba(255,255,255,0.7); font-size:0.72rem;">Compensation</span>
+                <span style="color:#fca5a5; font-size:0.65rem; font-weight:700;">HIGH</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(251,146,60,0.08); border-radius:6px; padding:0.3rem 0.5rem;">
+                <span style="color:rgba(255,255,255,0.7); font-size:0.72rem;">Non-Compete</span>
+                <span style="color:#fdba74; font-size:0.65rem; font-weight:700;">MOD</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(239,68,68,0.08); border-radius:6px; padding:0.3rem 0.5rem;">
+                <span style="color:rgba(255,255,255,0.7); font-size:0.72rem;">Termination</span>
+                <span style="color:#fca5a5; font-size:0.65rem; font-weight:700;">HIGH</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(34,197,94,0.08); border-radius:6px; padding:0.3rem 0.5rem;">
+                <span style="color:rgba(255,255,255,0.7); font-size:0.72rem;">Malpractice</span>
+                <span style="color:#86efac; font-size:0.65rem; font-weight:700;">LOW</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top finding -->
+          <div style="margin-bottom:1rem; padding-bottom:0.75rem; border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div style="font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.35); margin-bottom:0.4rem;">#1 Finding</div>
+            <div style="font-size:0.78rem; color:rgba(255,255,255,0.85); font-weight:600; margin-bottom:0.25rem;">RVU Multiplier Below Market</div>
+            <div style="font-size:0.7rem; color:rgba(255,255,255,0.5);">$26.50/wRVU &rarr; 25th percentile is $52/wRVU</div>
+            <div style="margin-top:0.4rem; background:rgba(239,68,68,0.1); border-left:2px solid #ef4444; padding:0.35rem 0.6rem; border-radius:0 6px 6px 0;">
+              <span style="color:#fca5a5; font-size:0.72rem; font-weight:700;">$194,150/year gap &nbsp;&bull;&nbsp; $582,450 over 3 years</span>
+            </div>
+          </div>
+
+          <!-- CTA line -->
+          <div style="font-size:0.68rem; color:rgba(255,255,255,0.35); text-align:center;">
+            Compensation &bull; Clause Analysis &bull; Negotiation Priorities &bull; Counter-Proposal Letter
+          </div>
+
+        </a>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE REPORT PREVIEW — promoted right below hero so it's the first thing after -->
+<section class="section sample" id="sample">
+  <div class="container">
+    <p class="eyebrow section-label" style="color:var(--teal);">SEE WHAT YOU GET</p>
+    <h2 class="section-title" style="color:#fff;">Sample report output</h2>
+    <div class="divider"></div>
+    <p class="section-sub" style="color:rgba(255,255,255,0.7);">This is a <span style="color:#c9a84c; font-weight:700;">simplified</span> preview of an actual analysis output for a staffing-company RVU contract.</p>
+    <div class="report-preview">
+      <div class="report-header-row" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.75rem;">
+        <div>
+          <p style="font-size:0.75rem; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.25rem;">Analysis Result</p>
+          <p style="font-size:1.125rem; font-weight:700; color:#fff; line-height:1.35; margin:0;">Regional Staffing Company · RVU Contract · South</p>
+        </div>
+        <span class="risk-badge risk-high">High Risk — Score 78/100</span>
+      </div>
+      <div class="report-row">
+        <span class="report-label">Compensation Risk</span>
+        <span class="report-val" style="color:#fca5a5;">RVU multiplier is pool-based and set unilaterally — physician has no guaranteed rate</span>
+      </div>
+      <div class="report-row">
+        <span class="report-label">APC Structure</span>
+        <span class="report-val" style="color:#fca5a5;">APC supervision credited at only 25% — effective 30–40% compensation haircut</span>
+      </div>
+      <div class="report-row">
+        <span class="report-label">Income Floor</span>
+        <span class="report-val" style="color:#fca5a5;">Base hourly rate converts to $0 after 3-month term — no income floor</span>
+      </div>
+      <div class="report-row">
+        <span class="report-label">Tail Coverage</span>
+        <span class="risk-badge" style="font-size:0.7rem; background:rgba(26,144,144,0.2); color:#5eead4;">Company pays — favorable</span>
+      </div>
+      <div class="report-row">
+        <span class="report-label">Termination Without Cause</span>
+        <span class="risk-badge risk-med" style="font-size:0.7rem;">90-day notice</span>
+      </div>
+      <div class="report-row">
+        <span class="report-label">#1 Negotiation Priority</span>
+        <span class="report-val">APC Shared RVU Credit — 25% Is Far Below Market — estimated $75,900/year impact</span>
+      </div>
+      <div style="margin-top:1.25rem; padding:1rem; background:rgba(255,255,255,0.07); border-radius:0.625rem;">
+        <p style="font-size:0.65rem; color:rgba(255,255,255,0.5); margin-bottom:0.375rem; text-transform:uppercase; letter-spacing:0.1em;">Counter-Proposal Letter Preview</p>
+        <p style="font-size:0.875rem; color:rgba(255,255,255,0.75); line-height:1.6;">"The 25% APC Shared RVU credit reduces my effective compensation by an estimated $75,900/year. I am requesting a minimum of 50% Shared RVU credit, or a dedicated APC supervision stipend of $20,000–$30,000/year paid separately from RVU production."</p>
+      </div>
+    </div>
+
+    <!-- Clause-by-clause preview -->
+    <div style="margin-top:1.5rem; padding:1.25rem 1.5rem; background:rgba(255,255,255,0.05); border-radius:0.75rem; border:1px solid rgba(255,255,255,0.1);">
+      <p style="color:#c9a84c; font-size:0.75rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin:0 0 1rem;">Clause-by-Clause Analysis Includes</p>
+      <div class="clause-grid">
+        <div style="color:rgba(255,255,255,0.8); font-size:0.875rem; padding:0.375rem 0; border-bottom:1px solid rgba(255,255,255,0.08);">✓ Qualified RVU Definition</div>
+        <div style="color:rgba(255,255,255,0.8); font-size:0.875rem; padding:0.375rem 0; border-bottom:1px solid rgba(255,255,255,0.08);">✓ Unilateral Plan Revision Rights</div>
+        <div style="color:rgba(255,255,255,0.8); font-size:0.875rem; padding:0.375rem 0; border-bottom:1px solid rgba(255,255,255,0.08);">✓ Advance/Reconciliation Clawback</div>
+        <div style="color:rgba(255,255,255,0.8); font-size:0.875rem; padding:0.375rem 0; border-bottom:1px solid rgba(255,255,255,0.08);">✓ Confidentiality / Compensation Gag</div>
+        <div style="color:rgba(255,255,255,0.8); font-size:0.875rem; padding:0.375rem 0; border-bottom:1px solid rgba(255,255,255,0.08);">✓ Hospital Privileges Termination</div>
+        <div style="color:rgba(255,255,255,0.8); font-size:0.875rem; padding:0.375rem 0; border-bottom:1px solid rgba(255,255,255,0.08);">✓ Sign-On Bonus Clawback Terms</div>
+        <div style="color:rgba(255,255,255,0.8); font-size:0.875rem; padding:0.375rem 0; border-bottom:1px solid rgba(255,255,255,0.08);">✓ Malpractice Settlement Authority</div>
+        <div style="color:rgba(255,255,255,0.8); font-size:0.875rem; padding:0.375rem 0; border-bottom:1px solid rgba(255,255,255,0.08);">✓ Post-Termination Facility Restriction</div>
+        <div style="color:rgba(255,255,255,0.8); font-size:0.875rem; padding:0.375rem 0; border-bottom:1px solid rgba(255,255,255,0.08);">✓ Scheduling Modification Rights</div>
+        <div style="color:rgba(255,255,255,0.8); font-size:0.875rem; padding:0.375rem 0; border-bottom:1px solid rgba(255,255,255,0.08);">✓ Shift Differential Provisions</div>
+      </div>
+      <p style="color:rgba(255,255,255,0.5); font-size:0.8125rem; margin:1rem 0 0; font-style:italic;">Every clause rated RED / MODERATE / GREEN with specific negotiation language and walk-away thresholds.</p>
+    </div>
+
+    <!-- Sample report CTAs — open inline modal instead of forcing a download -->
+    <div style="text-align:center; margin-top:1.5rem;">
+      <p style="color:rgba(255,255,255,0.6); font-size:0.8125rem; margin-bottom:0.875rem; text-transform:uppercase; letter-spacing:0.08em; font-weight:600;">See a Real Sample Report — Free</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="/assets/sample-analysis-rvu.pdf" data-open-sample="rvu" class="pulse-on-view sample-cta-link" style="background:#c9a84c; color:#0f1e3d;">
+          See a real RVU sample →
+        </a>
+        <a href="/assets/sample-analysis-hourly.pdf" data-open-sample="hourly" class="pulse-on-view sample-cta-link" style="background:transparent; color:#c9a84c; border:2px solid #c9a84c;">
+          See a real Hourly sample →
+        </a>
+      </div>
+      <p style="color:rgba(255,255,255,0.4); font-size:0.75rem; margin-top:0.875rem;">8–9 page report. No email required. Fictional contract, realistic terms. Download button inside.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE OUTPUT SECTION — also promoted -->
+<section class="section" style="background:#f9fafb;">
+  <div class="container" style="max-width:72rem;">
+    <p class="eyebrow section-label">ACTUAL OUTPUT</p>
+    <h2 class="section-title">See what your analysis produces</h2>
+    <div class="divider"></div>
+    <p class="section-sub" style="margin-bottom:2.5rem;">Real analysis from an actual IM & hospitalist contracts. Employer and physician identifiers redacted.</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <img src="/images/sample-analysis-card.jpg"
+             alt="Sample negotiation priorities analysis output"
+             style="width:100%; border-radius:0.75rem; box-shadow:0 4px 24px rgba(0,0,0,0.18);"
+             loading="lazy" />
+        <p style="font-size:0.8125rem; color:#6b7280; text-align:center; margin:0;">
+          Negotiation priorities with financial impact, current terms, and walk-away point
+        </p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <img src="/images/sample-letter-card.jpg"
+             alt="Sample counter-proposal letter output"
+             style="width:100%; border-radius:0.75rem; box-shadow:0 4px 24px rgba(0,0,0,0.18);"
+             loading="lazy" />
+        <p style="font-size:0.8125rem; color:#6b7280; text-align:center; margin:0;">
+          Ready-to-send counter-proposal letter, personalized to the specific contract clauses
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how-it-works">
+  <div class="container">
+    <p class="eyebrow section-label">Simple process</p>
+    <h2 class="section-title">Three steps to contract clarity</h2>
+    <div class="divider"></div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Upload your contract</h3>
+        <p class="text-muted mt-2" style="font-size:0.9rem;">Upload your PDF or paste contract text. Works on any device — including iPhone and Android.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Tell us your context</h3>
+        <p class="text-muted mt-2" style="font-size:0.9rem;">Select your state, compensation model, years of experience, and practice setting. Takes 60 seconds.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Get your full report</h3>
+        <p class="text-muted mt-2" style="font-size:0.9rem;">Your contract is analyzed against current market benchmarks. Full report delivered in under 5 minutes, with PDF download and email delivery.</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="/analyzer" class="btn btn-gold btn-lg">Start My Analysis</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- VIDEO SECTION -->
+<section class="section" style="background:#0f1e3d; padding:4rem 0;">
+  <div class="container" style="max-width:56rem;">
+    <p class="eyebrow section-label" style="color:var(--teal);">WATCH FIRST</p>
+    <h2 class="section-title" style="color:#fff;">Understand what your IM & hospitalist contracts is actually worth</h2>
+    <div class="divider"></div>
+    <p class="section-sub" style="color:rgba(255,255,255,0.7); margin-bottom:2rem;">A full-time internal medicine and hospitalist physicians generating 6,000 wRVUs produces roughly $333,000 in professional fee revenue. Most physicians never see how that number becomes their paycheck.</p>
+    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:0.75rem; box-shadow:0 8px 40px rgba(0,0,0,0.4);">
+      <iframe
+        src="https://www.youtube.com/embed/tgscT8t0JEU"
+        title="Your Staffing Company Keeps 42-52% of Collections — Here's the Math"
+        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p style="color:rgba(255,255,255,0.4); font-size:0.8125rem; text-align:center; margin-top:1rem;">8 minutes. No fluff. Real math from 2026 CMS and MGMA data.</p>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="section deliverables" id="what-you-get">
+  <div class="container">
+    <p class="eyebrow section-label">Full report breakdown</p>
+    <h2 class="section-title">Everything in your $97 analysis</h2>
+    <div class="divider"></div>
+    <p class="section-sub">No vague summaries. Every section is specific to your contract, your employer type, and current MGMA/SHM/AMGA benchmarks.</p>
+    <div class="deliverable-grid">
+      <div class="deliverable">
+        <div class="deliverable-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+        </div>
+        <h3>Compensation Benchmark</h3>
+        <p>Your exact pay vs. 25th / median / 75th percentile for your employer type, with dollar gaps calculated at your production level.</p>
+      </div>
+      <div class="deliverable">
+        <div class="deliverable-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h3>Red Flag Identification</h3>
+        <p>Every high-risk clause highlighted — non-compete radius, termination notice, tail coverage responsibility, billing gag clauses.</p>
+      </div>
+      <div class="deliverable">
+        <div class="deliverable-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Clause-by-Clause Analysis</h3>
+        <p>12+ contract sections analyzed with severity ratings, industry norms, and recommended language changes.</p>
+      </div>
+      <div class="deliverable">
+        <div class="deliverable-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+        </div>
+        <h3>Negotiation Priorities</h3>
+        <p>Ranked list of what to push on first, with specific ask amounts, walk-away points, and financial impact of each item.</p>
+      </div>
+      <div class="deliverable">
+        <div class="deliverable-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3>Counter-Proposal Letter</h3>
+        <p>Professional letter addressed to your employer, customizable for tone and priorities. Ready to send.</p>
+      </div>
+      <div class="deliverable">
+        <div class="deliverable-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Contract Q&amp;A Chat</h3>
+        <p>Ask up to 15 follow-up questions about your specific contract. Get instant answers about any clause or term.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products" id="products">
+  <div class="container">
+    <p class="eyebrow section-label">Complete toolkit</p>
+    <h2 class="section-title">Everything you need to negotiate fair pay</h2>
+    <div class="divider"></div>
+    <div class="product-cards">
+
+      <div class="product-card featured">
+        <span class="product-tag tag-featured">Most Popular</span>
+        <h3>Contract Analyzer</h3>
+        <div class="product-price">$97 <span>/ analysis</span></div>
+        <ul class="product-features">
+          <li>Full contract analysis</li>
+          <li>Compensation benchmarks (MGMA 2025)</li>
+          <li>12+ clause analysis with red flags</li>
+          <li>Ranked negotiation priorities</li>
+          <li>Counter-proposal letter</li>
+          <li>15 Q&amp;A questions included</li>
+          <li>PDF + email delivery</li>
+        </ul>
+        <a href="/analyzer" class="btn btn-gold btn-full">Analyze My Contract</a>
+      </div>
+
+      <div class="product-card">
+        <span class="product-tag tag-pdf">PDF Guide</span>
+        <h3>IM & Hospitalist Negotiation Script Pack</h3>
+        <div class="product-price">$67</div>
+        <ul class="product-features">
+          <li>Word-for-word negotiation scripts</li>
+          <li>Covers RVU, hourly, and salary</li>
+          <li>Non-compete negotiation scripts</li>
+          <li>Tail coverage scripts</li>
+          <li>Termination clause scripts</li>
+          <li>Email templates included</li>
+        </ul>
+        <a href="https://buy.stripe.com/28E14pdBw8kw7gN0hT3ZK07" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-full" style="background:var(--navy); color:#fff; border:none;">Get Script Pack — $67</a>
+      </div>
+
+      <div class="product-card">
+        <span class="product-tag tag-pdf">PDF Guide</span>
+        <h3>IM wRVU Playbook</h3>
+        <div class="product-price">$47</div>
+        <ul class="product-features">
+          <li>Understand your RVU formula</li>
+          <li>Spot APC haircut clauses</li>
+          <li>Calculate effective $/wRVU</li>
+          <li>Negotiation benchmarks</li>
+          <li>MGMA percentile charts</li>
+        </ul>
+        <a href="https://buy.stripe.com/8x2bJ3550cAMdFb0hT3ZK06" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-full" style="background:var(--navy); color:#fff; border:none;">Get RVU Playbook — $47</a>
+      </div>
+
+      <div class="product-card">
+        <span class="product-tag tag-pdf">PDF Guide</span>
+        <h3>Hospitalist Shift Economics</h3>
+        <div class="product-price">$37</div>
+        <ul class="product-features">
+          <li>Decode shift economics (shift rate vs. encounters)</li>
+          <li>Nocturnist differential + weekend/holiday stacking</li>
+          <li>Admit fee and census red flags</li>
+          <li>Observation billing and H&P-fee stacking</li>
+        </ul>
+        <a href="https://buy.stripe.com/eVqdRb694cAM7gN9St3ZK05" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-full" style="background:var(--navy); color:#fff; border:none;">Get Shift Economics — $37</a>
+      </div>
+
+      <div class="product-card" style="border-color:var(--teal);">
+        <span class="product-tag" style="background:rgba(26,107,107,0.12); color:var(--teal);">Best Value</span>
+        <h3>Complete Bundle</h3>
+        <div class="product-price">$197 <span style="text-decoration:line-through; color:#9ca3af;">$248</span></div>
+        <ul class="product-features">
+          <li>All 3 PDFs (Script Pack + wRVU Playbook + Shift Economics)</li>
+          <li>1 Contract Analyzer use included</li>
+          <li>Save $51 vs. buying separately</li>
+          <li>Instant delivery</li>
+        </ul>
+        <a href="/pages/products/bundle.html" class="btn btn-full" style="background:var(--teal); color:#fff;">Get the Bundle — $197</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section" style="background:#0f1e3d; color:#fff;">
+  <div class="container" style="max-width:60rem;">
+    <p class="eyebrow section-label" style="color:#c9a84c;">Why not just hire an attorney?</p>
+    <h2 class="section-title" style="color:#fff;">Contract Analyzer vs. Healthcare Attorney</h2>
+    <div class="divider"></div>
+    <div style="overflow-x:auto; margin-top:2rem;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+        <thead>
+          <tr>
+            <th style="padding:0.875rem 1rem; text-align:left; color:rgba(255,255,255,0.5); font-weight:600; font-size:0.8rem; border-bottom:1px solid rgba(255,255,255,0.1);"></th>
+            <th style="padding:0.875rem 1rem; text-align:center; background:rgba(201,168,76,0.15); border-radius:0.5rem 0.5rem 0 0; color:#c9a84c; font-weight:700; border-bottom:1px solid rgba(201,168,76,0.3);">Contract Analyzer</th>
+            <th style="padding:0.875rem 1rem; text-align:center; color:rgba(255,255,255,0.5); font-weight:600; border-bottom:1px solid rgba(255,255,255,0.1);">Healthcare Attorney</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+            <td style="padding:0.875rem 1rem; color:rgba(255,255,255,0.7);">Cost</td>
+            <td style="padding:0.875rem 1rem; text-align:center; background:rgba(201,168,76,0.08); color:#c9a84c; font-weight:700;">$97 per contract</td>
+            <td style="padding:0.875rem 1rem; text-align:center; color:rgba(255,255,255,0.5);">$500–$1,500+ per hour</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02);">
+            <td style="padding:0.875rem 1rem; color:rgba(255,255,255,0.7);">Turnaround</td>
+            <td style="padding:0.875rem 1rem; text-align:center; background:rgba(201,168,76,0.08); color:#2ec4b6; font-weight:600;">Under 5 minutes</td>
+            <td style="padding:0.875rem 1rem; text-align:center; color:rgba(255,255,255,0.5);">1–2 weeks</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+            <td style="padding:0.875rem 1rem; color:rgba(255,255,255,0.7);">Compensation benchmarking</td>
+            <td style="padding:0.875rem 1rem; text-align:center; background:rgba(201,168,76,0.08); color:#2ec4b6;">✓ Included (MGMA & SHM 2025)</td>
+            <td style="padding:0.875rem 1rem; text-align:center; color:rgba(255,255,255,0.4);">Not included</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02);">
+            <td style="padding:0.875rem 1rem; color:rgba(255,255,255,0.7);">Clause-by-clause analysis</td>
+            <td style="padding:0.875rem 1rem; text-align:center; background:rgba(201,168,76,0.08); color:#2ec4b6;">✓ Included</td>
+            <td style="padding:0.875rem 1rem; text-align:center; color:rgba(255,255,255,0.5);">Depends on scope</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+            <td style="padding:0.875rem 1rem; color:rgba(255,255,255,0.7);">Negotiation language</td>
+            <td style="padding:0.875rem 1rem; text-align:center; background:rgba(201,168,76,0.08); color:#2ec4b6;">✓ Included</td>
+            <td style="padding:0.875rem 1rem; text-align:center; color:rgba(255,255,255,0.5);">Extra billable hours</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02);">
+            <td style="padding:0.875rem 1rem; color:rgba(255,255,255,0.7);">Available 24/7</td>
+            <td style="padding:0.875rem 1rem; text-align:center; background:rgba(201,168,76,0.08); color:#2ec4b6;">✓ Yes</td>
+            <td style="padding:0.875rem 1rem; text-align:center; color:rgba(255,255,255,0.4);">No</td>
+          </tr>
+          <tr>
+            <td style="padding:0.875rem 1rem; color:rgba(255,255,255,0.7);">Understands IM & hospitalist-specific contracts</td>
+            <td style="padding:0.875rem 1rem; text-align:center; background:rgba(201,168,76,0.08); color:#2ec4b6; border-radius:0 0 0 0;">✓ Yes</td>
+            <td style="padding:0.875rem 1rem; text-align:center; color:rgba(255,255,255,0.4);">Rarely</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:1.5rem; font-size:0.875rem; color:rgba(255,255,255,0.45); text-align:center; max-width:44rem; margin-left:auto; margin-right:auto;">We recommend consulting a healthcare attorney for contracts with critical legal exposure. The Analyzer helps you know what to ask <em>before</em> you spend $1,500 to ask it.</p>
+  </div>
+</section>
+
+
+<!-- SOCIAL PROOF -->
+<section class="section social" id="testimonials">
+  <div class="container">
+    <p class="eyebrow section-label">Physician results</p>
+    <h2 class="section-title">What internal medicine and hospitalist physicians are saying</h2>
+    <div class="divider"></div>
+    <div class="quote-grid">
+      <div class="quote">
+        <p class="quote-text">Found out my RVU multiplier was $21 below market median. That's $120k/year I was leaving on the table. Used the counter-proposal and got to $56/wRVU.</p>
+        <p class="quote-author">Internal Medicine & Hospitalist Attending</p>
+      </div>
+      <div class="quote">
+        <p class="quote-text">The non-compete section alone was worth it. 30-mile radius would have locked me out of every hospital in my metro area. Got it narrowed to 15 miles.</p>
+        <p class="quote-author">IM & Hospitalist Physicians</p>
+      </div>
+      <div class="quote">
+        <p class="quote-text">As a new attending coming out of residency I had no idea what was normal. This gave me confidence going into my first contract negotiation.</p>
+        <p class="quote-author">PGY-4, Academic Medical Center</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <p class="eyebrow section-label">Common questions</p>
+    <h2 class="section-title">Frequently asked questions</h2>
+    <div class="divider"></div>
+    <div class="faq-list">
+
+      <details>
+        <summary>What types of IM & hospitalist contracts does this analyze?</summary>
+        <div class="faq-answer">All IM and hospitalist employment contracts — national staffing companies, regional staffing groups, hospital direct, democratic groups, and regional staffing companies. Works for RVU-based, hourly, salary, hybrid, and collections-based compensation structures.</div>
+      </details>
+
+      <details>
+        <summary>Is this a substitute for a healthcare attorney?</summary>
+        <div class="faq-answer">No. This tool provides data-driven financial and structural analysis against market benchmarks. It identifies what to negotiate and by how much. For contracts with High or Critical risk ratings — particularly non-compete clauses or complex RVU formulas — we recommend consulting a healthcare attorney. We provide referrals to AHLA member attorneys in your state.</div>
+      </details>
+
+      <details>
+        <summary>How accurate are the compensation benchmarks?</summary>
+        <div class="faq-answer">Benchmarks are sourced from MGMA 2025 + AMGA 2025 + Doximity 2025 + SHM 2024 benchmarks. We use work RVU (wRVU) benchmarks specifically — not total RVUs — and break them down by employer type (staffing company, democratic group, hospital direct) because conversion factors differ significantly across employer types.</div>
+      </details>
+
+      <details>
+        <summary>Can I use this on my phone?</summary>
+        <div class="faq-answer">Yes. The analyzer is fully mobile-optimized. On iPhone, save your contract PDF to the Files app and tap to upload. On Android, save to Downloads and select from your file browser. You can also paste contract text directly.</div>
+      </details>
+
+      <details>
+        <summary>What happens to my contract data?</summary>
+        <div class="faq-answer">Your contract is processed securely for analysis and not shared with third parties. It is not used for any purpose beyond delivering your analysis. Results are tied to your analysis session and email for PDF delivery.</div>
+      </details>
+
+      <details>
+        <summary>What is the $97 payment for?</summary>
+        <div class="faq-answer">One-time payment for a single contract analysis. Includes the full report, counter-proposal letter generator, 15 Q&amp;A questions, and PDF download and email delivery. No subscription, no recurring charges.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BOTTOM -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to know what your contract is really worth?</h2>
+    <p>Upload your contract now and get your full analysis in under 5 minutes.</p>
+    <a href="/analyzer" class="btn btn-gold btn-lg">Analyze My Contract — $97</a>
+    <p style="margin-top:1.25rem; font-size:0.8125rem; color:rgba(255,255,255,0.45);">One-time payment · Instant results · No subscription</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <p style="color:rgba(255,255,255,0.6); font-weight:600; margin-bottom:0.25rem;">MedContractIntel™</p>
+      <p>© <span id="footer-year">2026</span> MedContractIntel™ &nbsp;·&nbsp; <a href="mailto:service@medcontractintel.com" style="color:rgba(255,255,255,0.4); text-decoration:none;">service@medcontractintel.com</a></p>
+    </div>
+    <div class="footer-links">
+      <a href="/analyzer">Analyzer</a>
+      <a href="/calculator">Calculator</a>
+      <a href="#products">Products</a>
+      <a href="/checklist">Checklist</a>
+      <a href="/about">About</a>
+      <a href="/pages/privacy.html">Privacy</a>
+      <a href="/pages/terms.html">Terms</a>
+    </div>
+    <div class="footer-social">
+      <!-- LinkedIn -->
+      <a href="https://linkedin.com/company/medcontractintel" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <!-- YouTube -->
+      <a href="https://youtube.com/@EMContractIntel" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0f1e3d"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="container" style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid rgba(255,255,255,0.07);">
+    <p>This tool provides educational and informational analysis only. It does not constitute legal, financial, or professional advice and does not create an attorney-client relationship. Always consult a qualified healthcare attorney before signing any employment contract.</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll shadow on nav
+  (function() {
+    var nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 4);
+    }, { passive: true });
+  })();
+
+
+  // Social proof counter
+  (function() {
+    fetch('/api/stats/count')
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        var el = document.getElementById('physician-count');
+        if (el && typeof d.count === 'number') {
+          el.textContent = 'Join ' + (d.count + 100) + ' physicians who\u2019ve analyzed their contracts.';
+        }
+      })
+      .catch(function() {});
+  })();
+
+  // Exit intent popup (desktop only, once per session)
+  (function() {
+    if (window.innerWidth < 768) return;
+    if (window.location.pathname === '/checklist') return;
+    if (sessionStorage.getItem('exit-shown')) return;
+    var popup = document.getElementById('exit-popup');
+    var close = document.getElementById('exit-popup-close');
+    var triggered = false;
+    document.addEventListener('mouseleave', function(e) {
+      if (e.clientY < 20 && !triggered) {
+        triggered = true;
+        sessionStorage.setItem('exit-shown', '1');
+        popup.style.display = 'flex';
+      }
+    });
+    if (close) close.addEventListener('click', function() { popup.style.display = 'none'; });
+    popup.addEventListener('click', function(e) { if (e.target === popup) popup.style.display = 'none'; });
+  })();
+
+  // Dynamic footer copyright year — avoids annual manual update
+  (function() {
+    var y = document.getElementById('footer-year');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+
+  // Sample report lightbox modal — single instance wired to every element
+  // with data-open-sample="rvu|hourly" (hero card + sample CTAs). Uses
+  // inline PDF viewer via iframe; modal also pins a Download PDF button
+  // and the "$97 Analyze" primary CTA at the bottom.
+  (function() {
+    var modal    = document.getElementById('sample-modal');
+    if (!modal) return;
+    var frame    = document.getElementById('sample-frame');
+    var dl       = document.getElementById('sample-download');
+    var closeBtn = document.getElementById('sample-close');
+    var tabs     = modal.querySelectorAll('.sample-tab');
+    var SRC      = {
+      rvu:    '/assets/sample-analysis-rvu.pdf',
+      hourly: '/assets/sample-analysis-hourly.pdf'
+    };
+    function setSample(which) {
+      var src = SRC[which] || SRC.rvu;
+      if (frame.src !== location.origin + src) frame.src = src;
+      dl.href = src;
+      dl.setAttribute('download', src.split('/').pop());
+      tabs.forEach(function(t) {
+        t.classList.toggle('active', t.getAttribute('data-sample') === which);
+      });
+    }
+    function open(which) {
+      setSample(which || 'rvu');
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      // Drop the PDF so it stops rendering in the background
+      setTimeout(function() { frame.src = 'about:blank'; }, 180);
+    }
+    // Expose for any future inline handlers
+    window.openSampleModal = open;
+    // Wire up close + backdrop + Escape
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', function(e) { if (e.target === modal) close(); });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) close();
+    });
+    // Tab switches (RVU ↔ Hourly)
+    tabs.forEach(function(t) {
+      t.addEventListener('click', function() {
+        setSample(t.getAttribute('data-sample'));
+      });
+    });
+    // Any element with data-open-sample opens the modal (hero card, sample CTAs)
+    document.querySelectorAll('[data-open-sample]').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        open(el.getAttribute('data-open-sample'));
+      });
+    });
+  })();
+
+  // Pulse-on-view — gently animate sample CTAs and hero sample card while
+  // they are in the viewport so users notice them. Purely a presentational
+  // nudge; content doesn't change. Skipped if IntersectionObserver isn't
+  // available (very old browsers — graceful degradation).
+  (function() {
+    if (!('IntersectionObserver' in window)) return;
+    var els = document.querySelectorAll('.pulse-on-view');
+    if (!els.length) return;
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        entry.target.classList.toggle('in-view', entry.isIntersecting);
+      });
+    }, { threshold: 0.3 });
+    els.forEach(function(el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>

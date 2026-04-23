@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: #f8f9fa;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+/* Severity color bands — maps both color names and risk levels */
+.severity-red, .severity-critical, .severity-high { background-color: #fef2f2; border-left: 4px solid #dc3545; }
+.severity-yellow, .severity-moderate { background-color: #fffbeb; border-left: 4px solid #ffc107; }
+.severity-green, .severity-low, .severity-favorable { background-color: #f0fdf4; border-left: 4px solid #28a745; }
+
+/* Copy button feedback */
+.copy-btn { transition: all 0.2s ease; }
+.copy-btn:hover { background-color: #e5e7eb; }
+.copy-btn.copied { background-color: #d1fae5; color: #059669; }
+
+/* Floating section nav */
+.section-nav {
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+.section-nav::-webkit-scrollbar { width: 3px; }
+.section-nav::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 4px; }
+
+/* Slide-up animation for email banner */
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.animate-slide-up { animation: slideUp 0.4s ease-out; }
+
+/* Counter-proposal letter */
+.letter-content {
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.8;
+}
+
+/* Print styles */
+@media print {
+  body { background: white !important; }
+
+  /* Hide non-essential UI */
+  .no-print,
+  .section-nav,
+  .email-modal,
+  button:not(.print-keep) {
+    display: none !important;
+  }
+
+  /* Ensure clean page breaks */
+  .print-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Full-width layout */
+  .max-w-4xl { max-width: 100% !important; }
+  .shadow-md, .shadow-xl, .shadow-2xl { box-shadow: none !important; }
+
+  /* Ensure backgrounds print */
+  .bg-white { background-color: white !important; }
+  .severity-red, .severity-critical, .severity-high { background-color: #fef2f2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .severity-yellow, .severity-moderate { background-color: #fffbeb !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .severity-green, .severity-low { background-color: #f0fdf4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .bg-red-50 { background-color: #fef2f2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .bg-green-50 { background-color: #f0fdf4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .bg-yellow-50 { background-color: #fefce8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* Header prints clean */
+  .bg-\[\\#0f1e3d\] { background-color: #0f1e3d !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* Page margins */
+  @page { margin: 0.75in; }
+}

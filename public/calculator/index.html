@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>physician contract Value Calculator | MedContractIntel™</title>
+  <meta name="description" content="See what your production is actually worth — and what your contract pays you for it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-dark: #0f1e3d;
+      --navy: #1a2744;
+      --navy-strip: #162040;
+      --gold: #c9a84c;
+      --teal: #1a9090;
+      --white: #ffffff;
+      --bg: #f5f7fb;
+      --text: #10203f;
+      --muted: #6c768c;
+      --border: rgba(15, 30, 61, 0.12);
+      --danger: #c43d3d;
+      --success: #1f8a54;
+      --shadow: 0 20px 45px rgba(12, 24, 52, 0.12);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select {
+      font: inherit;
+    }
+
+    .top-nav {
+      background: var(--navy-strip);
+      color: var(--white);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding: 14px 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.88);
+      font-size: 15px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--gold);
+    }
+
+    .hero {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-dark) 100%);
+      color: var(--white);
+      padding: 56px 20px 42px;
+    }
+
+    .hero-inner,
+    .page-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-size: 36px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 18px;
+      color: rgba(255,255,255,0.92);
+      max-width: 760px;
+    }
+
+    .page-wrap {
+      padding: 32px 20px 60px;
+    }
+
+    .panel {
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15, 30, 61, 0.08);
+      overflow: hidden;
+    }
+
+    .section {
+      padding: 32px;
+      border-bottom: 1px solid rgba(15, 30, 61, 0.08);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-title {
+      margin: 0 0 8px;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--navy-dark);
+    }
+
+    .section-subtitle {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .contract-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .contract-card {
+      border: 2px solid rgba(15, 30, 61, 0.12);
+      border-radius: var(--radius);
+      padding: 24px;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      background: linear-gradient(180deg, #fff 0%, #fbfcff 100%);
+    }
+
+    .contract-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(15, 30, 61, 0.08);
+    }
+
+    .contract-card.selected {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.12);
+    }
+
+    .contract-card h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      color: var(--navy-dark);
+    }
+
+    .contract-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 20px;
+    }
+
+    .field,
+    .full-width {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy-dark);
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 52px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 0 16px;
+      background: #fff;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.14);
+    }
+
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 2px;
+    }
+
+    .radio-pill,
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #fbfcff;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--navy-dark);
+    }
+
+    .radio-pill input,
+    .checkbox-row input {
+      width: auto;
+      min-height: auto;
+      margin: 0;
+      accent-color: var(--gold);
+    }
+
+    .helper-box {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(201, 168, 76, 0.12);
+      color: var(--navy-dark);
+      border-left: 4px solid var(--gold);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .inline-calc {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .cta-row {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 28px;
+    }
+
+    .gold-btn,
+    .outline-btn {
+      border: none;
+      border-radius: 999px;
+      min-height: 54px;
+      padding: 0 24px;
+      font-weight: 800;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .gold-btn {
+      background: var(--gold);
+      color: var(--navy-dark);
+      box-shadow: 0 16px 30px rgba(201, 168, 76, 0.24);
+    }
+
+    .gold-btn:hover,
+    .outline-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .outline-btn {
+      background: transparent;
+      color: var(--navy-dark);
+      border: 1px solid rgba(15, 30, 61, 0.16);
+    }
+
+    .hidden { display: none !important; }
+
+    .results-top {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .stat-card {
+      background: linear-gradient(180deg, #112145 0%, #0f1e3d 100%);
+      color: white;
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .stat-card h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 600;
+    }
+
+    .stat-value {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--gold);
+    }
+
+    .stat-value.white {
+      color: white;
+    }
+
+    .stat-value.negative { color: #ff8d8d; }
+    .stat-value.positive { color: #74e0a4; }
+
+    .bars {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .bar-block {
+      display: grid;
+      gap: 8px;
+    }
+
+    .bar-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--navy-dark);
+      flex-wrap: wrap;
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 18px;
+      background: rgba(15, 30, 61, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      min-width: 8px;
+    }
+
+    .bar-fill.gold { background: var(--gold); }
+    .bar-fill.teal { background: var(--teal); }
+
+    .revenue-copy {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(15, 30, 61, 0.08);
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(15, 30, 61, 0.08);
+      font-size: 14px;
+    }
+
+    th {
+      background: #f6f8fc;
+      color: var(--navy-dark);
+      font-weight: 800;
+    }
+
+    tr.highlight td {
+      background: rgba(201, 168, 76, 0.14);
+      font-weight: 700;
+      color: var(--navy-dark);
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .email-capture {
+      display: flex;
+      gap: 14px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .email-capture .field {
+      flex: 1 1 320px;
+    }
+
+    .email-status {
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--teal);
+    }
+
+    .cta-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .cta-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+      border: 1px solid rgba(15, 30, 61, 0.1);
+      border-radius: var(--radius);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cta-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(26, 144, 144, 0.12);
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .cta-card h3 {
+      margin: 0;
+      font-size: 21px;
+      color: var(--navy-dark);
+    }
+
+    .cta-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      flex: 1;
+    }
+
+    .cta-card a {
+      color: var(--navy-dark);
+      font-weight: 800;
+    }
+
+    .disclaimer {
+      color: #6f7483;
+      font-size: 13px;
+    }
+
+    footer {
+      background: var(--navy-strip);
+      color: rgba(255,255,255,0.86);
+      padding: 28px 20px;
+      margin-top: 48px;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .contract-cards,
+      .form-grid,
+      .results-top,
+      .cta-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 24px 20px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .nav-inner {
+        justify-content: flex-start;
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-wrap {
+        padding: 20px 14px 44px;
+      }
+
+      .hero {
+        padding: 40px 14px 28px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .bar-head,
+      .footer-inner,
+      .email-capture {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .gold-btn,
+      .outline-btn {
+        width: 100%;
+      }
+    }
+  </style>
+  <link rel="canonical" href="https://medcontractintel.com/calculator" />
+</head>
+<body>
+  <nav class="top-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/analyzer">Analyzer</a>
+      <a class="nav-link active" href="/calculator">Calculator</a>
+      <a class="nav-link" href="/#products">Products</a>
+      <a class="nav-link" href="/about">About</a>
+      <a class="nav-link" href="/checklist">Checklist (Free)</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>physician contract Value Calculator</h1>
+      <p>See what your production is actually worth — and what your contract pays you for it.</p>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="panel">
+      <section id="calculatorSection" class="section">
+        <h2 class="section-title">Step 1 — Pick your contract type</h2>
+        <p class="section-subtitle">Choose the compensation model that best matches your current arrangement.</p>
+
+        <div class="contract-cards" id="contractCards">
+          <div class="contract-card selected" data-path="wrvu" tabindex="0" role="button" aria-pressed="true">
+            <h3>wRVU Contract</h3>
+            <p>Your pay is calculated on a per-wRVU rate or base + productivity threshold</p>
+          </div>
+          <div class="contract-card" data-path="hourly" tabindex="0" role="button" aria-pressed="false">
+            <h3>Hourly Contract</h3>
+            <p>You are paid a flat hourly rate regardless of production</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="wrvuFormSection" class="section">
+        <h2 class="section-title">wRVU contract inputs</h2>
+        <p class="section-subtitle">Enter your production and compensation details to estimate what your contract delivers per hour.</p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="wrvuRate">wRVU Rate ($/wRVU)</label>
+            <input id="wrvuRate" type="number" min="0" step="0.01" placeholder="e.g. 62" />
+          </div>
+
+          <div class="field">
+            <label>Annual wRVU Production</label>
+            <div class="radio-group">
+              <label class="radio-pill"><input type="radio" name="wrvuMode" value="known" checked> I know my annual wRVUs</label>
+              <label class="radio-pill"><input type="radio" name="wrvuMode" value="calc"> Calculate for me</label>
+            </div>
+          </div>
+
+          <div class="field" id="annualWrvuField">
+            <label for="annualWrvus">Annual wRVUs</label>
+            <input id="annualWrvus" type="number" min="0" step="1" placeholder="e.g. 6200" />
+          </div>
+
+          <div id="wrvuCalcFields" class="full-width hidden">
+            <div class="form-grid">
+              <div class="field">
+                <label for="patientsPerHour">Patients per hour</label>
+                <input id="patientsPerHour" type="number" min="0" step="0.01" placeholder="e.g. 2.0" />
+              </div>
+              <div class="field">
+                <label for="calcShiftHours">Shift hours</label>
+                <input id="calcShiftHours" type="number" min="0" step="0.01" placeholder="e.g. 12" />
+              </div>
+              <div class="field">
+                <label for="calcShiftsPerMonth">Shifts per month</label>
+                <input id="calcShiftsPerMonth" type="number" min="0" step="0.01" placeholder="e.g. 14" />
+              </div>
+              <div class="field">
+                <label>Estimated annual wRVUs</label>
+                <div class="helper-box" id="estimatedWrvuBox">Enter production assumptions to estimate your annual wRVUs.</div>
+                <div class="inline-calc" id="estimatedWrvuInline"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="threshold">Productivity Threshold (optional)</label>
+            <input id="threshold" type="number" min="0" step="1" placeholder="e.g. 6000" />
+          </div>
+
+          <div class="field hidden" id="baseSalaryField">
+            <label for="baseSalary">Base Salary (optional)</label>
+            <input id="baseSalary" type="number" min="0" step="0.01" placeholder="e.g. 250000" />
+          </div>
+
+          <div class="field" id="manualShiftHoursField">
+            <label for="manualShiftHours">Shift length in hours</label>
+            <input id="manualShiftHours" type="number" min="0" step="0.01" placeholder="e.g. 12" />
+          </div>
+
+          <div class="field" id="manualShiftsPerMonthField">
+            <label for="manualShiftsPerMonth">Shifts per month</label>
+            <input id="manualShiftsPerMonth" type="number" min="0" step="0.01" placeholder="e.g. 14" />
+          </div>
+
+          <div class="field">
+            <label for="wrvuState">State</label>
+            <select id="wrvuState"></select>
+          </div>
+
+          <div class="full-width">
+            <label class="checkbox-row"><input type="checkbox" id="wrvuAppSupervision"> My group uses APPs and I provide supervision coverage</label>
+            <div class="helper-box hidden" id="wrvuAppCallout">APP supervision encounters are often credited at 0.20–0.50 wRVUs rather than standard values. This reduces your effective hourly rate without reducing your hours.</div>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <button class="gold-btn" id="wrvuCalculateBtn">Calculate My Contract Value →</button>
+        </div>
+      </section>
+
+      <section id="hourlyFormSection" class="section hidden">
+        <h2 class="section-title">Hourly contract inputs</h2>
+        <p class="section-subtitle">Estimate how your flat hourly pay compares with the value generated by your work.</p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="hourlyRate">Hourly Rate ($/hr)</label>
+            <input id="hourlyRate" type="number" min="0" step="0.01" placeholder="e.g. 220" />
+          </div>
+
+          <div class="field">
+            <label for="hoursPerMonth">Hours per month</label>
+            <input id="hoursPerMonth" type="number" min="0" step="0.01" placeholder="e.g. 168" />
+          </div>
+
+          <div class="field">
+            <label for="hourlyState">State</label>
+            <select id="hourlyState"></select>
+          </div>
+
+          <div class="full-width">
+            <label class="checkbox-row"><input type="checkbox" id="hourlyAppSupervision"> My group uses APPs and I provide supervision coverage</label>
+            <div class="helper-box hidden" id="hourlyAppCallout">APP supervision encounters are often credited at 0.20–0.50 wRVUs rather than standard values. This reduces your effective hourly rate without reducing your hours.</div>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <button class="gold-btn" id="hourlyCalculateBtn">Calculate My Contract Value →</button>
+        </div>
+      </section>
+
+      <section id="resultsSection" class="section hidden">
+        <h2 class="section-title">Your contract value results</h2>
+        <p class="section-subtitle">Use this snapshot to compare your pay against your productivity, benchmark rates, and total revenue generated.</p>
+
+        <div class="results-top">
+          <div class="stat-card">
+            <h3>Effective Hourly Rate</h3>
+            <div class="stat-value" id="effectiveHourlyStat">$0/hr</div>
+          </div>
+          <div class="stat-card">
+            <h3>MGMA 2025 Median</h3>
+            <div class="stat-value white">$222/hr</div>
+          </div>
+          <div class="stat-card">
+            <h3>Annual Gap vs. Median</h3>
+            <div class="stat-value" id="annualGapStat">$0/yr</div>
+          </div>
+        </div>
+
+        <div class="section" style="margin: 28px -32px -32px; border-bottom: none; border-top: 1px solid rgba(15, 30, 61, 0.08);">
+          <h3 class="section-title" style="font-size: 22px; margin-bottom: 12px;">Revenue comparison</h3>
+          <div class="bars">
+            <div class="bar-block">
+              <div class="bar-head">
+                <span>Your Annual Compensation</span>
+                <span id="annualCompLabel">$0</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill gold" id="annualCompBar" style="width: 0%"></div></div>
+            </div>
+            <div class="bar-block">
+              <div class="bar-head">
+                <span>Estimated Group Professional Fee Revenue</span>
+                <span id="groupRevenueLabel">$0</span>
+              </div>
+              <div class="bar-track"><div class="bar-fill teal" id="groupRevenueBar" style="width: 0%"></div></div>
+            </div>
+          </div>
+          <p class="revenue-copy" id="revenueNarrative"></p>
+        </div>
+
+        <div class="full-width hidden" id="mgmaSection" style="margin-top: 28px;">
+          <h3 class="section-title" style="font-size: 22px; margin-bottom: 12px;">MGMA benchmark context</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Percentile</th>
+                <th>Annual wRVUs</th>
+                <th>vs. Your Production</th>
+              </tr>
+            </thead>
+            <tbody id="mgmaTableBody"></tbody>
+          </table>
+        </div>
+
+        <div class="helper-box hidden" id="resultsAppWarning" style="margin-top: 28px;">
+          This estimate does not account for reduced wRVU credit on APP supervision encounters. If a portion of your encounters are credited at 0.20–0.50 wRVUs, your actual effective hourly rate is lower than shown.
+        </div>
+
+        <div style="margin-top: 28px;">
+          <h3 class="section-title" style="font-size: 22px; margin-bottom: 6px;">Send me my full results report</h3>
+          <p class="section-subtitle" style="margin-bottom: 18px;">Get your calculator output delivered to your inbox.</p>
+          <div class="email-capture">
+            <div class="field">
+              <label for="emailInput">Email address</label>
+              <input id="emailInput" type="email" placeholder="you@example.com" />
+            </div>
+            <button class="gold-btn" id="emailSubmitBtn" type="button">Send my report</button>
+          </div>
+          <div class="email-status" id="emailStatus"></div>
+        </div>
+
+        <div style="margin-top: 34px;">
+          <h3 class="section-title" style="font-size: 22px; margin-bottom: 18px;">Recommended next steps</h3>
+          <div class="cta-cards">
+            <div class="cta-card">
+              <span class="cta-badge">FREE</span>
+              <h3>physician contract Red Flag Checklist</h3>
+              <p>18 provisions that cost internal medicine and hospitalist physicians money, mobility, and leverage.</p>
+              <a href="https://medcontractintel.com/checklist" target="_blank" rel="noreferrer">Get the checklist →</a>
+            </div>
+            <div class="cta-card">
+              <span class="cta-badge">$67</span>
+              <h3>IM wRVU Playbook</h3>
+              <p>Complete wRVU framework, MGMA benchmarks, and negotiation language.</p>
+              <a href="https://buy.stripe.com/8x2bJ3550cAMdFb0hT3ZK06" target="_blank" rel="noreferrer">Get the playbook →</a>
+            </div>
+            <div class="cta-card">
+              <span class="cta-badge">$97/analysis</span>
+              <h3>Contract Analyzer</h3>
+              <p>Upload your contract. Get a full risk report and negotiation priorities.</p>
+              <a href="https://medcontractintel.com/analyzer" target="_blank" rel="noreferrer">Open the analyzer →</a>
+            </div>
+          </div>
+        </div>
+
+        <p class="disclaimer" style="margin-top: 28px;">Estimates use 2026 CMS rates, MGMA benchmark data, and state-adjusted payer mix assumptions. Results are approximations for educational purposes only and do not constitute financial or legal advice.</p>
+
+        <div class="cta-row">
+          <button class="gold-btn" id="resetBtn" type="button">Calculate Again</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>MedContractIntel™ | Data. Leverage. Fair Pay.</div>
+      <div>medcontractintel.com</div>
+      <div class="footer-links">
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const HIGH_MEDICARE = ['FL','AZ','ME','WV','AR','AL','MS','SC','TN'];
+    const HIGH_COMMERCIAL = ['MA','CT','NJ','NY','CA','WA','CO','MN'];
+    const HIGH_MEDICAID = ['NM','LA','KY','OK','ID','MT','WY'];
+    const ACEP_MEDIAN = 222;
+    const STATES = [
+      ['AL','Alabama'],['AK','Alaska'],['AZ','Arizona'],['AR','Arkansas'],['CA','California'],['CO','Colorado'],['CT','Connecticut'],['DE','Delaware'],['DC','District of Columbia'],['FL','Florida'],['GA','Georgia'],['HI','Hawaii'],['ID','Idaho'],['IL','Illinois'],['IN','Indiana'],['IA','Iowa'],['KS','Kansas'],['KY','Kentucky'],['LA','Louisiana'],['ME','Maine'],['MD','Maryland'],['MA','Massachusetts'],['MI','Michigan'],['MN','Minnesota'],['MS','Mississippi'],['MO','Missouri'],['MT','Montana'],['NE','Nebraska'],['NV','Nevada'],['NH','New Hampshire'],['NJ','New Jersey'],['NM','New Mexico'],['NY','New York'],['NC','North Carolina'],['ND','North Dakota'],['OH','Ohio'],['OK','Oklahoma'],['OR','Oregon'],['PA','Pennsylvania'],['RI','Rhode Island'],['SC','South Carolina'],['SD','South Dakota'],['TN','Tennessee'],['TX','Texas'],['UT','Utah'],['VT','Vermont'],['VA','Virginia'],['WA','Washington'],['WV','West Virginia'],['WI','Wisconsin'],['WY','Wyoming']
+    ];
+
+    const contractCards = document.querySelectorAll('.contract-card');
+    const wrvuFormSection = document.getElementById('wrvuFormSection');
+    const hourlyFormSection = document.getElementById('hourlyFormSection');
+    const calculatorSection = document.getElementById('calculatorSection');
+    const resultsSection = document.getElementById('resultsSection');
+    const annualWrvuField = document.getElementById('annualWrvuField');
+    const wrvuCalcFields = document.getElementById('wrvuCalcFields');
+    const estimatedWrvuBox = document.getElementById('estimatedWrvuBox');
+    const estimatedWrvuInline = document.getElementById('estimatedWrvuInline');
+    const baseSalaryField = document.getElementById('baseSalaryField');
+    const thresholdInput = document.getElementById('threshold');
+    const wrvuAppCheckbox = document.getElementById('wrvuAppSupervision');
+    const wrvuAppCallout = document.getElementById('wrvuAppCallout');
+    const hourlyAppCheckbox = document.getElementById('hourlyAppSupervision');
+    const hourlyAppCallout = document.getElementById('hourlyAppCallout');
+    const resultsAppWarning = document.getElementById('resultsAppWarning');
+    const mgmaSection = document.getElementById('mgmaSection');
+    const mgmaTableBody = document.getElementById('mgmaTableBody');
+    const emailStatus = document.getElementById('emailStatus');
+
+    let selectedPath = 'wrvu';
+
+    function populateStates(selectId) {
+      const select = document.getElementById(selectId);
+      select.innerHTML = '<option value="">Select a state</option>' + STATES.map(([code, name]) => `<option value="${code}">${name}</option>`).join('');
+      select.value = 'TX';
+    }
+
+    populateStates('wrvuState');
+    populateStates('hourlyState');
+
+    function getPayerMix(state) {
+      if (HIGH_MEDICARE.includes(state)) return {medicare:0.45,medicaid:0.18,commercial:0.30,uninsured:0.07};
+      if (HIGH_COMMERCIAL.includes(state)) return {medicare:0.30,medicaid:0.15,commercial:0.48,uninsured:0.07};
+      if (HIGH_MEDICAID.includes(state)) return {medicare:0.38,medicaid:0.25,commercial:0.28,uninsured:0.09};
+      return {medicare:0.37,medicaid:0.17,commercial:0.38,uninsured:0.08};
+    }
+
+    function getBlendedRate(state) {
+      const mix = getPayerMix(state);
+      // 2026 non-QP Medicare CF: $33.40 (applies to virtually all internal medicine and hospitalist physicians)
+      // Commercial: 1.8x Medicare post-NSA (NOT 2.25x — pre-NSA out-of-network no longer applies)
+      // Medicaid: ~70% of Medicare (varies by state; 0.70 is defensible national default)
+      // Self-pay/uninsured: ~7% collection rate on Medicare-equivalent
+      const base = 33.40;
+      return (mix.medicare * base) + (mix.medicaid * base * 0.70) + (mix.commercial * base * 1.80) + (mix.uninsured * base * 0.07);
+    }
+
+    function getMGMAPercentile(wrvus) {
+      // IM & hospitalist-specific MGMA + Marit benchmarks (full-time community IM / community hospitalist)
+      if (wrvus < 4500) return 'Below 25th';
+      if (wrvus < 6000) return '25th–50th';
+      if (wrvus < 7500) return '50th–75th';
+      if (wrvus < 9000) return '75th–90th';
+      return '90th+';
+    }
+
+    function formatCurrency(value, decimals = 0) {
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: decimals, maximumFractionDigits: decimals }).format(value || 0);
+    }
+
+    function formatSignedCurrency(value) {
+      const sign = value >= 0 ? '+' : '-';
+      return `${sign}${formatCurrency(Math.abs(value), 0)}/yr`;
+    }
+
+    function formatMillions(value) {
+      return `$${(value / 1000000).toFixed(1)}M`;
+    }
+
+    function getRadioValue(name) {
+      const selected = document.querySelector(`input[name="${name}"]:checked`);
+      return selected ? selected.value : null;
+    }
+
+    function numberVal(id) {
+      const val = parseFloat(document.getElementById(id).value);
+      return Number.isFinite(val) ? val : 0;
+    }
+
+    function switchPath(path) {
+      selectedPath = path;
+      contractCards.forEach(card => {
+        const active = card.dataset.path === path;
+        card.classList.toggle('selected', active);
+        card.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      wrvuFormSection.classList.toggle('hidden', path !== 'wrvu');
+      hourlyFormSection.classList.toggle('hidden', path !== 'hourly');
+    }
+
+    contractCards.forEach(card => {
+      card.addEventListener('click', () => switchPath(card.dataset.path));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          switchPath(card.dataset.path);
+        }
+      });
+    });
+
+    function updateWrvuMode() {
+      const mode = getRadioValue('wrvuMode');
+      annualWrvuField.classList.toggle('hidden', mode !== 'known');
+      wrvuCalcFields.classList.toggle('hidden', mode !== 'calc');
+      const usingCalc = mode === 'calc';
+      document.getElementById('manualShiftHoursField').classList.toggle('hidden', usingCalc);
+      document.getElementById('manualShiftsPerMonthField').classList.toggle('hidden', usingCalc);
+      updateEstimatedWrvus();
+    }
+
+    function updateEstimatedWrvus() {
+      const pph = numberVal('patientsPerHour');
+      const shiftHrs = numberVal('calcShiftHours');
+      const shiftsPerMonth = numberVal('calcShiftsPerMonth');
+      const annualWrvus = pph * shiftHrs * shiftsPerMonth * 12 * 2.74;
+      if (annualWrvus > 0) {
+        estimatedWrvuBox.textContent = `${Math.round(annualWrvus).toLocaleString()} estimated annual wRVUs`;
+        estimatedWrvuInline.textContent = `${pph} × ${shiftHrs} × ${shiftsPerMonth} × 12 × 2.74`;
+      } else {
+        estimatedWrvuBox.textContent = 'Enter production assumptions to estimate your annual wRVUs.';
+        estimatedWrvuInline.textContent = '';
+      }
+    }
+
+    document.querySelectorAll('input[name="wrvuMode"]').forEach(input => input.addEventListener('change', updateWrvuMode));
+    ['patientsPerHour','calcShiftHours','calcShiftsPerMonth'].forEach(id => {
+      document.getElementById(id).addEventListener('input', updateEstimatedWrvus);
+    });
+
+    thresholdInput.addEventListener('input', () => {
+      baseSalaryField.classList.toggle('hidden', !numberVal('threshold'));
+    });
+
+    wrvuAppCheckbox.addEventListener('change', () => wrvuAppCallout.classList.toggle('hidden', !wrvuAppCheckbox.checked));
+    hourlyAppCheckbox.addEventListener('change', () => hourlyAppCallout.classList.toggle('hidden', !hourlyAppCheckbox.checked));
+
+    function validateRequired(fields) {
+      return fields.every(field => field > 0);
+    }
+
+    function buildMgmaTable(annualWRVUs) {
+      const rows = [
+        { label: '25th', value: 4500 },
+        { label: '50th (Median)', value: 6000 },
+        { label: '75th', value: 7500 },
+        { label: '90th', value: 9000 }
+      ];
+
+      mgmaTableBody.innerHTML = rows.map(row => {
+        const diff = annualWRVUs - row.value;
+        const diffText = diff === 0 ? 'Matches this benchmark' : `${diff > 0 ? '+' : '-'}${Math.abs(Math.round(diff)).toLocaleString()} wRVUs`;
+        const highlight = (
+          (annualWRVUs < 4500 && row.value === 4500) ||
+          (annualWRVUs >= 4500 && annualWRVUs < 6000 && row.value === 4500) ||
+          (annualWRVUs >= 6000 && annualWRVUs < 7500 && row.value === 6000) ||
+          (annualWRVUs >= 7500 && annualWRVUs < 9000 && row.value === 7500) ||
+          (annualWRVUs >= 9000 && row.value === 9000)
+        );
+        return `<tr class="${highlight ? 'highlight' : ''}"><td>${row.label}</td><td>${row.value.toLocaleString()}</td><td>${diffText}</td></tr>`;
+      }).join('');
+    }
+
+    let _lastCalcResult = null;
+    function renderResults(result) {
+      _lastCalcResult = result;
+      const annualGap = result.annualComp - (ACEP_MEDIAN * result.annualHours);
+      const totalRevenue = result.groupProfRevenue + result.facilityRevenue;
+      const maxBar = Math.max(result.annualComp, result.groupProfRevenue, 1);
+
+      document.getElementById('effectiveHourlyStat').textContent = `${formatCurrency(result.effectiveHourly, 0)}/hr`;
+      const gapEl = document.getElementById('annualGapStat');
+      gapEl.textContent = formatSignedCurrency(annualGap);
+      gapEl.className = `stat-value ${annualGap >= 0 ? 'positive' : 'negative'}`;
+
+      document.getElementById('annualCompLabel').textContent = formatCurrency(result.annualComp, 0);
+      document.getElementById('groupRevenueLabel').textContent = formatCurrency(result.groupProfRevenue, 0);
+      document.getElementById('annualCompBar').style.width = `${(result.annualComp / maxBar) * 100}%`;
+      document.getElementById('groupRevenueBar').style.width = `${(result.groupProfRevenue / maxBar) * 100}%`;
+      document.getElementById('revenueNarrative').textContent = `The hospital collects an estimated ${formatMillions(result.facilityRevenue)} in facility fees on the same encounters. Your compensation represents approximately ${result.physicianShare.toFixed(1)}% of total revenue your work generates.`;
+
+      if (result.path === 'wrvu') {
+        mgmaSection.classList.remove('hidden');
+        buildMgmaTable(result.annualWRVUs);
+      } else {
+        mgmaSection.classList.add('hidden');
+      }
+
+      resultsAppWarning.classList.toggle('hidden', !result.appSupervision);
+      calculatorSection.classList.add('hidden');
+      wrvuFormSection.classList.add('hidden');
+      hourlyFormSection.classList.add('hidden');
+      resultsSection.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function calculateWrvu() {
+      const rate = numberVal('wrvuRate');
+      const mode = getRadioValue('wrvuMode');
+      const threshold = numberVal('threshold');
+      const base = numberVal('baseSalary');
+      const state = document.getElementById('wrvuState').value;
+      const appSupervision = wrvuAppCheckbox.checked;
+
+      let annualWRVUs = 0;
+      let shiftHrs = 0;
+      let shiftsPerMonth = 0;
+
+      if (mode === 'known') {
+        annualWRVUs = numberVal('annualWrvus');
+        shiftHrs = numberVal('manualShiftHours');
+        shiftsPerMonth = numberVal('manualShiftsPerMonth');
+      } else {
+        const pph = numberVal('patientsPerHour');
+        shiftHrs = numberVal('calcShiftHours');
+        shiftsPerMonth = numberVal('calcShiftsPerMonth');
+        annualWRVUs = pph * shiftHrs * shiftsPerMonth * 12 * 2.74;
+      }
+
+      // Shift fields are optional in 'known' mode — default to IM median if blank
+      if (mode === 'known') {
+        if (!shiftHrs) shiftHrs = 12;
+        if (!shiftsPerMonth) shiftsPerMonth = 14;
+      }
+      if (!validateRequired([rate, annualWRVUs]) || !state) {
+        alert('Please enter your wRVU rate and annual wRVU production to continue.');
+        return;
+      }
+
+      const annualHours = shiftHrs * shiftsPerMonth * 12;
+      const annualComp = (threshold && base) ? base + Math.max(0, (annualWRVUs - threshold) * rate) : annualWRVUs * rate;
+      const effectiveHourly = annualComp / annualHours;
+      const blendedRate = getBlendedRate(state);
+      const groupProfRevenue = annualWRVUs * blendedRate;
+      const facilityRevenue = groupProfRevenue * 3.5;
+      const physicianShare = (annualComp / (groupProfRevenue + facilityRevenue)) * 100;
+
+      renderResults({
+        path: 'wrvu',
+        annualComp,
+        annualHours,
+        annualWRVUs,
+        effectiveHourly,
+        groupProfRevenue,
+        facilityRevenue,
+        physicianShare,
+        mgmaPercentile: getMGMAPercentile(annualWRVUs),
+        appSupervision
+      });
+    }
+
+    function calculateHourly() {
+      const hourlyRate = numberVal('hourlyRate');
+      const hoursPerMonth = numberVal('hoursPerMonth');
+      const state = document.getElementById('hourlyState').value;
+      const appSupervision = hourlyAppCheckbox.checked;
+
+      if (!validateRequired([hourlyRate, hoursPerMonth]) || !state) {
+        alert('Please complete all required fields for your hourly calculation.');
+        return;
+      }
+
+      const annualComp = hourlyRate * hoursPerMonth * 12;
+      const annualHours = hoursPerMonth * 12;
+      const estimatedWRVUs = hoursPerMonth * 2.0 * 2.74 * 12;
+      const effectiveHourly = hourlyRate;
+      const blendedRate = getBlendedRate(state);
+      const groupProfRevenue = estimatedWRVUs * blendedRate;
+      const facilityRevenue = groupProfRevenue * 3.5;
+      const physicianShare = (annualComp / (groupProfRevenue + facilityRevenue)) * 100;
+
+      renderResults({
+        path: 'hourly',
+        annualComp,
+        annualHours,
+        annualWRVUs: estimatedWRVUs,
+        effectiveHourly,
+        groupProfRevenue,
+        facilityRevenue,
+        physicianShare,
+        appSupervision
+      });
+    }
+
+    document.getElementById('wrvuCalculateBtn').addEventListener('click', calculateWrvu);
+    document.getElementById('hourlyCalculateBtn').addEventListener('click', calculateHourly);
+
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      document.querySelectorAll('input').forEach(input => {
+        if (input.type === 'radio') return;
+        if (input.type === 'checkbox') {
+          input.checked = false;
+        } else {
+          input.value = '';
+        }
+      });
+      document.querySelector('input[name="wrvuMode"][value="known"]').checked = true;
+      document.getElementById('wrvuState').value = 'TX';
+      document.getElementById('hourlyState').value = 'TX';
+      emailStatus.textContent = '';
+      wrvuAppCallout.classList.add('hidden');
+      hourlyAppCallout.classList.add('hidden');
+      resultsSection.classList.add('hidden');
+      calculatorSection.classList.remove('hidden');
+      switchPath('wrvu');
+      updateWrvuMode();
+      baseSalaryField.classList.add('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.getElementById('emailSubmitBtn').addEventListener('click', async () => {
+      const email = document.getElementById('emailInput').value.trim();
+      if (!email) {
+        emailStatus.textContent = 'Please enter your email address.';
+        return;
+      }
+      emailStatus.textContent = 'Sending...';
+      try {
+        const response = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            email, 
+            tag: 'calculator-lead',
+            results: _lastCalcResult ? {
+              annualComp: _lastCalcResult.annualComp,
+              effectiveHourly: _lastCalcResult.effectiveHourly,
+              groupRevenue: _lastCalcResult.groupProfRevenue,
+              gapVsMedian: _lastCalcResult.annualComp - (222 * (_lastCalcResult.annualHours || 1440))
+            } : {}
+          })
+        });
+        if (!response.ok) throw new Error('Request failed');
+        emailStatus.textContent = 'Check your inbox.';
+      } catch (error) {
+        emailStatus.textContent = 'Unable to send right now. Please try again.';
+      }
+    });
+
+    updateWrvuMode();
+  </script>
+</body>
+</html>

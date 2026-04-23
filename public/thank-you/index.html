@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're in — MedContractIntel™</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/images/brand-icon.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9fafb; color: #1f2937; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+    :root { --navy: #1a2744; --navy-dark: #0f1e3d; --gold: #c9a84c; --gold-hover: #b8973b; --teal: #2ec4b6; --teal-hover: #25b0a3; }
+
+    nav { background: var(--navy-dark); padding: 1rem 1.5rem; }
+    .nav-inner { max-width: 72rem; margin: 0 auto; display: flex; align-items: center; gap: 0.75rem; }
+    .nav-inner img { height: 2rem; border-radius: 4px; }
+    .nav-inner span { color: #fff; font-weight: 800; font-size: 1rem; }
+
+    main { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 3rem 1.25rem 4rem; }
+    .card { background: #fff; border-radius: 1.25rem; box-shadow: 0 4px 24px rgba(0,0,0,0.08); padding: 2.5rem; max-width: 34rem; width: 100%; text-align: center; }
+
+    .check-circle { width: 4.5rem; height: 4.5rem; border-radius: 50%; background: #dcfce7; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; }
+    h1 { font-size: 1.625rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 0.5rem; }
+    .subtitle { color: #6b7280; font-size: 0.9375rem; margin-bottom: 2rem; }
+    .divider { width: 2.5rem; height: 3px; background: var(--gold); border-radius: 9999px; margin: 0 auto 2rem; }
+
+    /* Analyzer credit banner (FIX 3) */
+    .analyzer-credit-banner {
+      background: linear-gradient(135deg, #0a3d2e, #0f4f3a);
+      border: 1px solid rgba(46,196,182,0.35);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      color: #fff;
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+    .analyzer-credit-banner .eyebrow {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 0.5rem;
+    }
+    .analyzer-credit-banner h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .analyzer-credit-banner p { font-size: 0.875rem; color: rgba(255,255,255,0.75); margin-bottom: 1rem; }
+    .analyzer-credit-banner .email-highlight {
+      background: rgba(46,196,182,0.15); border: 1px solid rgba(46,196,182,0.3);
+      border-radius: 0.375rem; padding: 0.25rem 0.5rem; font-weight: 700; color: var(--teal);
+      font-size: 0.875rem; word-break: break-all;
+    }
+    .btn-teal {
+      display: block; background: var(--teal); color: #0f1e3d; font-weight: 700;
+      padding: 0.875rem 1.5rem; border-radius: 0.625rem; text-decoration: none;
+      font-size: 1rem; text-align: center; transition: background 0.15s, transform 0.1s; margin-top: 1rem;
+    }
+    .btn-teal:hover { background: var(--teal-hover); transform: translateY(-1px); }
+
+    /* PDF download tiles */
+    .download-tiles { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; text-align: left; }
+    .download-tile {
+      display: flex; align-items: center; gap: 1rem;
+      background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 1rem 1.25rem;
+    }
+    .download-tile .icon { font-size: 1.75rem; flex-shrink: 0; }
+    .download-tile .info h3 { font-size: 0.9375rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.125rem; }
+    .download-tile .info p { font-size: 0.8125rem; color: #6b7280; }
+
+    /* OTO upsell box */
+    .oto-box { background: linear-gradient(135deg, var(--navy-dark), #1a3060); border-radius: 1rem; padding: 1.75rem; color: #fff; text-align: left; margin-bottom: 1.5rem; }
+    .oto-eyebrow { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .oto-box h2 { font-size: 1.1875rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .oto-box p { font-size: 0.875rem; color: rgba(255,255,255,0.65); margin-bottom: 1.25rem; }
+    .oto-features { list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; }
+    .oto-features li { display: flex; align-items: center; gap: 0.625rem; font-size: 0.875rem; color: rgba(255,255,255,0.85); }
+    .oto-features li::before { content: '✓'; color: var(--gold); font-weight: 800; font-size: 0.75rem; flex-shrink: 0; }
+    .oto-price { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 1.25rem; }
+    .oto-price strong { font-size: 2rem; font-weight: 800; color: var(--gold); }
+    .oto-price span { font-size: 0.875rem; color: rgba(255,255,255,0.5); }
+    .btn-gold { display: block; background: var(--gold); color: var(--navy-dark); font-weight: 700; padding: 0.875rem 1.5rem; border-radius: 0.625rem; text-decoration: none; font-size: 1rem; text-align: center; transition: background 0.15s, transform 0.1s; }
+    .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); }
+    .oto-fine-print { font-size: 0.7rem; color: rgba(255,255,255,0.3); margin-top: 0.75rem; text-align: center; }
+
+    .skip-link { font-size: 0.8125rem; color: #9ca3af; margin-top: 0.25rem; }
+    .skip-link a { color: #9ca3af; }
+
+    /* Loading skeleton */
+    .skeleton { background: #e5e7eb; border-radius: 0.5rem; animation: pulse 1.4s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+    footer { background: var(--navy-dark); color: rgba(255,255,255,0.4); padding: 1.5rem; text-align: center; font-size: 0.8125rem; }
+  </style>
+  <link rel="canonical" href="https://medcontractintel.com/thank-you" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <img src="/images/brand-icon.png" alt="MedContractIntel" />
+    <span>MedContractIntel</span>
+  </div>
+</nav>
+
+<main>
+  <div class="card" id="main-card">
+    <!-- Content injected by JS below -->
+    <div id="loading-state">
+      <div class="check-circle">✓</div>
+      <div class="skeleton" style="height:1.75rem;width:60%;margin:0 auto 0.75rem;"></div>
+      <div class="skeleton" style="height:1rem;width:85%;margin:0 auto 0.5rem;"></div>
+      <div class="skeleton" style="height:1rem;width:70%;margin:0 auto 2rem;"></div>
+      <div class="skeleton" style="height:6rem;border-radius:1rem;margin-bottom:1rem;"></div>
+      <div class="skeleton" style="height:10rem;border-radius:1rem;"></div>
+    </div>
+  </div>
+</main>
+
+<footer>MedContractIntel · This is educational content, not legal advice.</footer>
+
+<script>
+(function() {
+  // ── Bundle upsell Stripe link ──────────────────────────────────────────────
+  var BUNDLE_UPSELL_URL = "https://buy.stripe.com/eVq8x3694cAMdFb1lX3ZK08";
+
+  // ── PDF product metadata ───────────────────────────────────────────────────
+  var PDF_META = {
+    billing: { icon: "📊", title: "Hospitalist Shift Economics", desc: "Understand exactly how your employer bills for your work" },
+    rvu:     { icon: "⚡", title: "IM wRVU Playbook",      desc: "Master the wRVU system and benchmark your production" },
+    scripts: { icon: "📝", title: "Negotiation Script Pack", desc: "Word-for-word scripts for every negotiation scenario" },
+  };
+
+  // ── Parse URL params ───────────────────────────────────────────────────────
+  var params = new URLSearchParams(window.location.search);
+  var sessionId = params.get("session_id");
+  // Legacy fallback: ?product=slug
+  var legacySlug = params.get("product");
+
+  if (!sessionId && !legacySlug) {
+    // No context — render generic page
+    renderGeneric();
+    return;
+  }
+
+  if (sessionId) {
+    // Fetch purchase summary from API
+    fetch("/api/purchase-summary/" + encodeURIComponent(sessionId))
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function(data) {
+        var products = (data.products || []).map(function(p) { return p.slug; });
+        var email = data.customerEmail || null;
+        renderForProducts(products, email);
+      })
+      .catch(function() {
+        // API error — fall back to generic
+        renderGeneric();
+      });
+  } else if (legacySlug) {
+    renderForProducts([legacySlug], null);
+  }
+
+  // ── Render: generic (no session_id) ───────────────────────────────────────
+  function renderGeneric() {
+    document.getElementById("loading-state").innerHTML =
+      '<div class="check-circle">✓</div>' +
+      '<h1>You\'re in!</h1>' +
+      '<p class="subtitle">Check your inbox — your purchase is on its way. If you don\'t see the email in a few minutes, check your spam folder.</p>' +
+      '<div class="divider"></div>' +
+      buildAnalyzerUpsell(null) +
+      '<p class="skip-link"><a href="/">Back to MedContractIntel</a></p>';
+  }
+
+  // ── Render: based on purchased products ───────────────────────────────────
+  function renderForProducts(slugs, email) {
+    var isBundle    = slugs.indexOf("bundle") !== -1;
+    var isAnalyzer  = slugs.indexOf("analyzer") !== -1;
+    var pdfSlugs    = slugs.filter(function(s) { return PDF_META[s]; });
+    var hasPdfs     = pdfSlugs.length > 0;
+
+    var html = '<div class="check-circle">✓</div>';
+
+    if (isBundle) {
+      // ── Bundle purchase ──────────────────────────────────────────────────
+      html += '<h1>Your bundle is on its way!</h1>';
+      html += '<p class="subtitle">All 3 guides + your analyzer credit are headed to your inbox.</p>';
+      html += '<div class="divider"></div>';
+
+      // FIX 3: Prominent analyzer credit section ABOVE download tiles
+      html += buildAnalyzerCreditBanner(email);
+
+      // Download tiles for all 3 PDFs
+      html += '<div class="download-tiles">';
+      ["billing", "rvu", "scripts"].forEach(function(slug) {
+        html += buildDownloadTile(slug);
+      });
+      html += '</div>';
+
+      // NO upsell for bundle buyers (FIX 2) — they have everything
+
+    } else if (isAnalyzer) {
+      // ── Analyzer-only purchase ───────────────────────────────────────────
+      html += '<h1>Your analysis is running!</h1>';
+      html += '<p class="subtitle">Check your inbox for the full report. Your analysis will be ready in under 5 minutes.</p>';
+      html += '<div class="divider"></div>';
+
+      // Upsell to bundle ($197 — get all 3 PDFs too)
+      html += buildBundleUpsell(
+        "One-time offer · Today only",
+        "Get all 3 contract guides",
+        "Pair your analysis with the guides that put the benchmarks in context.",
+        [
+          "Hospitalist Shift Economics — how employers monetize your work",
+          "IM wRVU Playbook — master the wRVU system",
+          "Negotiation Script Pack — word-for-word scripts"
+        ],
+        "$197", "one-time · all 3 guides included"
+      );
+
+    } else if (hasPdfs) {
+      // ── Single / multi-PDF purchase (not bundle) ─────────────────────────
+      var productName = pdfSlugs.length === 1
+        ? (PDF_META[pdfSlugs[0]] || {}).title || "Your guide"
+        : pdfSlugs.length + " guides";
+
+      html += '<h1>' + productName + ' is on its way!</h1>';
+      html += '<p class="subtitle">Check your inbox — your ' + (pdfSlugs.length === 1 ? 'guide is' : 'guides are') + ' attached as a PDF. If you don\'t see the email in a few minutes, check spam.</p>';
+      html += '<div class="divider"></div>';
+
+      // Download confirmation tiles
+      html += '<div class="download-tiles">';
+      pdfSlugs.forEach(function(s) { html += buildDownloadTile(s); });
+      html += '</div>';
+
+      // Upsell to complete bundle
+      html += buildBundleUpsell(
+        "Add the complete toolkit",
+        "Get the full physician contract Bundle",
+        "Add the remaining guides + an analyzer credit. One contract could be worth $100K+ more.",
+        [
+          "Everything in the Complete Toolkit",
+          "Compensation benchmark vs. MGMA 2025 data",
+          "Every red flag clause, rated and explained",
+          "Counter-proposal letter, ready to send"
+        ],
+        "$197", "one-time · full bundle"
+      );
+
+    } else {
+      renderGeneric();
+      return;
+    }
+
+    html += '<p class="skip-link"><a href="/">Back to MedContractIntel</a></p>';
+    document.getElementById("loading-state").innerHTML = html;
+  }
+
+  // ── Component builders ────────────────────────────────────────────────────
+
+  function buildAnalyzerCreditBanner(email) {
+    var emailLine = email
+      ? '<p>Go to <strong>medcontractintel.com/analyzer</strong> and enter <span class="email-highlight">' + escapeHtml(email) + '</span> in the "Purchased the Complete Bundle?" field to start your analysis — no additional charge.</p>'
+      : '<p>Go to <strong>medcontractintel.com/analyzer</strong> and enter the email you used at checkout in the "Purchased the Complete Bundle?" field to start your analysis — no additional charge.</p>';
+
+    return [
+      '<div class="analyzer-credit-banner">',
+        '<p class="eyebrow">Included with your bundle</p>',
+        '<h2>Your Contract Analyzer credit is ready.</h2>',
+        emailLine,
+        '<a href="/analyzer" class="btn-teal">Analyze My Contract Now →</a>',
+      '</div>'
+    ].join("");
+  }
+
+  function buildDownloadTile(slug) {
+    var meta = PDF_META[slug];
+    if (!meta) return "";
+    return [
+      '<div class="download-tile">',
+        '<span class="icon">' + meta.icon + '</span>',
+        '<div class="info">',
+          '<h3>' + meta.title + '</h3>',
+          '<p>' + meta.desc + '</p>',
+        '</div>',
+      '</div>'
+    ].join("");
+  }
+
+  function buildBundleUpsell(eyebrow, heading, body, features, price, priceSub) {
+    var featureItems = features.map(function(f) { return '<li>' + escapeHtml(f) + '</li>'; }).join("");
+    return [
+      '<div class="oto-box">',
+        '<p class="oto-eyebrow">' + escapeHtml(eyebrow) + '</p>',
+        '<h2>' + escapeHtml(heading) + '</h2>',
+        '<p>' + escapeHtml(body) + '</p>',
+        '<ul class="oto-features">' + featureItems + '</ul>',
+        '<div class="oto-price"><strong>' + escapeHtml(price) + '</strong><span>' + escapeHtml(priceSub) + '</span></div>',
+        '<a href="' + BUNDLE_UPSELL_URL + '" class="btn-gold">Upgrade to the Complete Bundle →</a>',
+        '<p class="oto-fine-print">Instant delivery · One-time payment · No subscription</p>',
+      '</div>'
+    ].join("");
+  }
+
+  function buildAnalyzerUpsell(email) {
+    return [
+      '<div class="oto-box">',
+        '<p class="oto-eyebrow">One-time offer · Today only</p>',
+        '<h2>Get a full analysis of your actual contract</h2>',
+        '<p>The analyzer tells you exactly how much each clause is costing you — and what to say.</p>',
+        '<ul class="oto-features">',
+          '<li>Compensation benchmark vs. MGMA 2025 data</li>',
+          '<li>Every red flag clause, rated and explained</li>',
+          '<li>Ranked negotiation priorities with dollar impact</li>',
+          '<li>Counter-proposal letter, ready to send</li>',
+          '<li>15 follow-up Q&amp;A questions about your contract</li>',
+        '</ul>',
+        '<div class="oto-price"><strong>$97</strong><span>one-time · results in under 5 minutes</span></div>',
+        '<a href="/analyzer" class="btn-gold">Analyze My Contract Now →</a>',
+        '<p class="oto-fine-print">PDF or text upload · Works on iPhone &amp; Android · No subscription</p>',
+      '</div>'
+    ].join("");
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+})();
+</script>
+
+</body>
+</html>

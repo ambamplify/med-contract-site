@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About MedContractIntel™ — Built by IM & Hospitalist Physicians</title>
+  <meta name="description" content="MedContractIntel is a data-driven, physician-focused platform built to close the information gap in IM & hospitalist contracting. Anonymous by design. No employer access." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="MedContractIntel™" />
+  <meta property="og:url" content="https://medcontractintel.com/about" />
+  <meta property="og:title" content="About MedContractIntel™ — Built by IM & Hospitalist Physicians" />
+  <meta property="og:description" content="MedContractIntel is anonymous, physician-built contract intelligence for internal medicine and hospitalist. Data. Leverage. Fair Pay." />
+  <meta property="og:image" content="https://medcontractintel.com/assets/images/brand_symbol.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://medcontractintel.com/assets/images/brand_symbol.png" />
+  <link rel="icon" type="image/png" href="/assets/images/brand_symbol.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9fafb; color: #1f2937; line-height: 1.6; }
+    :root { --navy: #1a2744; --navy-dark: #0f1e3d; --gold: #c9a84c; --gold-hover: #b8973b; --teal: #1a6b6b; --teal-light: #2ec4b6; }
+
+    .container { max-width: 52rem; margin: 0 auto; padding: 0 1.25rem; }
+    .container-wide { max-width: 72rem; margin: 0 auto; padding: 0 1.25rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.75rem; border-radius: 0.625rem; font-weight: 700; font-size: 0.9375rem; cursor: pointer; text-decoration: none; transition: all 0.15s ease; border: none; }
+    .btn-gold { background: var(--gold); color: var(--navy-dark); }
+    .btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(201,168,76,0.35); }
+    .btn-lg { padding: 1rem 2.25rem; font-size: 1rem; }
+    .eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+
+    /* ── Nav Banner ── */
+    nav { position: sticky; top: 0; z-index: 100; background: #0f1e3d; border-bottom: 1px solid rgba(255,255,255,0.08); width: 100%; }
+    .nav-banner-inner { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2rem; }
+    .nav-brand { display: flex; align-items: center; gap: 0.875rem; text-decoration: none; flex-shrink: 0; }
+    .nav-brand-mark { height: 56px; width: 56px; flex-shrink: 0; }
+    .nav-brand-text { display: flex; flex-direction: column; }
+    .nav-wordmark { color: #fff; font-weight: 800; font-size: 1.375rem; line-height: 1.1; white-space: nowrap; }
+    .nav-wordmark-short { display: none; }
+    .nav-tagline { color: #c9a84c; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.15rem; }
+    .nav-sub-text { color: rgba(255,255,255,0.5); font-size: 0.8rem; margin-top: 0.1rem; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-link { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.15s; }
+    .nav-link:hover, .nav-link.active { color: #fff; }
+    .nav-hamburger { display: none; background: none; border: none; color: rgba(255,255,255,0.75); cursor: pointer; padding: 0.25rem; }
+    nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.4); }
+    @media (max-width: 768px) {
+      .nav-banner-inner { padding: 1rem 1.25rem; }
+      .nav-brand-mark { height: 40px; width: 40px; }
+      .nav-wordmark-full { display: none; }
+      .nav-wordmark-short { display: block; font-size: 1.1rem; }
+      .nav-tagline { display: none; }
+      .nav-sub-text { display: none; }
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #0f1e3d; padding: 1rem 1.5rem; gap: 0.875rem; border-bottom: 1px solid rgba(255,255,255,0.1); z-index: 99; }
+      .nav-hamburger { display: block; }
+    }
+
+    /* Hero */
+    .page-hero { background: linear-gradient(160deg, var(--navy-dark) 0%, #1a3060 100%); color: #fff; padding: 4rem 0; }
+    .page-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
+    .page-hero h1 span { color: var(--gold); }
+    .page-hero p { font-size: 1.0625rem; color: rgba(255,255,255,0.72); max-width: 36rem; }
+
+    /* Content */
+    .prose { padding: 3.5rem 0; }
+    .prose h2 { font-size: 1.5rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 1rem; margin-top: 2.5rem; }
+    .prose h2:first-child { margin-top: 0; }
+    .prose p { font-size: 1rem; color: #374151; line-height: 1.8; margin-bottom: 1.25rem; }
+    .prose strong { color: var(--navy-dark); }
+
+    /* Mission card */
+    .mission-card { background: var(--navy-dark); color: #fff; border-radius: 1.25rem; padding: 2.5rem; margin: 2.5rem 0; }
+    .mission-card h2 { color: var(--gold); font-size: 1.25rem; margin-bottom: 1rem; margin-top: 0; }
+    .mission-card p { color: rgba(255,255,255,0.75); margin-bottom: 0; font-size: 1.0625rem; line-height: 1.75; }
+
+    /* Values */
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 2rem 0; }
+    @media (max-width: 640px) { .values-grid { grid-template-columns: 1fr; } }
+    .value-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1.5rem; }
+    .value-icon { width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; background: rgba(26,107,107,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 0.875rem; }
+    .value-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.375rem; }
+    .value-card p { font-size: 0.875rem; color: #6b7280; line-height: 1.6; margin: 0; }
+
+    /* Disclaimer */
+    .disclaimer { background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 0.875rem; padding: 1.5rem; margin: 2.5rem 0; }
+    .disclaimer p { font-size: 0.875rem; color: #6b7280; margin: 0; line-height: 1.7; }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(135deg, var(--navy-dark), var(--teal)); color: #fff; text-align: center; padding: 5rem 0; }
+    .cta-section h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); font-weight: 700; color: #fff; margin-bottom: 1rem; }
+    .cta-section p { color: rgba(255,255,255,0.72); max-width: 32rem; margin: 0 auto 2rem; font-size: 1.0625rem; }
+
+    /* Footer */
+    footer { background: var(--navy-dark); color: rgba(255,255,255,0.5); padding: 2.5rem 0; font-size: 0.8125rem; }
+    .footer-inner { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; align-items: center; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    .divider { width: 3rem; height: 3px; background: var(--gold); border-radius: 9999px; margin: 1rem 0; }
+  </style>
+  <link rel="canonical" href="https://medcontractintel.com/about" />
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-banner-inner">
+    <a href="/" class="nav-brand">
+      <img src="/images/brand-icon.png" height="48" width="48" alt="Internal Medicine & Hospitalist Contract Intel" style="border-radius:4px;">
+      <div class="nav-brand-text">
+        <span class="nav-wordmark nav-wordmark-full">Internal Medicine & Hospitalist Contract Intel</span>
+        <span class="nav-wordmark nav-wordmark-short">MedContractIntel<sup style="font-size:0.5em;vertical-align:super;">™</sup></span>
+        <span class="nav-tagline">DATA · LEVERAGE · FAIR PAY.</span>
+        <span class="nav-sub-text">Physician Compensation for Internal Medicine & Hospitalist</span>
+      </div>
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="/analyzer" class="nav-link">Analyzer</a>
+      <a href="/#products" class="nav-link">Products</a>
+      <a href="/checklist" class="nav-link">Checklist</a>
+      <a href="/about" class="nav-link active">About</a>
+    </nav>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow" style="margin-bottom:1rem;">Our mission</p>
+    <h1>We built this because <span>internal medicine and hospitalist physicians deserve better.</span></h1>
+    <div class="divider" style="margin:1.25rem 0;"></div>
+    <p>Emergency medicine is one of the most demanding specialties in medicine. The contracts you sign should reflect that — and most don't.</p>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="prose">
+  <div class="container">
+
+    <h2>Why MedContractIntel™ exists</h2>
+    <p>
+      Emergency medicine physicians generate enormous value for hospitals and staffing companies — and for decades, that value has been systematically underpriced. The average internal medicine and hospitalist physicians working for a national staffing company earns $21/wRVU below the market median. At 6,000 wRVUs per year, that's <strong>$120,000 in annual income left on the table</strong> — not because physicians aren't worth more, but because most don't have the data to know what "more" looks like.
+    </p>
+    <p>
+      Contracts are written by attorneys and administrators who negotiate them every day. Most physicians negotiate once every few years — and do it blind, without benchmarks, without a clause-by-clause breakdown, and without knowing which terms are standard and which are red flags.
+    </p>
+    <p>
+      MedContractIntel levels that playing field. We give emergency physicians the same quality of analysis that a seasoned healthcare attorney would provide — delivered in under 5 minutes, for $97.
+    </p>
+
+    <div class="mission-card">
+      <h2>Our mission</h2>
+      <p>
+        To make data-driven contract analysis accessible to every internal medicine and hospitalist physician — from PGY-4s signing their first attending contract to seasoned attendings renegotiating at renewal — so that no internal medicine and hospitalist physicians signs a contract without knowing exactly what it's worth and what to change.
+      </p>
+    </div>
+
+    <h2>What we believe</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+        </div>
+        <h3>Data over guesswork</h3>
+        <p>Every benchmark we use is sourced from MGMA 2025 and MGMA survey data — not anecdotal "what my colleague makes."</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>Transparency always</h3>
+        <p>We tell you exactly what this tool is and isn't. Analysis is not legal advice. We refer to attorneys when appropriate.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a6b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Physicians first</h3>
+        <p>We're on your side — not the hospital's, not the staffing company's. Every feature is designed to give physicians more leverage.</p>
+      </div>
+    </div>
+
+    <h2>Who this is for</h2>
+    <p>
+      MedContractIntel was built for internal medicine & hospitalist physicians at every career stage:
+    </p>
+    <p>
+      <strong>PGY-4s and new attendings</strong> signing their first contract — who have never negotiated a physician employment agreement before and don't know what clauses are negotiable, what's standard, or what a reasonable RVU rate actually looks like.
+    </p>
+    <p>
+      <strong>Established attendings at renewal</strong> — who know something feels off about their compensation but can't quantify it, and need the numbers to make a case for a raise.
+    </p>
+    <p>
+      <strong>Physicians switching employers</strong> — who are comparing offers from a staffing company, a hospital direct contract, and a democratic group, and need apples-to-apples benchmarks to evaluate them.
+    </p>
+
+    <h2>What this tool is — and isn't</h2>
+    <div class="disclaimer">
+      <p>
+        MedContractIntel provides educational and data-driven financial analysis. It identifies compensation gaps, contract risks, and negotiation priorities based on current market benchmarks. It is <strong>not legal advice</strong> and does not create an attorney-client relationship. For contracts with high-risk clauses — especially complex non-compete agreements or disputed termination terms — we recommend consulting a licensed healthcare attorney. Our reports include referrals to AHLA member attorneys in your state when appropriate.
+      </p>
+    </div>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about your analysis, feedback on the tool, or partnership inquiries — reach us at <a href="mailto:service@medcontractintel.com" style="color:var(--teal); font-weight:600;">service@medcontractintel.com</a>.
+    </p>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to know what your contract is really worth?</h2>
+    <p>Upload your contract and get your full analysis in under 5 minutes.</p>
+    <a href="/analyzer" class="btn btn-gold btn-lg">Analyze My Contract — $97</a>
+    <p style="margin-top:1.25rem; font-size:0.8125rem; color:rgba(255,255,255,0.45);">One-time payment · Instant results · No subscription</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner" style="max-width:72rem;">
+    <div>
+      <p style="color:rgba(255,255,255,0.6); font-weight:600; margin-bottom:0.25rem;">MedContractIntel™</p>
+      <p>© 2026 MedContractIntel™ &nbsp;·&nbsp; <a href="mailto:service@medcontractintel.com" style="color:rgba(255,255,255,0.4); text-decoration:none;">service@medcontractintel.com</a></p>
+    </div>
+    <div class="footer-links">
+      <a href="/analyzer">Analyzer</a>
+      <a href="/#products">Products</a>
+      <a href="/checklist">Checklist</a>
+      <a href="/about">About</a>
+      <a href="/pages/privacy.html">Privacy</a>
+      <a href="/pages/terms.html">Terms</a>
+    </div>
+  </div>
+  <div class="container" style="margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid rgba(255,255,255,0.07); max-width:72rem;">
+    <p>This tool provides educational and informational analysis only. It does not constitute legal, financial, or professional advice. Always consult a qualified healthcare attorney before signing any employment contract.</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 4);
+    }, { passive: true });
+  })();
+
+  // Hamburger menu
+  (function() {
+    var btn = document.getElementById('nav-hamburger');
+    var links = document.getElementById('nav-links');
+    if (!btn || !links) return;
+    btn.addEventListener('click', function() { links.classList.toggle('open'); });
+    links.addEventListener('click', function(e) { if (e.target.tagName === 'A') links.classList.remove('open'); });
+  })();
+</script>
+</body>
+</html>
