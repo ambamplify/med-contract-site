@@ -5,4 +5,4 @@ dist/
 *.db-shm
 *.db-wal
 .DS_Store
-server/pdfs/*.pdf
+# server/pdfs/*.pdf — PDFs must be tracked so Railway container receives them at deploy

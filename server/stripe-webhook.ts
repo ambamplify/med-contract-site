@@ -5,8 +5,8 @@
  *
  * Product ID → PDF mapping:
  *   prod_UIVNFDZzok4SZf → Hospitalist Shift Economics ($37)       → med-shift-economics.pdf
- *   prod_UIVN9EesbBvLid → RVU Playbook ($47)               → em-rvu-playbook.pdf
- *   prod_UIVNEWo3geIr7s → Negotiation Script Pack ($67)    → em-negotiation-script-pack.pdf
+ *   prod_UIVN9EesbBvLid → wRVU Playbook ($47)               → med-wrvu-playbook.pdf
+ *   prod_UIVNEWo3geIr7s → Negotiation Script Pack ($67)    → med-negotiation-script-pack.pdf
  *   prod_UJqJP9Zksl0AA7 → Bundle ($197)                    → all 3 PDFs + analyzer credit
  *
  * After deploying, register the webhook in Stripe Dashboard:
@@ -37,7 +37,7 @@ const PDF_DIR = path.join(__dirname_hook, "server", "pdfs");
 
 // ── Ops INBOX writer ───────────────────────────────────────────────────────
 //
-// Writes a structured markdown file to em-contract-ops/INBOX/ so the Ops
+// Writes a structured markdown file to med-contract-ops/INBOX/ so the Ops
 // Controller agent can classify and act on webhook events (disputes, refunds,
 // failed payments) on its next wake cycle.
 //
@@ -46,8 +46,8 @@ const PDF_DIR = path.join(__dirname_hook, "server", "pdfs");
 // Data section: JSON block containing the event-specific payload.
 //
 // TODO (Phase 1c): Replace fs.writeFileSync with a GitHub API commit to the
-// em-contract-ops repo so this works when running on Railway (the remote
-// container has no access to the local ~/Desktop/em-contract-ops/ path).
+// med-contract-ops repo so this works when running on Railway (the remote
+// container has no access to the local ~/MedContractIntel/med-contract-ops/ path).
 // For now, every write also logs to console.error so Railway logs capture the
 // event even when the file write silently fails in production.
 //
@@ -125,7 +125,7 @@ function writeOpsInbox(source: string, data: {
     console.log(`[OpsInbox] Written: ${filename}`);
   } catch (err: any) {
     // Expected on Railway — file path is local-only. Phase 1c will replace
-    // this with a GitHub API commit to em-contract-ops/INBOX/.
+    // this with a GitHub API commit to med-contract-ops/INBOX/.
     console.error(`[OpsInbox] Local write failed (expected on Railway): ${err.message}`);
   }
 }
@@ -162,11 +162,11 @@ const PRODUCT_MAP: Record<string, ProductConfig> = {
   },
   prod_UIVN9EesbBvLid: {
     name: "IM wRVU Playbook",
-    pdfs: ["em-rvu-playbook.pdf"],
+    pdfs: ["med-wrvu-playbook.pdf"],
   },
   prod_UIVNEWo3geIr7s: {
     name: "Negotiation Script Pack",
-    pdfs: ["em-negotiation-script-pack.pdf"],
+    pdfs: ["med-negotiation-script-pack.pdf"],
   },
   prod_UJqJP9Zksl0AA7: {
     // Correct live Stripe product ID (verified 2026-04-15). Previous ID
@@ -175,8 +175,8 @@ const PRODUCT_MAP: Record<string, ProductConfig> = {
     name: "Complete MedCI Contract Toolkit (Bundle)",
     pdfs: [
       "med-shift-economics.pdf",
-      "em-rvu-playbook.pdf",
-      "em-negotiation-script-pack.pdf",
+      "med-wrvu-playbook.pdf",
+      "med-negotiation-script-pack.pdf",
     ],
   },
 };
@@ -410,7 +410,7 @@ function handlePaymentFailed(paymentIntent: Stripe.PaymentIntent): void {
 // Called when a charge is fully or partially refunded (manual or via dispute).
 // Medium severity — log for revenue reconciliation.
 //
-// TODO (domains/revenue.md): Phase 1c should auto-update em-contract-ops/
+// TODO (domains/revenue.md): Phase 1c should auto-update med-contract-ops/
 // domains/revenue.md to deduct the refund amount from monthly revenue totals
 // via a GitHub API commit. For now the INBOX item is the audit trail.
 function handleChargeRefunded(charge: Stripe.Charge): void {
@@ -448,7 +448,7 @@ function handleChargeRefunded(charge: Stripe.Charge): void {
     currency: charge.currency,
     refund_type: isPartial ? "partial" : "full",
     customer_email: customerEmail,
-    // TODO (Phase 1c): commit a note to em-contract-ops/domains/revenue.md
+    // TODO (Phase 1c): commit a note to med-contract-ops/domains/revenue.md
     // deducting refund_dollars from monthly revenue. For now: manual reconcile.
     revenue_note: `Deduct $${refundedDollars} from monthly revenue in domains/revenue.md`,
   });

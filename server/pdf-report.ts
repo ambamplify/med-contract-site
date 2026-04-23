@@ -2,7 +2,7 @@ import { jsPDF } from "jspdf";
 import type { AnalysisResult } from "../shared/schema.js";
 
 const COLORS = {
-  navy: [15, 30, 61] as [number, number, number],
+  navy: [31, 110, 67] as [number, number, number],
   gold: [201, 168, 76] as [number, number, number],
   darkGray: [51, 51, 51] as [number, number, number],
   medGray: [102, 102, 102] as [number, number, number],

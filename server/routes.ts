@@ -1065,7 +1065,7 @@ ${analysisContext}`;
   //   status is one of: "up" | "down" | "paused" | "pending"
   //
   // TODO (Phase 1c): Replace the console.log below with a GitHub API commit to
-  // em-contract-ops/INBOX/YYYY-MM-DD-uptime-{timestamp}.md using the same
+  // med-contract-ops/INBOX/YYYY-MM-DD-uptime-{timestamp}.md using the same
   // writeOpsInbox pattern from stripe-webhook.ts. That will let the Ops
   // Controller agent classify and respond to outages on its next wake cycle.
   app.post("/api/ops/uptime-webhook", (req: Request, res: Response) => {
@@ -1087,7 +1087,7 @@ ${analysisContext}`;
       );
 
       // TODO (Phase 1c): commit INBOX file via GitHub API:
-      //   POST /repos/ambamplify/em-contract-ops/contents/INBOX/YYYY-MM-DD-uptime-{ts}.md
+      //   POST /repos/ambamplify/med-contract-ops/contents/INBOX/YYYY-MM-DD-uptime-{ts}.md
       //   body: base64(frontmatter + payload JSON)
       // This mirrors the writeOpsInbox() pattern in stripe-webhook.ts.
 

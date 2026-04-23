@@ -325,7 +325,7 @@
             });
             if (!res.ok) throw new Error();
             btn.textContent = 'Check your inbox!';
-            setTimeout(() => { window.location.href = '/assets/em-contract-red-flag-checklist.pdf'; }, 1200);
+            setTimeout(() => { window.location.href = '/assets/med-contract-red-flag-checklist.pdf'; }, 1200);
           } catch {
             document.getElementById('form-error').style.display='block';
             btn.textContent = 'Send Me the Checklist — Free'; btn.disabled = false;
