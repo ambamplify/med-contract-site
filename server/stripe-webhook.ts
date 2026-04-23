@@ -57,7 +57,12 @@ const PDF_DIR = path.join(__dirname_hook, "server", "pdfs");
 //   medium   — charge.refunded, charge.dispute.updated
 //   low      — informational / routine
 
-const OPS_INBOX_DIR = "/Users/ambamplify/Desktop/em-contract-ops/INBOX";
+// MedCI writes to med-contract-ops/INBOX (NOT em-contract-ops — cross-project
+// contamination). Path is local-dev only; fs.writeFileSync silently fails on
+// Railway (no error surfaced to customer) and the console.error JSON log is
+// canonical. Phase 1c will replace this with a GitHub API commit to the
+// ambamplify/med-contract-ops repo so Railway-based writes actually land.
+const OPS_INBOX_DIR = "/Users/ambamplify/MedContractIntel/med-contract-ops/INBOX";
 
 function writeOpsInbox(source: string, data: {
   event_type: string;
