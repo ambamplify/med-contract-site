@@ -78,7 +78,7 @@ const SelectField = ({ label, value, onChange, options, placeholder }: {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full appearance-none rounded-lg border border-gray-300 bg-white px-4 py-2.5 pr-10 text-base sm:text-sm focus:border-[#0f1e3d] focus:ring-1 focus:ring-[#0f1e3d] outline-none"
+        className="w-full appearance-none rounded-lg border border-gray-300 bg-white px-4 py-2.5 pr-10 text-base sm:text-sm focus:border-[#1f6e43] focus:ring-1 focus:ring-[#1f6e43] outline-none"
       >
         <option value="">{placeholder}</option>
         {options.map((o) => (
@@ -235,7 +235,7 @@ export default function IntakePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0f1e3d] to-[#1a2d5a]">
+    <div className="min-h-screen bg-gradient-to-b from-[#1f6e43] to-[#1a2d5a]">
 
       {/* Subtle back link */}
       <div className="px-4 pt-4 pb-1">
@@ -253,13 +253,13 @@ export default function IntakePage() {
             </div>
             <h1 className="text-3xl font-bold text-white mb-1">MedContractIntel<sup style={{ fontSize: "0.5em", verticalAlign: "super" }}>™</sup></h1>
             <p className="text-[11px] text-[#c9a84c] font-semibold tracking-[0.25em] uppercase mb-3">DATA · LEVERAGE · FAIR PAY</p>
-            <div className="w-16 h-0.5 bg-[#2ec4b6] mx-auto mb-3 rounded-full" />
+            <div className="w-16 h-0.5 bg-[#2b8ac9] mx-auto mb-3 rounded-full" />
             <p className="text-gray-300 text-sm">
               Upload your internal medicine and hospitalist employment contract for a comprehensive contract analysis
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-xl p-6 space-y-6 border border-[#2ec4b6]/10">
+          <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-xl p-6 space-y-6 border border-[#2b8ac9]/10">
             {/* Contract Upload */}
             <div>
               <label className="block text-sm font-semibold text-gray-800 mb-2">Contract Document</label>
@@ -275,7 +275,7 @@ export default function IntakePage() {
                     ? "border-[#c9a84c] bg-yellow-50"
                     : fileName
                     ? "border-green-400 bg-green-50"
-                    : "border-gray-300 hover:border-[#2ec4b6] hover:bg-[#2ec4b6]/5"
+                    : "border-gray-300 hover:border-[#2b8ac9] hover:bg-[#2b8ac9]/5"
                 }`}
               >
                 <input
@@ -340,9 +340,9 @@ export default function IntakePage() {
 
               {/* OR divider */}
               <div className="flex items-center gap-3 my-4">
-                <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[#2ec4b6]/30" />
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[#2b8ac9]/30" />
                 <span className="text-xs text-[#c9a84c] font-medium tracking-wide uppercase">or paste contract text</span>
-                <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#2ec4b6]/30" />
+                <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#2b8ac9]/30" />
               </div>
 
               {/* Text input */}
@@ -360,12 +360,12 @@ export default function IntakePage() {
                 }}
                 placeholder="Paste your full contract text here..."
                 rows={6}
-                className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base sm:text-sm focus:border-[#0f1e3d] focus:ring-1 focus:ring-[#0f1e3d] outline-none resize-y"
+                className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base sm:text-sm focus:border-[#1f6e43] focus:ring-1 focus:ring-[#1f6e43] outline-none resize-y"
               />
             </div>
 
             {/* Context Fields */}
-            <div className="border-t border-[#2ec4b6]/20 pt-6">
+            <div className="border-t border-[#2b8ac9]/20 pt-6">
               <h2 className="text-sm font-semibold text-gray-800 mb-4">Contract Context</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <SelectField label="Who is this contract with?" value={employerType} onChange={setEmployerType} options={EMPLOYERS} placeholder="Select employer type..." />
@@ -382,7 +382,7 @@ export default function IntakePage() {
             </div>
 
             {/* Optional phone */}
-            <div className="border-t border-[#2ec4b6]/20 pt-5">
+            <div className="border-t border-[#2b8ac9]/20 pt-5">
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Phone Number <span className="text-gray-400 font-normal">(optional)</span>
               </label>
@@ -391,7 +391,7 @@ export default function IntakePage() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="(555) 555-5555"
-                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-base sm:text-sm focus:border-[#0f1e3d] focus:ring-1 focus:ring-[#0f1e3d] outline-none"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-base sm:text-sm focus:border-[#1f6e43] focus:ring-1 focus:ring-[#1f6e43] outline-none"
               />
               <p className="text-xs text-gray-400 mt-1">For SMS updates on your analysis. We never share your number.</p>
             </div>
@@ -402,7 +402,7 @@ export default function IntakePage() {
               <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#c9a84c] mb-1.5">
                 Purchased the Complete Bundle?
               </p>
-              <label className="block text-lg font-bold text-[#0f1e3d] mb-1">
+              <label className="block text-lg font-bold text-[#1f6e43] mb-1">
                 Redeem your included analysis
               </label>
               <p className="text-sm text-gray-700 mb-3">
@@ -432,7 +432,7 @@ export default function IntakePage() {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full bg-[#c9a84c] text-[#0f1e3d] font-bold py-3.5 rounded-lg hover:bg-[#b8973b] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
+              className="w-full bg-[#c9a84c] text-[#1f6e43] font-bold py-3.5 rounded-lg hover:bg-[#b8973b] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
             >
               {submitting ? "Submitting..." : "Analyze Contract"}
             </button>

@@ -191,7 +191,7 @@ git push origin main        # triggers Railway auto-deploy
 
 ## Brand
 
-- **Colors:** Navy `#0f1e3d`, Gold `#c9a84c`, Teal `#1a9090` / `#2ec4b6`
+- **Colors:** Navy `#1f6e43`, Gold `#c9a84c`, Teal `#1a9090` / `#2b8ac9`
 - **Tagline:** DATA · LEVERAGE · FAIR PAY
 - **Tone:** Direct, data-driven, no fluff, physician-peer voice
 - **Legal footer:** "This content is for educational purposes only and does not constitute legal advice."

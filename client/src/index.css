@@ -4,8 +4,8 @@
 
 body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
-  background: #f8f9fa;
-  color: #1a1a2e;
+  background: #faf7f0;
+  color: #0a1f14;
   margin: 0;
 }
 
@@ -74,7 +74,7 @@ body {
   .bg-yellow-50 { background-color: #fefce8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
   /* Header prints clean */
-  .bg-\[\\#0f1e3d\] { background-color: #0f1e3d !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .bg-\[\\#1f6e43\] { background-color: #1f6e43 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
   /* Page margins */
   @page { margin: 0.75in; }

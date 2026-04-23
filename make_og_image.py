@@ -10,7 +10,7 @@ import urllib.request
 from PIL import Image, ImageDraw, ImageFont
 
 # ── Colors ───────────────────────────────────────────────────────────────
-NAVY   = (15,  30,  61)   # #0f1e3d
+NAVY   = (15,  30,  61)   # #1f6e43
 GOLD   = (201, 168,  76)  # #c9a84c
 TEAL   = (26,  144, 144)  # #1a9090
 WHITE  = (255, 255, 255)

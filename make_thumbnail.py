@@ -13,8 +13,8 @@ import tempfile
 from PIL import Image, ImageDraw, ImageFont
 
 # ── Colors ───────────────────────────────────────────────────────────────
-NAVY        = (15,  30,  61)   # #0f1e3d
-NAVY_LIGHT  = (26,  39,  68)   # #1a2744
+NAVY        = (15,  30,  61)   # #1f6e43
+NAVY_LIGHT  = (26,  39,  68)   # #1f6e43
 GOLD        = (201, 168,  76)  # #c9a84c
 TEAL        = (26,  144, 144)  # #1a9090
 WHITE       = (255, 255, 255)
