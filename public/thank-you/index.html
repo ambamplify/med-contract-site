@@ -9,7 +9,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fbf8ef; color: #1f2937; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
-    :root { --navy: #0a2d20; --navy-dark: #0a2d20; --gold: #9c7e2e; --gold-hover: #9c7e2e; --teal: #1db5b5; --teal-hover: #2dd4bf; }
+    :root { --navy: #0a2d20; --navy-dark: #051a12; --gold: #9c7e2e; --gold-hover: #6e5a20; --teal: #1db5b5; --teal-hover: #2dd4bf; --cream: #f7f4ec; }
 
     nav { background: var(--navy-dark); padding: 1rem 1.5rem; }
     .nav-inner { max-width: 72rem; margin: 0 auto; display: flex; align-items: center; gap: 0.75rem; }
@@ -85,6 +85,17 @@
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
     footer { background: var(--navy-dark); color: rgba(255,255,255,0.4); padding: 1.5rem; text-align: center; font-size: 0.8125rem; }
+
+    @media (max-width: 640px) {
+      main { padding: 1.5rem 1rem 2.5rem; }
+      .card { padding: 1.5rem 1.25rem; border-radius: 1rem; }
+      h1 { font-size: 1.375rem; }
+      .check-circle { width: 3.5rem; height: 3.5rem; font-size: 1.625rem; margin-bottom: 1rem; }
+      .analyzer-credit-banner, .oto-box { padding: 1.25rem; border-radius: 0.875rem; }
+      .analyzer-credit-banner h2, .oto-box h2 { font-size: 1rem; }
+      .oto-price strong { font-size: 1.625rem; }
+      .download-tile { padding: 0.875rem 1rem; }
+    }
   </style>
   <link rel="canonical" href="https://medcontractintel.com/thank-you" />
 </head>
