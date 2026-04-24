@@ -1765,7 +1765,7 @@ export default function ReportPage() {
                     <button
                       onClick={sendChatMessage}
                       disabled={chatLoading || !chatInput.trim()}
-                      className="bg-[#1db5b5] text-white px-4 py-2.5 rounded-lg hover:bg-[#189696] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex-shrink-0"
+                      className="bg-[#189696] text-white px-4 py-2.5 rounded-lg hover:bg-[#137171] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex-shrink-0"
                     >
                       <Send className="h-4 w-4" />
                     </button>
