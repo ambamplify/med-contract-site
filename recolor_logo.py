@@ -29,13 +29,13 @@ LOGO_FILES = [
     ROOT / "public" / "assets" / "images" / "brand_symbol.png",
 ]
 
-# Target green: #0a2d20 (10, 45, 32) — v3 near-black forest, matches banner primary.
-# 2026-04-24: collapsed DARK to equal TARGET so every recolored navy pixel lands
-# on the exact banner green (owner: "banner green should match green in the logo").
-# Previous two-tier blend produced dominant #061e15 which read darker than the
-# #0a2d20 nav bar, making logo and banner visually mismatched.
-TARGET_R, TARGET_G, TARGET_B = 0x0A, 0x2D, 0x20
-DARK_R, DARK_G, DARK_B = 0x0A, 0x2D, 0x20
+# Target green: #061e15 (6, 30, 21) — darker forest, matches new v3.1 primary.
+# 2026-04-24 (PM): owner reversed direction — wants site primary to match the
+# naturally darker logo green (was #061e15 dominant before brightening), not
+# the other way round. Both tiers now collapse to the same darker green so the
+# logo interior reads flat #061e15 and the banner renders the same value.
+TARGET_R, TARGET_G, TARGET_B = 0x06, 0x1E, 0x15
+DARK_R, DARK_G, DARK_B = 0x06, 0x1E, 0x15
 
 
 def is_navy_pixel(r: int, g: int, b: int) -> bool:

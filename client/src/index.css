@@ -74,7 +74,7 @@ body {
   .bg-yellow-50 { background-color: #fefce8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
   /* Header prints clean */
-  .bg-\[\\#0a2d20\] { background-color: #0a2d20 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .bg-\[\\#061e15\] { background-color: #061e15 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
   /* Page margins */
   @page { margin: 0.75in; }

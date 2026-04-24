@@ -16,6 +16,7 @@
 - Analyzer audit — `public/pages/analyzer.html` + `client/src/pages/index.tsx` + `client/src/pages/report.tsx`. Palette drift swept, same-color-hover gold buttons fixed, stale upsell prices corrected. Commit `c8133f6`.
 - Calculator audit — `/calculator/index.html` (palette + hero + H1 casing) + wire-contract verified against `server/routes.ts::buildCalculatorResultsEmail`. Commit `72d112a`.
 - Product + supporting pages :root token restoration — v2→v3 sed over-collapse bug fixed on 7 pages (billing-breakdown, rvu-playbook, negotiation-scripts, bundle, checklist, about, thank-you, pages/thank-you). Commits `a8f5f41`, `8b4deba`.
+- Palette v3.1 — darker-primary migration per owner correction. `#0a2d20 → #061e15`, `#051a12 → #02110a`, `#153d2d → #0a2f1f` across 23 files (all public HTML, client/src, server, tailwind). Logos re-recolored from `.v1.bak` originals to new target. Gold-on-primary contrast improves 3.86:1 → 4.52:1 (AA pass).
 
 ## In progress
 - Homepage data/numbers triple-confirmation pass (IMDATA2026.md-only).

@@ -8,9 +8,9 @@ export default {
       colors: {
         // Primary — Near-black forest green. Single tier; darker variant for hover only.
         brand: {
-          DEFAULT: "#0a2d20",
-          dark: "#051a12",
-          mid: "#0a2d20",
+          DEFAULT: "#061e15",
+          dark: "#02110a",
+          mid: "#061e15",
         },
         // Secondary — Bronzed heritage gold (less yellow, more metallic)
         gold: {

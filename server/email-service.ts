@@ -189,7 +189,7 @@ export async function sendTestimonialRequestEmail(to: string, employerType: stri
       subject: "Quick question about your contract analysis",
       html: `
         <div style="font-family: -apple-system, sans-serif; max-width: 560px; margin: 0 auto; padding: 2rem; color: #1f2937;">
-          <p style="color: #0a2d20; font-weight: 700; font-size: 1.125rem; margin-bottom: 1.25rem;">Hi,</p>
+          <p style="color: #061e15; font-weight: 700; font-size: 1.125rem; margin-bottom: 1.25rem;">Hi,</p>
           <p style="line-height: 1.7; margin-bottom: 1rem;">Two weeks ago you analyzed your ${employerType || "employment"} contract with MedContractIntel™.</p>
           <p style="line-height: 1.7; margin-bottom: 1rem;">We'd love to know — did it help? What did you negotiate?</p>
           <p style="line-height: 1.7; margin-bottom: 1rem;">Reply to this email with your experience. With your permission, we may share your story (anonymously) to help other physicians in your position.</p>
@@ -213,12 +213,12 @@ export function buildReportEmailHtml(employerType: string, riskRating: string, h
 <head><meta charset="utf-8"></head>
 <body style="margin:0;padding:0;background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <div style="max-width:600px;margin:0 auto;padding:40px 20px;">
-    <div style="background:#0a2d20;border-radius:12px;padding:32px;text-align:center;margin-bottom:24px;">
+    <div style="background:#061e15;border-radius:12px;padding:32px;text-align:center;margin-bottom:24px;">
       <h1 style="color:#fff;font-size:24px;margin:0 0 4px;">MedContractIntel™</h1>
       <p style="color:#9c7e2e;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin:0;">Data. Leverage. Fair Pay.</p>
     </div>
     <div style="background:#fff;border-radius:12px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
-      <h2 style="color:#0a2d20;font-size:18px;margin:0 0 16px;">Your Contract Analysis Report</h2>
+      <h2 style="color:#061e15;font-size:18px;margin:0 0 16px;">Your Contract Analysis Report</h2>
       <p style="color:#374151;font-size:14px;line-height:1.6;margin:0 0 16px;">
         Your ${employerType || "employment"} contract analysis is attached as a PDF.
         The overall risk rating is <strong>${riskRating || "See Report"}</strong>.

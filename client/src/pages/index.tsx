@@ -78,7 +78,7 @@ const SelectField = ({ label, value, onChange, options, placeholder }: {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full appearance-none rounded-lg border border-gray-300 bg-white px-4 py-2.5 pr-10 text-base sm:text-sm focus:border-[#0a2d20] focus:ring-1 focus:ring-[#0a2d20] outline-none"
+        className="w-full appearance-none rounded-lg border border-gray-300 bg-white px-4 py-2.5 pr-10 text-base sm:text-sm focus:border-[#061e15] focus:ring-1 focus:ring-[#061e15] outline-none"
       >
         <option value="">{placeholder}</option>
         {options.map((o) => (
@@ -235,7 +235,7 @@ export default function IntakePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0a2d20] to-[#0a2d20]">
+    <div className="min-h-screen bg-gradient-to-b from-[#061e15] to-[#061e15]">
 
       {/* Subtle back link */}
       <div className="px-4 pt-4 pb-1">
@@ -360,7 +360,7 @@ export default function IntakePage() {
                 }}
                 placeholder="Paste your full contract text here..."
                 rows={6}
-                className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base sm:text-sm focus:border-[#0a2d20] focus:ring-1 focus:ring-[#0a2d20] outline-none resize-y"
+                className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base sm:text-sm focus:border-[#061e15] focus:ring-1 focus:ring-[#061e15] outline-none resize-y"
               />
             </div>
 
@@ -391,7 +391,7 @@ export default function IntakePage() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="(555) 555-5555"
-                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-base sm:text-sm focus:border-[#0a2d20] focus:ring-1 focus:ring-[#0a2d20] outline-none"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-base sm:text-sm focus:border-[#061e15] focus:ring-1 focus:ring-[#061e15] outline-none"
               />
               <p className="text-xs text-gray-400 mt-1">For SMS updates on your analysis. We never share your number.</p>
             </div>
@@ -402,7 +402,7 @@ export default function IntakePage() {
               <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#9c7e2e] mb-1.5">
                 Purchased the Complete Bundle?
               </p>
-              <label className="block text-lg font-bold text-[#0a2d20] mb-1">
+              <label className="block text-lg font-bold text-[#061e15] mb-1">
                 Redeem your included analysis
               </label>
               <p className="text-sm text-gray-700 mb-3">
