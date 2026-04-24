@@ -1,5 +1,5 @@
 # NEXT_ACTION
 
-**Current:** Homepage grammar/copy review of `public/index.html`. Fix subject-verb agreement, plural/singular drift, typos, and EMCI→MedCI brand drift in body copy (NOT data/numbers — those need triple-source-confirmation per charter). Do NOT touch EMCI residuals (YouTube embed, sample PDFs, sample card images) — owner directive.
+**Current:** Calculator page audit — `/calculator/index.html` + `server/routes.ts` calculator email handler. Verify v3 palette compliance, form field names match backend (`hourly`, `comp`, `profRev`, `facRev`, `share`, `wrvus`), email delivery wired correctly.
 
-**After this:** Analyzer page audit (`/app` + `/pages/analyzer.html`) — palette verify, form behavior, error states. Then calculator.
+**After this:** Product pages palette sweep (`public/pages/products/*.html` — billing-breakdown, rvu-playbook, negotiation-scripts, bundle). Then checklist + thank-you + about pages. Then homepage data/numbers triple-confirmation pass (IMDATA2026.md only).

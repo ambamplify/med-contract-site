@@ -10,3 +10,8 @@ _Entries above reconstructed from prior session context; earlier days tracked in
 ## 2026-04-23 (PM — palette v3)
 
 - Palette v3 deployed (`a996acd`). Single-tier primary `#0a2d20` + bronzed gold `#9c7e2e` + vivid teal `#1db5b5` + warm cream `#f7f4ec`. Multi-green contrast issue resolved by collapsing `#0f3d2e` and `#1f6e43` into one primary. Logo navy interior recolored to match banner primary.
+
+## 2026-04-24
+
+- **Analyzer audit** (`c8133f6`): `public/pages/analyzer.html` CSS vars rewritten to full v3 palette; hero gets radial center-lift + bottom cream fade; H1 sentence-case. React analyzer form (`client/src/pages/index.tsx`) gold CTA hover fixed (was self-noop, now `#6e5a20`). `report.tsx` palette drift swept: `#d4b85c → #b89a3e`, `#0f4f3a → #0a2d20`, `#28b0a3 → #189696`, `#fdf8ed → #f7f4ec`; 3× same-color-hover gold buttons corrected.
+- **Pricing fixes** in `report.tsx` upsell cards: Shift Economics button showed $47 (text drift on $37 link) → $37; bottom PDF-bundle upsell $247/$311 crossed → $197/$248 crossed, stripe link retargeted to live Complete Bundle (archived PDF-only link `6oU28tb…ZK08` replaced with `eVq28tf…ZK0a`) — aligns with CLAUDE.md canonical pricing table.
