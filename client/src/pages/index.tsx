@@ -432,7 +432,7 @@ export default function IntakePage() {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full bg-[#9c7e2e] text-[#0a2d20] font-bold py-3.5 rounded-lg hover:bg-[#9c7e2e] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
+              className="w-full bg-[#9c7e2e] text-white font-bold py-3.5 rounded-lg hover:bg-[#6e5a20] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
             >
               {submitting ? "Submitting..." : "Analyze Contract"}
             </button>

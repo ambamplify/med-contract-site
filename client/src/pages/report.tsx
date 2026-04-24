@@ -673,7 +673,7 @@ export default function ReportPage() {
           <h2 className="text-lg font-bold text-gray-800 mb-2">Connection Lost</h2>
           <p className="text-gray-600 text-sm mb-2">Your analysis may have completed in the background.</p>
           <p className="text-gray-500 text-xs mb-6">Click <strong>Refresh</strong> to check — if it finished you will see your report immediately.</p>
-          <button onClick={() => window.location.reload()} className="w-full bg-[#9c7e2e] text-[#0a2d20] font-bold py-3 px-5 rounded-lg hover:bg-[#d4b85c] transition-colors mb-2 text-sm">
+          <button onClick={() => window.location.reload()} className="w-full bg-[#9c7e2e] text-[#0a2d20] font-bold py-3 px-5 rounded-lg hover:bg-[#b89a3e] transition-colors mb-2 text-sm">
             Refresh — Check for Results
           </button>
           <button onClick={() => navigate("/")} className="w-full bg-transparent text-gray-400 font-medium py-2 px-5 rounded-lg hover:text-gray-600 transition-colors text-xs">
@@ -850,7 +850,7 @@ export default function ReportPage() {
           buyer email at payment time and the server auto-sent the report. */}
       {autoSentEmail && !autoSentBannerDismissed && (
         <div className="fixed bottom-0 left-0 right-0 z-50 p-5 no-print animate-slide-up">
-          <div className="max-w-2xl mx-auto bg-gradient-to-r from-[#0a3d2e] to-[#0f4f3a] rounded-2xl shadow-2xl border border-[#1db5b5]/40 p-5 relative">
+          <div className="max-w-2xl mx-auto bg-gradient-to-r from-[#0a3d2e] to-[#0a2d20] rounded-2xl shadow-2xl border border-[#1db5b5]/40 p-5 relative">
             <button onClick={() => setAutoSentBannerDismissed(true)} className="absolute top-3 right-4 text-gray-400 hover:text-white transition-colors">
               <X className="h-5 w-5" />
             </button>
@@ -911,7 +911,7 @@ export default function ReportPage() {
                       setEmailSkipped(false);
                       scrollToSection("counter-proposal");
                     }}
-                    className="flex-1 bg-[#9c7e2e] text-[#0a2d20] font-bold py-3 rounded-lg hover:bg-[#d4b85c] transition-colors text-sm shadow-lg"
+                    className="flex-1 bg-[#9c7e2e] text-[#0a2d20] font-bold py-3 rounded-lg hover:bg-[#b89a3e] transition-colors text-sm shadow-lg"
                   >
                     Yes, generate letter first
                   </button>
@@ -949,7 +949,7 @@ export default function ReportPage() {
                     className="flex-1 rounded-lg border border-[#9c7e2e]/40 bg-white/10 text-white placeholder-gray-400 px-4 py-3 text-base sm:text-sm focus:border-[#9c7e2e] focus:ring-2 focus:ring-[#9c7e2e]/50 outline-none"
                     onKeyDown={(e) => e.key === "Enter" && handleEmailSubmit()}
                   />
-                  <button onClick={() => handleEmailSubmit()} className="bg-[#9c7e2e] text-[#0a2d20] font-bold px-6 py-3 rounded-lg hover:bg-[#d4b85c] transition-colors text-sm whitespace-nowrap shadow-lg">
+                  <button onClick={() => handleEmailSubmit()} className="bg-[#9c7e2e] text-[#0a2d20] font-bold px-6 py-3 rounded-lg hover:bg-[#b89a3e] transition-colors text-sm whitespace-nowrap shadow-lg">
                     Send PDF
                   </button>
                 </div>
@@ -997,7 +997,7 @@ export default function ReportPage() {
               <button onClick={() => window.print()} className="flex items-center justify-center gap-2 border border-white/30 text-white font-medium px-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-sm flex-1 sm:flex-initial">
                 <Printer className="h-4 w-4" /> Print
               </button>
-              <button onClick={downloadPDF} className="flex items-center justify-center gap-2 bg-[#9c7e2e] text-[#0a2d20] font-semibold px-4 py-2 rounded-lg hover:bg-[#d4b85c] transition-colors flex-1 sm:flex-initial">
+              <button onClick={downloadPDF} className="flex items-center justify-center gap-2 bg-[#9c7e2e] text-[#0a2d20] font-semibold px-4 py-2 rounded-lg hover:bg-[#b89a3e] transition-colors flex-1 sm:flex-initial">
                 <Download className="h-4 w-4" /> <span className="whitespace-nowrap">Download PDF</span>
               </button>
             </div>
@@ -1181,7 +1181,7 @@ export default function ReportPage() {
                 <p className="text-sm text-gray-300 mt-1">Learn how to negotiate your conversion factor, spot APC haircut clauses, and track your production. The guide your employer doesn't want you to have.</p>
               </div>
               <a href="https://buy.stripe.com/8x2bJ3550cAMdFb0hT3ZK06" target="_blank" rel="noopener noreferrer"
-                className="flex-shrink-0 self-start sm:self-center bg-[#9c7e2e] hover:bg-[#9c7e2e] text-[#0a2d20] font-bold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap">
+                className="flex-shrink-0 self-start sm:self-center bg-[#9c7e2e] hover:bg-[#6e5a20] text-[#0a2d20] font-bold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap">
                 Get it — $67
               </a>
             </div>
@@ -1243,7 +1243,7 @@ export default function ReportPage() {
             <h2 className="text-lg font-bold text-gray-800 mb-4">Recommended Negotiation Approach</h2>
             {naStrategy && <p className="text-sm text-gray-700 mb-4">{naStrategy}</p>}
             {naOpening && (
-              <div className="bg-[#fdf8ed] border border-[#9c7e2e]/30 rounded-lg p-4 mb-4">
+              <div className="bg-[#f7f4ec] border border-[#9c7e2e]/30 rounded-lg p-4 mb-4">
                 <p className="text-sm font-semibold text-[#0a2d20] mb-1">Opening Move</p>
                 <p className="text-sm text-gray-700">{naOpening}</p>
               </div>
@@ -1315,8 +1315,8 @@ export default function ReportPage() {
                 <p className="text-sm text-gray-600 mt-1">Decode hospitalist shift economics — shift rate vs. encounters, admit fees, nocturnist differential, and observation billing — before you sign.</p>
               </div>
               <a href="https://buy.stripe.com/eVqdRb694cAM7gN9St3ZK05" target="_blank" rel="noopener noreferrer"
-                className="flex-shrink-0 self-start sm:self-center bg-[#0a2d20] hover:bg-[#155858] text-white font-bold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap">
-                Get it — $47
+                className="flex-shrink-0 self-start sm:self-center bg-[#0a2d20] hover:bg-[#153d2d] text-white font-bold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap">
+                Get it — $37
               </a>
             </div>
           </div>
@@ -1381,7 +1381,7 @@ export default function ReportPage() {
                 <p className="text-sm text-gray-300 mt-1">Word-for-word scripts for every scenario your analysis flagged — compensation, non-compete, tail coverage, and more. Tested by internal medicine and hospitalist physicians.</p>
               </div>
               <a href="https://buy.stripe.com/28E14pdBw8kw7gN0hT3ZK07" target="_blank" rel="noopener noreferrer"
-                className="flex-shrink-0 self-start sm:self-center bg-[#9c7e2e] hover:bg-[#9c7e2e] text-[#0a2d20] font-bold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap">
+                className="flex-shrink-0 self-start sm:self-center bg-[#9c7e2e] hover:bg-[#6e5a20] text-[#0a2d20] font-bold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap">
                 Get it — $197
               </a>
             </div>
@@ -1593,7 +1593,7 @@ export default function ReportPage() {
                 <button
                   onClick={generateCounterProposal}
                   disabled={counterLoading || (selectedPriorities.size === 0 && expiredIncluded.size === 0)}
-                  className="w-full bg-[#9c7e2e] text-[#0a2d20] font-semibold py-3 rounded-lg hover:bg-[#d4b85c] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-[#9c7e2e] text-[#0a2d20] font-semibold py-3 rounded-lg hover:bg-[#b89a3e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {counterLoading ? (
                     <>
@@ -1765,7 +1765,7 @@ export default function ReportPage() {
                     <button
                       onClick={sendChatMessage}
                       disabled={chatLoading || !chatInput.trim()}
-                      className="bg-[#1db5b5] text-white px-4 py-2.5 rounded-lg hover:bg-[#28b0a3] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex-shrink-0"
+                      className="bg-[#1db5b5] text-white px-4 py-2.5 rounded-lg hover:bg-[#189696] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex-shrink-0"
                     >
                       <Send className="h-4 w-4" />
                     </button>
@@ -1896,13 +1896,13 @@ export default function ReportPage() {
           <div className="no-print bg-gradient-to-br from-[#0a2d20] via-[#0a2d20] to-[#0a2d20] rounded-xl p-5 sm:p-6 text-white border border-[#9c7e2e]/30">
             <div className="text-center mb-4">
               <p className="text-xs font-semibold uppercase tracking-wider text-[#9c7e2e] mb-1">Complete your negotiation toolkit</p>
-              <h3 className="font-bold text-white text-lg">Get All 3 PDFs — $247 <span className="text-[#9c7e2e] line-through text-sm font-normal ml-1">$311</span></h3>
-              <p className="text-sm text-gray-300 mt-1">Hospitalist Shift Economics + IM wRVU Playbook + Negotiation Script Pack. Save $64.</p>
+              <h3 className="font-bold text-white text-lg">Get All 3 PDFs — $197 <span className="text-[#9c7e2e] line-through text-sm font-normal ml-1">$248</span></h3>
+              <p className="text-sm text-gray-300 mt-1">Hospitalist Shift Economics + IM wRVU Playbook + Negotiation Script Pack. Save $51.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2 justify-center">
-              <a href="https://buy.stripe.com/6oU28tbtofMY8kR1lX3ZK08" target="_blank" rel="noopener noreferrer"
-                className="bg-[#9c7e2e] hover:bg-[#9c7e2e] text-[#0a2d20] font-bold px-6 py-3 rounded-lg text-sm transition-colors text-center">
-                Get the Bundle — $247
+              <a href="https://buy.stripe.com/eVq28tfJE7gs9oV8Op3ZK0a" target="_blank" rel="noopener noreferrer"
+                className="bg-[#9c7e2e] hover:bg-[#6e5a20] text-white font-bold px-6 py-3 rounded-lg text-sm transition-colors text-center">
+                Get the Bundle — $197
               </a>
             </div>
             <p className="text-center text-xs text-gray-400 mt-3">Instant PDF delivery · One-time payment · No subscription</p>

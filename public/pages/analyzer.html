@@ -20,7 +20,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fbf8ef; color: #1f2937; line-height: 1.6; }
-    :root { --navy: #0a2d20; --navy-dark: #0a2d20; --gold: #9c7e2e; --gold-hover: #9c7e2e; --teal: #0a2d20; --teal-light: #1db5b5; }
+    :root {
+      --navy: #0a2d20; --navy-dark: #051a12;
+      --primary: #0a2d20; --primary-dark: #051a12;
+      --gold: #9c7e2e; --gold-bright: #b89a3e; --gold-hover: #6e5a20;
+      --teal: #1db5b5; --teal-light: #2dd4bf;
+      --cream: #f7f4ec; --ink: #0a1f14; --muted: #5a6b60;
+    }
 
     .container { max-width: 56rem; margin: 0 auto; padding: 0 1.25rem; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.875rem 1.75rem; border-radius: 0.625rem; font-weight: 700; font-size: 0.9375rem; cursor: pointer; text-decoration: none; transition: all 0.15s; border: none; }
@@ -56,7 +62,13 @@
       .nav-hamburger { display: block; }
     }
 
-    .hero { background: linear-gradient(160deg, var(--navy-dark), #0a2d20); color: #fff; padding: 4rem 0; text-align: center; }
+    .hero {
+      background:
+        linear-gradient(to bottom, rgba(247,244,236,0) 80%, var(--cream) 100%),
+        radial-gradient(ellipse 90% 70% at 50% 38%, #153d2d 0%, var(--primary) 55%, var(--primary-dark) 100%);
+      background-color: var(--primary);
+      color: #fff; padding: 4rem 0 5rem; text-align: center; position: relative; overflow: hidden;
+    }
     .hero h1 { font-size: clamp(1.875rem, 5vw, 2.75rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
     .hero p { font-size: 1.0625rem; color: rgba(255,255,255,0.72); max-width: 34rem; margin: 0 auto 2.25rem; }
     .price-tag { display: inline-flex; align-items: baseline; gap: 0.375rem; background: rgba(156,126,46,0.15); border: 1px solid rgba(156,126,46,0.35); padding: 0.5rem 1.25rem; border-radius: 9999px; margin-bottom: 1.5rem; }
@@ -132,7 +144,7 @@
 <section class="hero">
   <div class="container">
     <p class="eyebrow" style="margin-bottom:1rem;">Instant contract analysis</p>
-    <h1>physician contract Analyzer</h1>
+    <h1>Physician Contract Analyzer</h1>
     <div class="price-tag">
       <strong>$97</strong>
       <span>one-time · no subscription</span>
