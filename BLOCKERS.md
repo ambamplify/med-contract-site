@@ -37,3 +37,13 @@
 ### Stale password-gate claim in CLAUDE.md
 - `CLAUDE.md` says there is an HTTP Basic Auth gate in `server/index.ts` with password `emci2026`. Verified no such gate exists in current `server/index.ts`.
 - **Action:** Will correct CLAUDE.md as part of a doc-cleanup pass.
+
+### Stale calculator field-name claim in CLAUDE.md
+- CLAUDE.md says calculator JS sends `hourly`, `comp`, `profRev`, `facRev`, `share`, `wrvus`. Verified: frontend (`public/calculator/index.html:1151`) actually sends `{email, tag, results:{annualComp, effectiveHourly, groupRevenue, gapVsMedian}}` which matches `server/routes.ts::buildCalculatorResultsEmail` reads. Frontend + backend are in sync; CLAUDE.md is stale.
+- **Action:** Correct CLAUDE.md in doc-cleanup pass.
+
+### IMDATA2026.md missing
+- Charter requires all numeric claims on the site to be verified against `/Users/ambamplify/MedContractIntel/med-contract-ops/state/IMDATA2026.md` or Perplexity triple-source.
+- File does NOT exist at that path. `med-contract-ops/state/` has `site.md`, `stripe-ids.md`, `content-review-day3.md`, etc. but no IM data dossier.
+- **Real or bypassed:** Blocks the homepage numeric-fact audit. Bypassed by deferring that audit until owner provides IMDATA2026.md or approves a proxy source (MGMA 2025 dataset, etc.). Continuing with non-numeric audits (responsiveness, a11y) in the meantime.
+- **Escalation:** Needs owner to either (a) produce IMDATA2026.md or (b) bless the existing `med-contract-ops/state/content-review-day3.md` + equivalent as the canonical source.
