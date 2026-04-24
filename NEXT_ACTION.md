@@ -1,8 +1,5 @@
 # NEXT_ACTION
 
-**Current:** Verify v3 palette live on Railway. Then implement approved hero/section blends:
-1. Homepage hero — center-lift radial gradient + bottom fade into cream (per owner-approved mock).
-2. Section transitions — add B → teal → gold band component; add cream → B footer fade.
-3. Re-check all 7 in-scope pages render correctly post-migration (no stray v2 hex, no broken gradients).
+**Current:** Homepage grammar/copy review of `public/index.html`. Fix subject-verb agreement, plural/singular drift, typos, and EMCI→MedCI brand drift in body copy (NOT data/numbers — those need triple-source-confirmation per charter). Do NOT touch EMCI residuals (YouTube embed, sample PDFs, sample card images) — owner directive.
 
-**After this:** homepage grammar/copy review, then analyzer + calculator audits.
+**After this:** Analyzer page audit (`/app` + `/pages/analyzer.html`) — palette verify, form behavior, error states. Then calculator.
