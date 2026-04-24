@@ -663,7 +663,7 @@ export default function ReportPage() {
   // ─── Polling failure ───
   if (pollError) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-[#1f6e43] to-[#1a2d5a] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-gradient-to-b from-[#0f3d2e] to-[#0f3d2e] flex items-center justify-center px-4">
         <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
           <div className="w-14 h-14 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg className="w-7 h-7 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -673,7 +673,7 @@ export default function ReportPage() {
           <h2 className="text-lg font-bold text-gray-800 mb-2">Connection Lost</h2>
           <p className="text-gray-600 text-sm mb-2">Your analysis may have completed in the background.</p>
           <p className="text-gray-500 text-xs mb-6">Click <strong>Refresh</strong> to check — if it finished you will see your report immediately.</p>
-          <button onClick={() => window.location.reload()} className="w-full bg-[#c9a84c] text-[#1f6e43] font-bold py-3 px-5 rounded-lg hover:bg-[#d4b85c] transition-colors mb-2 text-sm">
+          <button onClick={() => window.location.reload()} className="w-full bg-[#b8973b] text-[#0f3d2e] font-bold py-3 px-5 rounded-lg hover:bg-[#d4b85c] transition-colors mb-2 text-sm">
             Refresh — Check for Results
           </button>
           <button onClick={() => navigate("/")} className="w-full bg-transparent text-gray-400 font-medium py-2 px-5 rounded-lg hover:text-gray-600 transition-colors text-xs">
@@ -701,7 +701,7 @@ export default function ReportPage() {
       "Building your report...",
     ];
     return (
-      <div className="min-h-screen bg-gradient-to-b from-[#1f6e43] to-[#1a2d5a] flex flex-col items-center justify-center px-4">
+      <div className="min-h-screen bg-gradient-to-b from-[#0f3d2e] to-[#0f3d2e] flex flex-col items-center justify-center px-4">
         {/* Brand header — outside the white card, on navy background */}
         <div className="text-center mb-6">
           <img
@@ -713,7 +713,7 @@ export default function ReportPage() {
             className="mx-auto"
           />
           <h1 className="text-xl font-bold text-white mt-3">MedContractIntel<sup style={{ fontSize: "0.5em", verticalAlign: "super" }}>™</sup></h1>
-          <p className="text-[11px] text-[#c9a84c] font-semibold tracking-widest uppercase mt-1">
+          <p className="text-[11px] text-[#b8973b] font-semibold tracking-widest uppercase mt-1">
             Data. Leverage. Fair Pay.
           </p>
         </div>
@@ -721,7 +721,7 @@ export default function ReportPage() {
         <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 max-w-md w-full">
           {/* Gold indeterminate spinner + static status */}
           <div className="flex flex-col items-center justify-center py-6">
-            <div className="w-12 h-12 rounded-full border-4 border-[#f0e0a0] border-t-[#c9a84c] animate-spin mb-6" />
+            <div className="w-12 h-12 rounded-full border-4 border-[#f0e0a0] border-t-[#b8973b] animate-spin mb-6" />
             <p className="text-base font-semibold text-gray-800">Analyzing your contract</p>
             <p className="text-sm text-gray-500 mt-1">This typically takes 3–5 minutes.</p>
             {/* Payment-return confirmation — shown only while the server is
@@ -756,7 +756,7 @@ export default function ReportPage() {
                     <a href="mailto:service@medcontractintel.com" className="underline font-medium">service@medcontractintel.com</a>
                     {" "}with your order number and we will re-run your analysis within 2 hours at no charge.
                   </p>
-                  <button onClick={() => navigate("/")} className="mt-2 text-sm font-medium text-[#1f6e43] hover:underline">
+                  <button onClick={() => navigate("/")} className="mt-2 text-sm font-medium text-[#0f3d2e] hover:underline">
                     Start Over
                   </button>
                 </div>
@@ -771,13 +771,13 @@ export default function ReportPage() {
   // ─── Error state ───
   if (data.status === "error") {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-[#1f6e43] to-[#1a2d5a] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-gradient-to-b from-[#0f3d2e] to-[#0f3d2e] flex items-center justify-center px-4">
         <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-[#1f6e43] to-[#1a2d5a] mb-4">
-            <Shield className="h-8 w-8 text-[#c9a84c]" />
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-[#0f3d2e] to-[#0f3d2e] mb-4">
+            <Shield className="h-8 w-8 text-[#b8973b]" />
           </div>
-          <h1 className="text-lg font-bold text-[#1f6e43] mb-1">MedContractIntel<sup style={{ fontSize: "0.5em", verticalAlign: "super" }}>™</sup></h1>
-          <div className="w-12 h-0.5 bg-[#2b8ac9] mx-auto mt-2 mb-4 rounded-full" />
+          <h1 className="text-lg font-bold text-[#0f3d2e] mb-1">MedContractIntel<sup style={{ fontSize: "0.5em", verticalAlign: "super" }}>™</sup></h1>
+          <div className="w-12 h-0.5 bg-[#1a9090] mx-auto mt-2 mb-4 rounded-full" />
           <XCircle className="h-12 w-12 text-red-500 mx-auto mb-3" />
           <h2 className="text-lg font-bold text-gray-800 mb-2">Analysis Failed</h2>
           <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6 text-left">
@@ -788,7 +788,7 @@ export default function ReportPage() {
               Email <a href="mailto:service@medcontractintel.com" className="underline font-medium">service@medcontractintel.com</a> with your order number and we will re-run your analysis within 2 hours at no charge.
             </p>
           </div>
-          <button onClick={() => navigate("/")} className="bg-[#1f6e43] text-white font-medium py-2.5 px-6 rounded-lg hover:bg-[#1a2d5a] transition-colors">
+          <button onClick={() => navigate("/")} className="bg-[#0f3d2e] text-white font-medium py-2.5 px-6 rounded-lg hover:bg-[#0f3d2e] transition-colors">
             Try Again
           </button>
         </div>
@@ -805,7 +805,7 @@ export default function ReportPage() {
           <AlertTriangle className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
           <h2 className="text-lg font-bold text-gray-800 mb-2">Report data unavailable</h2>
           <p className="text-gray-500 text-sm mb-4">The analysis completed but the report data could not be loaded.</p>
-          <button onClick={() => navigate("/")} className="bg-[#1f6e43] text-white font-medium py-2.5 px-6 rounded-lg hover:bg-[#1a2d5a] transition-colors">
+          <button onClick={() => navigate("/")} className="bg-[#0f3d2e] text-white font-medium py-2.5 px-6 rounded-lg hover:bg-[#0f3d2e] transition-colors">
             Try Again
           </button>
         </div>
@@ -850,19 +850,19 @@ export default function ReportPage() {
           buyer email at payment time and the server auto-sent the report. */}
       {autoSentEmail && !autoSentBannerDismissed && (
         <div className="fixed bottom-0 left-0 right-0 z-50 p-5 no-print animate-slide-up">
-          <div className="max-w-2xl mx-auto bg-gradient-to-r from-[#0a3d2e] to-[#0f4f3a] rounded-2xl shadow-2xl border border-[#2b8ac9]/40 p-5 relative">
+          <div className="max-w-2xl mx-auto bg-gradient-to-r from-[#0a3d2e] to-[#0f4f3a] rounded-2xl shadow-2xl border border-[#1a9090]/40 p-5 relative">
             <button onClick={() => setAutoSentBannerDismissed(true)} className="absolute top-3 right-4 text-gray-400 hover:text-white transition-colors">
               <X className="h-5 w-5" />
             </button>
             <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#2b8ac9]/20 flex items-center justify-center mt-0.5">
-                <CheckCircle className="h-5 w-5 text-[#2b8ac9]" />
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#1a9090]/20 flex items-center justify-center mt-0.5">
+                <CheckCircle className="h-5 w-5 text-[#1a9090]" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-white font-semibold text-base">Your report has been sent to {autoSentEmail}</p>
                 <p className="text-gray-300 text-xs mt-0.5">Check your inbox — the PDF analysis is waiting for you.</p>
                 {resendResult === "success" && (
-                  <p className="text-[#2b8ac9] text-xs mt-1 font-medium">Resent successfully.</p>
+                  <p className="text-[#1a9090] text-xs mt-1 font-medium">Resent successfully.</p>
                 )}
                 {resendResult === "error" && (
                   <p className="text-red-300 text-xs mt-1">Resend failed. Please download the PDF directly.</p>
@@ -871,7 +871,7 @@ export default function ReportPage() {
               <button
                 onClick={handleResend}
                 disabled={resending}
-                className="flex-shrink-0 text-xs text-[#2b8ac9] border border-[#2b8ac9]/40 px-3 py-1.5 rounded-lg hover:bg-[#2b8ac9]/10 transition-colors disabled:opacity-50 whitespace-nowrap"
+                className="flex-shrink-0 text-xs text-[#1a9090] border border-[#1a9090]/40 px-3 py-1.5 rounded-lg hover:bg-[#1a9090]/10 transition-colors disabled:opacity-50 whitespace-nowrap"
               >
                 {resending ? "Sending…" : "Resend report"}
               </button>
@@ -883,20 +883,20 @@ export default function ReportPage() {
       {/* Email Banner — manual prompt, shown when no auto-sent email is on file */}
       {showEmailModal && !autoSentEmail && (
         <div className="fixed bottom-0 left-0 right-0 z-50 p-5 no-print animate-slide-up">
-          <div className="max-w-2xl mx-auto bg-gradient-to-r from-[#1f6e43] to-[#1a2d5a] rounded-2xl shadow-2xl border border-[#c9a84c]/30 p-5 relative">
+          <div className="max-w-2xl mx-auto bg-gradient-to-r from-[#0f3d2e] to-[#0f3d2e] rounded-2xl shadow-2xl border border-[#b8973b]/30 p-5 relative">
             <button onClick={skipEmail} className="absolute top-3 right-4 text-gray-400 hover:text-white transition-colors">
               <X className="h-5 w-5" />
             </button>
             {emailSent ? (
               <div className="flex items-center gap-3 justify-center py-2">
-                <CheckCircle className="h-6 w-6 text-[#2b8ac9]" />
+                <CheckCircle className="h-6 w-6 text-[#1a9090]" />
                 <p className="text-white font-semibold">Report sent! Check your inbox.</p>
               </div>
             ) : emailShowCounterPrompt ? (
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#c9a84c]/20 flex items-center justify-center">
-                    <FileText className="h-5 w-5 text-[#c9a84c]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#b8973b]/20 flex items-center justify-center">
+                    <FileText className="h-5 w-5 text-[#b8973b]" />
                   </div>
                   <div>
                     <p className="text-white font-semibold text-base">Generate a counter-proposal first?</p>
@@ -911,7 +911,7 @@ export default function ReportPage() {
                       setEmailSkipped(false);
                       scrollToSection("counter-proposal");
                     }}
-                    className="flex-1 bg-[#c9a84c] text-[#1f6e43] font-bold py-3 rounded-lg hover:bg-[#d4b85c] transition-colors text-sm shadow-lg"
+                    className="flex-1 bg-[#b8973b] text-[#0f3d2e] font-bold py-3 rounded-lg hover:bg-[#d4b85c] transition-colors text-sm shadow-lg"
                   >
                     Yes, generate letter first
                   </button>
@@ -926,8 +926,8 @@ export default function ReportPage() {
             ) : (
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#c9a84c]/20 flex items-center justify-center">
-                    <Mail className="h-5 w-5 text-[#c9a84c]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#b8973b]/20 flex items-center justify-center">
+                    <Mail className="h-5 w-5 text-[#b8973b]" />
                   </div>
                   <div>
                     <p className="text-white font-semibold text-base">Get your full report delivered</p>
@@ -946,10 +946,10 @@ export default function ReportPage() {
                     value={email}
                     onChange={(e) => { setEmail(e.target.value); if (emailError) setEmailError(null); }}
                     placeholder="your-email@hospital.org"
-                    className="flex-1 rounded-lg border border-[#c9a84c]/40 bg-white/10 text-white placeholder-gray-400 px-4 py-3 text-base sm:text-sm focus:border-[#c9a84c] focus:ring-2 focus:ring-[#c9a84c]/50 outline-none"
+                    className="flex-1 rounded-lg border border-[#b8973b]/40 bg-white/10 text-white placeholder-gray-400 px-4 py-3 text-base sm:text-sm focus:border-[#b8973b] focus:ring-2 focus:ring-[#b8973b]/50 outline-none"
                     onKeyDown={(e) => e.key === "Enter" && handleEmailSubmit()}
                   />
-                  <button onClick={() => handleEmailSubmit()} className="bg-[#c9a84c] text-[#1f6e43] font-bold px-6 py-3 rounded-lg hover:bg-[#d4b85c] transition-colors text-sm whitespace-nowrap shadow-lg">
+                  <button onClick={() => handleEmailSubmit()} className="bg-[#b8973b] text-[#0f3d2e] font-bold px-6 py-3 rounded-lg hover:bg-[#d4b85c] transition-colors text-sm whitespace-nowrap shadow-lg">
                     Send PDF
                   </button>
                 </div>
@@ -961,7 +961,7 @@ export default function ReportPage() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="(555) 555-5555 — optional"
-                    className="w-full rounded-lg border border-white/20 bg-white/10 text-white placeholder-gray-500 px-4 py-2.5 text-sm focus:border-[#c9a84c]/60 focus:ring-1 focus:ring-[#c9a84c]/40 outline-none"
+                    className="w-full rounded-lg border border-white/20 bg-white/10 text-white placeholder-gray-500 px-4 py-2.5 text-sm focus:border-[#b8973b]/60 focus:ring-1 focus:ring-[#b8973b]/40 outline-none"
                   />
                   <p className="text-xs text-gray-500 mt-1">For SMS updates on your analysis. We never share your number.</p>
                 </div>
@@ -978,7 +978,7 @@ export default function ReportPage() {
       )}
 
       {/* Header — wraps onto two rows on phones so buttons don't collide with the title */}
-      <div className="bg-[#1f6e43] text-white">
+      <div className="bg-[#0f3d2e] text-white">
         <div className="max-w-6xl mx-auto px-4 py-5 sm:py-6">
           <div className="flex items-start sm:items-center justify-between gap-3 flex-wrap">
             <div className="min-w-0">
@@ -990,14 +990,14 @@ export default function ReportPage() {
                 <h1 className="text-xl sm:text-2xl font-bold">MedContractIntel<sup style={{ fontSize: "0.5em", verticalAlign: "super" }}>™</sup></h1>
               </div>
               {data.employerType && data.employerType !== "Unknown" && (
-                <p className="text-[#c9a84c] font-medium mt-1 text-sm sm:text-base truncate">Analysis: {data.employerType} Contract</p>
+                <p className="text-[#b8973b] font-medium mt-1 text-sm sm:text-base truncate">Analysis: {data.employerType} Contract</p>
               )}
             </div>
             <div className="flex items-center gap-2 no-print w-full sm:w-auto">
               <button onClick={() => window.print()} className="flex items-center justify-center gap-2 border border-white/30 text-white font-medium px-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-sm flex-1 sm:flex-initial">
                 <Printer className="h-4 w-4" /> Print
               </button>
-              <button onClick={downloadPDF} className="flex items-center justify-center gap-2 bg-[#c9a84c] text-[#1f6e43] font-semibold px-4 py-2 rounded-lg hover:bg-[#d4b85c] transition-colors flex-1 sm:flex-initial">
+              <button onClick={downloadPDF} className="flex items-center justify-center gap-2 bg-[#b8973b] text-[#0f3d2e] font-semibold px-4 py-2 rounded-lg hover:bg-[#d4b85c] transition-colors flex-1 sm:flex-initial">
                 <Download className="h-4 w-4" /> <span className="whitespace-nowrap">Download PDF</span>
               </button>
             </div>
@@ -1026,7 +1026,7 @@ export default function ReportPage() {
                 onClick={() => { scrollToSection(sId); setMobileNavOpen(false); }}
                 className={`block w-full text-left text-sm px-4 py-2.5 transition-colors ${
                   activeSection === sId
-                    ? "bg-[#1f6e43] text-white font-medium"
+                    ? "bg-[#0f3d2e] text-white font-medium"
                     : "text-gray-600 hover:bg-gray-50"
                 }`}
               >
@@ -1050,7 +1050,7 @@ export default function ReportPage() {
                   onClick={() => scrollToSection(sId)}
                   className={`block w-full text-left text-sm px-3 py-1.5 rounded-lg transition-colors ${
                     activeSection === sId
-                      ? "bg-[#1f6e43] text-white font-medium"
+                      ? "bg-[#0f3d2e] text-white font-medium"
                       : "text-gray-500 hover:text-gray-800 hover:bg-gray-100"
                   }`}
                 >
@@ -1100,10 +1100,10 @@ export default function ReportPage() {
             const p0Name = p0?.clause ?? p0?.clauseName ?? p0?.name ?? p0?.issue ?? "Review your contract";
             const p0Desc = p0?.rationale ?? p0?.reason ?? p0?.description ?? p0?.financialImpact ?? "";
             return (
-            <div id="priority-card" className="bg-white rounded-xl shadow-md border-l-4 border-[#c9a84c] p-4 sm:p-6 print-section scroll-mt-24">
+            <div id="priority-card" className="bg-white rounded-xl shadow-md border-l-4 border-[#b8973b] p-4 sm:p-6 print-section scroll-mt-24">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
-                  <p className="text-[#c9a84c] text-sm font-semibold uppercase tracking-wide mb-1">
+                  <p className="text-[#b8973b] text-sm font-semibold uppercase tracking-wide mb-1">
                     Your #1 Negotiation Priority
                   </p>
                   <h3 className="text-lg font-bold text-gray-800 mb-2">{p0Name}</h3>
@@ -1112,7 +1112,7 @@ export default function ReportPage() {
               </div>
               <button
                 onClick={() => scrollToSection("negotiation-priorities")}
-                className="mt-3 text-sm text-[#1f6e43] font-medium hover:underline flex items-center gap-1 no-print"
+                className="mt-3 text-sm text-[#0f3d2e] font-medium hover:underline flex items-center gap-1 no-print"
               >
                 See full negotiation strategy <ChevronDown className="h-3 w-3" />
               </button>
@@ -1173,15 +1173,15 @@ export default function ReportPage() {
 
           {/* UPSELL: RVU Playbook — RVU-based contracts only */}
           {result.compensation?.rvu?.multiplier > 0 && result.compensation?.rvu?.rvuType !== "NOT_APPLICABLE" && (
-          <div className="no-print bg-gradient-to-r from-[#1f6e43] to-[#0f4c75] rounded-xl p-4 sm:p-5 text-white">
+          <div className="no-print bg-gradient-to-r from-[#0f3d2e] to-[#0f3d2e] rounded-xl p-4 sm:p-5 text-white">
             <div className="flex flex-col sm:flex-row sm:items-center gap-3">
               <div className="flex-1">
-                <p className="text-xs font-semibold uppercase tracking-wider text-[#c9a84c] mb-1">Maximize your RVU income</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#b8973b] mb-1">Maximize your RVU income</p>
                 <h3 className="font-bold text-white text-base">IM wRVU Playbook</h3>
                 <p className="text-sm text-gray-300 mt-1">Learn how to negotiate your conversion factor, spot APC haircut clauses, and track your production. The guide your employer doesn't want you to have.</p>
               </div>
               <a href="https://buy.stripe.com/8x2bJ3550cAMdFb0hT3ZK06" target="_blank" rel="noopener noreferrer"
-                className="flex-shrink-0 self-start sm:self-center bg-[#c9a84c] hover:bg-[#b8973b] text-[#1f6e43] font-bold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap">
+                className="flex-shrink-0 self-start sm:self-center bg-[#b8973b] hover:bg-[#b8973b] text-[#0f3d2e] font-bold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap">
                 Get it — $67
               </a>
             </div>
@@ -1243,8 +1243,8 @@ export default function ReportPage() {
             <h2 className="text-lg font-bold text-gray-800 mb-4">Recommended Negotiation Approach</h2>
             {naStrategy && <p className="text-sm text-gray-700 mb-4">{naStrategy}</p>}
             {naOpening && (
-              <div className="bg-[#fdf8ed] border border-[#c9a84c]/30 rounded-lg p-4 mb-4">
-                <p className="text-sm font-semibold text-[#1f6e43] mb-1">Opening Move</p>
+              <div className="bg-[#fdf8ed] border border-[#b8973b]/30 rounded-lg p-4 mb-4">
+                <p className="text-sm font-semibold text-[#0f3d2e] mb-1">Opening Move</p>
                 <p className="text-sm text-gray-700">{naOpening}</p>
               </div>
             )}
@@ -1254,7 +1254,7 @@ export default function ReportPage() {
                 <ul className="space-y-1">
                   {naPrinciples.map((p: any, i: number) => (
                     <li key={i} className="text-sm text-gray-600 flex items-start gap-2">
-                      <span className="text-[#c9a84c]">-</span> {typeof p === "object" ? JSON.stringify(p) : p}
+                      <span className="text-[#b8973b]">-</span> {typeof p === "object" ? JSON.stringify(p) : p}
                     </li>
                   ))}
                 </ul>
@@ -1266,7 +1266,7 @@ export default function ReportPage() {
                 <div className="space-y-2">
                   {naSteps.map((step: any, i: number) => (
                     <div key={i} className="flex gap-3 bg-gray-50 rounded-lg p-3">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1f6e43] text-white text-xs font-bold flex items-center justify-center">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0f3d2e] text-white text-xs font-bold flex items-center justify-center">
                         {typeof step === "object" ? (step?.step ?? i + 1) : i + 1}
                       </div>
                       <div>
@@ -1293,7 +1293,7 @@ export default function ReportPage() {
                 <ul className="space-y-1">
                   {naPrioritizedAsks.map((ask: any, i: number) => (
                     <li key={i} className="text-sm text-gray-600 flex items-start gap-2">
-                      <span className="text-[#c9a84c] font-bold">{i + 1}.</span> {typeof ask === "object" ? (ask?.ask ?? ask?.item ?? ask?.description ?? JSON.stringify(ask)) : ask}
+                      <span className="text-[#b8973b] font-bold">{i + 1}.</span> {typeof ask === "object" ? (ask?.ask ?? ask?.item ?? ask?.description ?? JSON.stringify(ask)) : ask}
                     </li>
                   ))}
                 </ul>
@@ -1307,15 +1307,15 @@ export default function ReportPage() {
           {(result.billingProvisions || result.clauseAnalysis?.some((c: any) =>
             /billing|coding|rvu|collections|revenue/i.test(c?.clauseName ?? c?.name ?? "")
           )) && (
-          <div className="no-print bg-white border border-[#0f4c75] rounded-xl p-4 sm:p-5">
+          <div className="no-print bg-white border border-[#0f3d2e] rounded-xl p-4 sm:p-5">
             <div className="flex flex-col sm:flex-row sm:items-center gap-3">
               <div className="flex-1">
-                <p className="text-xs font-semibold uppercase tracking-wider text-[#0f4c75] mb-1">Know what you're actually billing</p>
-                <h3 className="font-bold text-[#1f6e43] text-base">Hospitalist Shift Economics</h3>
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#0f3d2e] mb-1">Know what you're actually billing</p>
+                <h3 className="font-bold text-[#0f3d2e] text-base">Hospitalist Shift Economics</h3>
                 <p className="text-sm text-gray-600 mt-1">Decode hospitalist shift economics — shift rate vs. encounters, admit fees, nocturnist differential, and observation billing — before you sign.</p>
               </div>
               <a href="https://buy.stripe.com/eVqdRb694cAM7gN9St3ZK05" target="_blank" rel="noopener noreferrer"
-                className="flex-shrink-0 self-start sm:self-center bg-[#0f4c75] hover:bg-[#155858] text-white font-bold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap">
+                className="flex-shrink-0 self-start sm:self-center bg-[#0f3d2e] hover:bg-[#155858] text-white font-bold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap">
                 Get it — $47
               </a>
             </div>
@@ -1373,15 +1373,15 @@ export default function ReportPage() {
 
           {/* UPSELL: Negotiation Script Pack — shown when priorities exist */}
           {priorities.length > 0 && (
-          <div className="no-print bg-[#1f6e43] rounded-xl p-4 sm:p-5 text-white">
+          <div className="no-print bg-[#0f3d2e] rounded-xl p-4 sm:p-5 text-white">
             <div className="flex flex-col sm:flex-row sm:items-center gap-3">
               <div className="flex-1">
-                <p className="text-xs font-semibold uppercase tracking-wider text-[#c9a84c] mb-1">Take these priorities to the table</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#b8973b] mb-1">Take these priorities to the table</p>
                 <h3 className="font-bold text-white text-base">IM & Hospitalist Negotiation Script Pack</h3>
                 <p className="text-sm text-gray-300 mt-1">Word-for-word scripts for every scenario your analysis flagged — compensation, non-compete, tail coverage, and more. Tested by internal medicine and hospitalist physicians.</p>
               </div>
               <a href="https://buy.stripe.com/28E14pdBw8kw7gN0hT3ZK07" target="_blank" rel="noopener noreferrer"
-                className="flex-shrink-0 self-start sm:self-center bg-[#c9a84c] hover:bg-[#b8973b] text-[#1f6e43] font-bold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap">
+                className="flex-shrink-0 self-start sm:self-center bg-[#b8973b] hover:bg-[#b8973b] text-[#0f3d2e] font-bold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap">
                 Get it — $197
               </a>
             </div>
@@ -1392,7 +1392,7 @@ export default function ReportPage() {
           <SectionErrorBoundary fallbackTitle="Counter-Proposal">
           <div id="counter-proposal" className="bg-white rounded-xl shadow-md p-4 sm:p-6 print-section scroll-mt-24">
             <div className="flex items-center gap-3 mb-2">
-              <FileText className="h-5 w-5 text-[#c9a84c]" />
+              <FileText className="h-5 w-5 text-[#b8973b]" />
               <h2 className="text-lg font-bold text-gray-800">Generate Counter-Proposal Letter</h2>
             </div>
             <p className="text-sm text-gray-500 mb-4">
@@ -1408,7 +1408,7 @@ export default function ReportPage() {
                     <button
                       onClick={() => setCounterPurpose("new_contract")}
                       className={`flex-1 py-3 px-3 rounded-lg text-sm font-medium border transition-colors text-left ${
-                        counterPurpose === "new_contract" ? "bg-[#1f6e43] text-white border-[#1f6e43]" : "bg-white text-gray-600 border-gray-300 hover:border-gray-400"
+                        counterPurpose === "new_contract" ? "bg-[#0f3d2e] text-white border-[#0f3d2e]" : "bg-white text-gray-600 border-gray-300 hover:border-gray-400"
                       }`}
                     >
                       <span className="block font-semibold">New Contract</span>
@@ -1417,7 +1417,7 @@ export default function ReportPage() {
                     <button
                       onClick={() => setCounterPurpose("renegotiation")}
                       className={`flex-1 py-3 px-3 rounded-lg text-sm font-medium border transition-colors text-left ${
-                        counterPurpose === "renegotiation" ? "bg-[#1f6e43] text-white border-[#1f6e43]" : "bg-white text-gray-600 border-gray-300 hover:border-gray-400"
+                        counterPurpose === "renegotiation" ? "bg-[#0f3d2e] text-white border-[#0f3d2e]" : "bg-white text-gray-600 border-gray-300 hover:border-gray-400"
                       }`}
                     >
                       <span className="block font-semibold">Renegotiation</span>
@@ -1433,7 +1433,7 @@ export default function ReportPage() {
                     <button
                       onClick={() => setCounterTone("collaborative")}
                       className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium border transition-colors ${
-                        counterTone === "collaborative" ? "bg-[#1f6e43] text-white border-[#1f6e43]" : "bg-white text-gray-600 border-gray-300 hover:border-gray-400"
+                        counterTone === "collaborative" ? "bg-[#0f3d2e] text-white border-[#0f3d2e]" : "bg-white text-gray-600 border-gray-300 hover:border-gray-400"
                       }`}
                     >
                       Collaborative
@@ -1441,7 +1441,7 @@ export default function ReportPage() {
                     <button
                       onClick={() => setCounterTone("firm")}
                       className={`flex-1 py-2 px-3 rounded-lg text-sm font-medium border transition-colors ${
-                        counterTone === "firm" ? "bg-[#1f6e43] text-white border-[#1f6e43]" : "bg-white text-gray-600 border-gray-300 hover:border-gray-400"
+                        counterTone === "firm" ? "bg-[#0f3d2e] text-white border-[#0f3d2e]" : "bg-white text-gray-600 border-gray-300 hover:border-gray-400"
                       }`}
                     >
                       Firm
@@ -1464,13 +1464,13 @@ export default function ReportPage() {
                           type="date"
                           value={contractStartDate}
                           onChange={(e) => setContractStartDate(e.target.value)}
-                          className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mb-2 focus:outline-none focus:ring-2 focus:ring-[#c9a84c]"
+                          className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mb-2 focus:outline-none focus:ring-2 focus:ring-[#b8973b]"
                         />
                         <div className="flex gap-2">
                           <button
                             onClick={() => setStartDateConfirmed(true)}
                             disabled={!contractStartDate}
-                            className="px-4 py-1.5 rounded-lg text-xs font-medium bg-[#1f6e43] text-white hover:bg-[#1a2d5a] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                            className="px-4 py-1.5 rounded-lg text-xs font-medium bg-[#0f3d2e] text-white hover:bg-[#0f3d2e] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                           >
                             Confirm Date
                           </button>
@@ -1540,7 +1540,7 @@ export default function ReportPage() {
                                       if (next.has(p._idx)) next.delete(p._idx); else next.add(p._idx);
                                       setSelectedPriorities(next);
                                     }}
-                                    className="rounded border-gray-300 text-[#1f6e43] focus:ring-[#1f6e43]"
+                                    className="rounded border-gray-300 text-[#0f3d2e] focus:ring-[#0f3d2e]"
                                   />
                                   #{p._idx + 1}: {pName}
                                 </label>
@@ -1593,11 +1593,11 @@ export default function ReportPage() {
                 <button
                   onClick={generateCounterProposal}
                   disabled={counterLoading || (selectedPriorities.size === 0 && expiredIncluded.size === 0)}
-                  className="w-full bg-[#c9a84c] text-[#1f6e43] font-semibold py-3 rounded-lg hover:bg-[#d4b85c] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-[#b8973b] text-[#0f3d2e] font-semibold py-3 rounded-lg hover:bg-[#d4b85c] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {counterLoading ? (
                     <>
-                      <div className="h-4 w-4 rounded-full border-2 border-[#1f6e43] border-t-transparent animate-spin" />
+                      <div className="h-4 w-4 rounded-full border-2 border-[#0f3d2e] border-t-transparent animate-spin" />
                       Generating letter...
                     </>
                   ) : (
@@ -1624,7 +1624,7 @@ export default function ReportPage() {
                     <a
                       href={`/api/analyze/${id}/letter.docx`}
                       download={`Counter-Proposal-Letter-${id}.docx`}
-                      className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium text-[#1f6e43] bg-[#c9a84c]/20 hover:bg-[#c9a84c]/40"
+                      className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium text-[#0f3d2e] bg-[#b8973b]/20 hover:bg-[#b8973b]/40"
                     >
                       Download .docx
                     </a>
@@ -1643,7 +1643,7 @@ export default function ReportPage() {
                         <button
                           onClick={sendLetterEmail}
                           disabled={letterEmailSending}
-                          className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium text-[#1f6e43] bg-[#c9a84c]/20 hover:bg-[#c9a84c]/40 disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium text-[#0f3d2e] bg-[#b8973b]/20 hover:bg-[#b8973b]/40 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           {letterEmailSending ? "Sending…" : "Send to my email"}
                         </button>
@@ -1669,7 +1669,7 @@ export default function ReportPage() {
               className="w-full flex items-center justify-between"
             >
               <div className="flex items-center gap-3">
-                <MessageCircle className="h-5 w-5 text-[#2b8ac9]" />
+                <MessageCircle className="h-5 w-5 text-[#1a9090]" />
                 <div className="text-left">
                   <h2 className="text-lg font-bold text-gray-800">Ask a Question About Your Contract</h2>
                   <p className="text-sm text-gray-500">Get instant answers about specific clauses, terms, or concerns</p>
@@ -1712,7 +1712,7 @@ export default function ReportPage() {
                     <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                       <div className={`max-w-[85%] rounded-lg px-4 py-3 text-sm ${
                         msg.role === "user"
-                          ? "bg-[#1f6e43] text-white"
+                          ? "bg-[#0f3d2e] text-white"
                           : "bg-gray-100 text-gray-800"
                       }`}>
                         {msg.role === "assistant" ? (
@@ -1760,12 +1760,12 @@ export default function ReportPage() {
                       }}
                       placeholder="Ask about your contract..."
                       rows={1}
-                      className="flex-1 rounded-lg border border-gray-300 px-4 py-2.5 text-base sm:text-sm focus:border-[#2b8ac9] focus:ring-1 focus:ring-[#2b8ac9] outline-none resize-none"
+                      className="flex-1 rounded-lg border border-gray-300 px-4 py-2.5 text-base sm:text-sm focus:border-[#1a9090] focus:ring-1 focus:ring-[#1a9090] outline-none resize-none"
                     />
                     <button
                       onClick={sendChatMessage}
                       disabled={chatLoading || !chatInput.trim()}
-                      className="bg-[#2b8ac9] text-white px-4 py-2.5 rounded-lg hover:bg-[#28b0a3] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex-shrink-0"
+                      className="bg-[#1a9090] text-white px-4 py-2.5 rounded-lg hover:bg-[#28b0a3] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex-shrink-0"
                     >
                       <Send className="h-4 w-4" />
                     </button>
@@ -1785,7 +1785,7 @@ export default function ReportPage() {
                   <div className="mt-4 pt-4 border-t border-gray-100">
                     <button
                       onClick={downloadPDF}
-                      className="w-full flex items-center justify-center gap-2 bg-[#1f6e43] text-white text-sm font-semibold py-2.5 px-4 rounded-lg hover:bg-[#1a2d5a] transition-colors"
+                      className="w-full flex items-center justify-center gap-2 bg-[#0f3d2e] text-white text-sm font-semibold py-2.5 px-4 rounded-lg hover:bg-[#0f3d2e] transition-colors"
                     >
                       <Download className="h-4 w-4" />
                       Download Complete Report (with Q&amp;A)
@@ -1796,7 +1796,7 @@ export default function ReportPage() {
                       <a
                         href={`/api/analyze/${id}/qa.txt`}
                         download={`MedContract-QA-${id}.txt`}
-                        className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded text-xs font-medium text-[#1f6e43] bg-gray-100 hover:bg-gray-200"
+                        className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded text-xs font-medium text-[#0f3d2e] bg-gray-100 hover:bg-gray-200"
                       >
                         Download Q&amp;A (.txt)
                       </a>
@@ -1809,7 +1809,7 @@ export default function ReportPage() {
                           <button
                             onClick={sendQaEmail}
                             disabled={qaEmailSending}
-                            className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded text-xs font-medium text-[#1f6e43] bg-[#c9a84c]/20 hover:bg-[#c9a84c]/40 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded text-xs font-medium text-[#0f3d2e] bg-[#b8973b]/20 hover:bg-[#b8973b]/40 disabled:opacity-50 disabled:cursor-not-allowed"
                           >
                             {qaEmailSending ? "Sending Q&A…" : "Email Q&A Transcript"}
                           </button>
@@ -1817,7 +1817,7 @@ export default function ReportPage() {
                       ) : (
                         <button
                           onClick={() => setShowEmailModal(true)}
-                          className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded text-xs font-medium text-[#1f6e43] bg-[#c9a84c]/20 hover:bg-[#c9a84c]/40"
+                          className="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded text-xs font-medium text-[#0f3d2e] bg-[#b8973b]/20 hover:bg-[#b8973b]/40"
                         >
                           Add email to send Q&amp;A
                         </button>
@@ -1834,25 +1834,25 @@ export default function ReportPage() {
           </div>
 
           {/* WHAT TO DO NEXT */}
-          <div className="bg-gradient-to-r from-[#1f6e43] to-[#1a2d5a] rounded-xl p-6 text-white print-section">
+          <div className="bg-gradient-to-r from-[#0f3d2e] to-[#0f3d2e] rounded-xl p-6 text-white print-section">
             <h2 className="text-lg font-bold mb-4">What To Do Next</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="flex gap-3">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#c9a84c] text-[#1f6e43] text-sm font-bold flex items-center justify-center">1</div>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#b8973b] text-[#0f3d2e] text-sm font-bold flex items-center justify-center">1</div>
                 <div>
                   <p className="font-semibold text-sm">Download your report</p>
                   <p className="text-xs text-gray-300 mt-0.5">Save the PDF for your records and share with a trusted colleague.</p>
                 </div>
               </div>
               <div className="flex gap-3">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#c9a84c] text-[#1f6e43] text-sm font-bold flex items-center justify-center">2</div>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#b8973b] text-[#0f3d2e] text-sm font-bold flex items-center justify-center">2</div>
                 <div>
                   <p className="font-semibold text-sm">Generate your counter-proposal</p>
                   <p className="text-xs text-gray-300 mt-0.5">Use the letter generator above to draft your response.</p>
                 </div>
               </div>
               <div className="flex gap-3">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#c9a84c] text-[#1f6e43] text-sm font-bold flex items-center justify-center">3</div>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#b8973b] text-[#0f3d2e] text-sm font-bold flex items-center justify-center">3</div>
                 <div>
                   <p className="font-semibold text-sm">Consult an attorney if needed</p>
                   <p className="text-xs text-gray-300 mt-0.5">For high-risk contracts, have a healthcare attorney review before signing.</p>
@@ -1862,7 +1862,7 @@ export default function ReportPage() {
           </div>
 
           {/* ATTORNEY REFERRAL */}
-          <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-t-4 border-[#1f6e43] print-section">
+          <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 border-t-4 border-[#0f3d2e] print-section">
             <h2 className="text-lg font-bold text-gray-800 mb-3">When to Consult an Attorney</h2>
             <p className="text-sm text-gray-600 mb-4">
               This tool identifies financial and structural risks. It does not provide legal advice and cannot replace an attorney for high-stakes negotiations.
@@ -1877,12 +1877,12 @@ export default function ReportPage() {
             <p className="text-sm font-medium text-gray-700 mb-2">To find a healthcare attorney in your state:</p>
             <ul className="space-y-1 mb-4">
               <li>
-                <a href="https://www.americanbar.org/groups/health_law/" target="_blank" rel="noopener noreferrer" className="text-sm text-[#1f6e43] hover:underline flex items-center gap-2">
+                <a href="https://www.americanbar.org/groups/health_law/" target="_blank" rel="noopener noreferrer" className="text-sm text-[#0f3d2e] hover:underline flex items-center gap-2">
                   <ExternalLink className="h-3 w-3 flex-shrink-0" /> State Bar Physician Health Law Directory (ABA)
                 </a>
               </li>
               <li>
-                <a href="https://www.healthlawyers.org/Pages/Find-a-Health-Lawyer.aspx" target="_blank" rel="noopener noreferrer" className="text-sm text-[#1f6e43] hover:underline flex items-center gap-2">
+                <a href="https://www.healthlawyers.org/Pages/Find-a-Health-Lawyer.aspx" target="_blank" rel="noopener noreferrer" className="text-sm text-[#0f3d2e] hover:underline flex items-center gap-2">
                   <ExternalLink className="h-3 w-3 flex-shrink-0" /> American Health Lawyers Association Member Directory
                 </a>
               </li>
@@ -1893,15 +1893,15 @@ export default function ReportPage() {
           </div>
 
           {/* UPSELL: PDF Bundle — always shown at bottom of every report */}
-          <div className="no-print bg-gradient-to-br from-[#1f6e43] via-[#1a3a5c] to-[#1f6e43] rounded-xl p-5 sm:p-6 text-white border border-[#c9a84c]/30">
+          <div className="no-print bg-gradient-to-br from-[#0f3d2e] via-[#0f3d2e] to-[#0f3d2e] rounded-xl p-5 sm:p-6 text-white border border-[#b8973b]/30">
             <div className="text-center mb-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#c9a84c] mb-1">Complete your negotiation toolkit</p>
-              <h3 className="font-bold text-white text-lg">Get All 3 PDFs — $247 <span className="text-[#c9a84c] line-through text-sm font-normal ml-1">$311</span></h3>
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#b8973b] mb-1">Complete your negotiation toolkit</p>
+              <h3 className="font-bold text-white text-lg">Get All 3 PDFs — $247 <span className="text-[#b8973b] line-through text-sm font-normal ml-1">$311</span></h3>
               <p className="text-sm text-gray-300 mt-1">Hospitalist Shift Economics + IM wRVU Playbook + Negotiation Script Pack. Save $64.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2 justify-center">
               <a href="https://buy.stripe.com/6oU28tbtofMY8kR1lX3ZK08" target="_blank" rel="noopener noreferrer"
-                className="bg-[#c9a84c] hover:bg-[#b8973b] text-[#1f6e43] font-bold px-6 py-3 rounded-lg text-sm transition-colors text-center">
+                className="bg-[#b8973b] hover:bg-[#b8973b] text-[#0f3d2e] font-bold px-6 py-3 rounded-lg text-sm transition-colors text-center">
                 Get the Bundle — $247
               </a>
             </div>

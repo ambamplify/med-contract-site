@@ -1,24 +1,27 @@
 /** @type {import('tailwindcss').Config} */
-// MedContractIntel brand tokens. Source of truth: /Users/ambamplify/MedContractIntel/med-contract-ops/state/brand-palette.md
+// MedContractIntel brand tokens v2. Source of truth: /Users/ambamplify/MedContractIntel/med-contract-ops/state/brand-palette.md
+// v2 (2026-04-23): removed all blue; dark-green primary, dark-gold secondary, teal accent.
 export default {
   content: ["./client/**/*.{html,tsx,ts}"],
   theme: {
     extend: {
       colors: {
-        // Primary — Medical Green
+        // Primary — Deep Forest Green (dark-green per owner directive)
         brand: {
-          DEFAULT: "#1f6e43",
-          dark: "#154d2f",
+          DEFAULT: "#0f3d2e",
+          dark: "#0a2d20",
+          mid: "#1f6e43",
         },
-        // Secondary — Insight Gold (shared with EMCI)
+        // Secondary — Heritage Dark Gold
         gold: {
-          DEFAULT: "#c9a84c",
-          dark: "#a58838",
+          DEFAULT: "#b8973b",
+          bright: "#c9a84c",
+          dark: "#8f7020",
         },
-        // Trust Accent — Clinical Blue
-        trust: {
-          DEFAULT: "#0f4c75",
-          light: "#2b8ac9",
+        // Accent — Teal (replaces all blue)
+        teal: {
+          DEFAULT: "#1a9090",
+          light: "#25b0a3",
         },
         // Warm Cream background
         cream: "#faf7f0",

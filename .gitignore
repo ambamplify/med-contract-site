@@ -6,3 +6,6 @@ dist/
 *.db-wal
 .DS_Store
 # server/pdfs/*.pdf — PDFs must be tracked so Railway container receives them at deploy
+
+# Logo v1 backups from 2026-04-23 palette migration — kept locally, not committed
+*.v1.bak

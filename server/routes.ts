@@ -820,23 +820,23 @@ Draft the ${isRenegotiation ? "renegotiation request" : "counter-proposal"} comm
         const isUser = m.role === "user";
         return `
           <div style="margin:0 0 1.25rem; padding:0 0 1rem; border-bottom:1px solid #e5e7eb;">
-            <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:${isUser ? "#1f6e43" : "#c9a84c"}; margin:0 0 0.5rem;">${isUser ? "Question" : "MedContractIntel"}</p>
-            <p style="color:${isUser ? "#1f6e43" : "#374151"}; font-size:0.9375rem; line-height:1.6; margin:0; ${isUser ? "font-weight:600;" : ""}">${escape(m.content)}</p>
+            <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:${isUser ? "#0f3d2e" : "#b8973b"}; margin:0 0 0.5rem;">${isUser ? "Question" : "MedContractIntel"}</p>
+            <p style="color:${isUser ? "#0f3d2e" : "#374151"}; font-size:0.9375rem; line-height:1.6; margin:0; ${isUser ? "font-weight:600;" : ""}">${escape(m.content)}</p>
           </div>`;
       }).join("");
       const html = `
         <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; max-width:640px; margin:0 auto; padding:2rem 1rem; color:#1f2937; background:#f9fafb;">
-          <div style="background:#1f6e43; border-radius:12px 12px 0 0; padding:1.5rem 2rem; text-align:center;">
-            <p style="color:#c9a84c; font-size:0.7rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; margin:0 0 0.4rem;">MedContractIntel</p>
+          <div style="background:#0f3d2e; border-radius:12px 12px 0 0; padding:1.5rem 2rem; text-align:center;">
+            <p style="color:#b8973b; font-size:0.7rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; margin:0 0 0.4rem;">MedContractIntel</p>
             <p style="color:rgba(255,255,255,0.5); font-size:0.75rem; margin:0;">Your Contract Q&amp;A Transcript</p>
           </div>
           <div style="background:#ffffff; padding:2rem; border:1px solid #e5e7eb;">
-            <p style="color:#1f6e43; font-size:1rem; margin:0 0 1.25rem;">Below is your full Q&amp;A session for analysis #${id}.</p>
+            <p style="color:#0f3d2e; font-size:1rem; margin:0 0 1.25rem;">Below is your full Q&amp;A session for analysis #${id}.</p>
             ${qaHtmlBody}
             <p style="color:#9ca3af; font-size:0.75rem; line-height:1.5; margin:1.5rem 0 0;">This is educational analysis, not legal advice. Consult a healthcare attorney before making contract decisions.</p>
           </div>
-          <div style="background:#1f6e43; border-radius:0 0 12px 12px; padding:1rem 2rem; text-align:center;">
-            <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; margin:0;">MedContractIntel · <a href="mailto:service@medcontractintel.com" style="color:#2b8ac9; text-decoration:none;">service@medcontractintel.com</a></p>
+          <div style="background:#0f3d2e; border-radius:0 0 12px 12px; padding:1rem 2rem; text-align:center;">
+            <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; margin:0;">MedContractIntel · <a href="mailto:service@medcontractintel.com" style="color:#1a9090; text-decoration:none;">service@medcontractintel.com</a></p>
           </div>
         </div>`;
       const result = await sendEmail({
@@ -1423,18 +1423,18 @@ function buildCalculatorResultsEmail(results: Record<string, any>): string {
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9fafb;padding:2rem 1rem;">
     <tr><td align="center">
       <table width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
-        <tr><td style="background:#1f6e43;border-radius:12px 12px 0 0;padding:1.5rem 2rem;text-align:center;">
-          <p style="color:#c9a84c;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin:0 0 0.25rem;">MedContractIntel™</p>
+        <tr><td style="background:#0f3d2e;border-radius:12px 12px 0 0;padding:1.5rem 2rem;text-align:center;">
+          <p style="color:#b8973b;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin:0 0 0.25rem;">MedContractIntel™</p>
           <p style="color:rgba(255,255,255,0.5);font-size:0.7rem;margin:0;">DATA · LEVERAGE · FAIR PAY</p>
         </td></tr>
         <tr><td style="background:#ffffff;padding:2rem;border-left:1px solid #e5e7eb;border-right:1px solid #e5e7eb;">
-          <p style="color:#1f6e43;font-size:1.125rem;font-weight:700;margin:0 0 1rem;">Your MedContractIntel Calculator Results</p>
+          <p style="color:#0f3d2e;font-size:1.125rem;font-weight:700;margin:0 0 1rem;">Your MedContractIntel Calculator Results</p>
           <p style="color:#374151;font-size:0.9375rem;margin:0 0 1.5rem;line-height:1.6;">Here's a summary of your numbers:</p>
 
           <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9fafb;border-radius:8px;border:1px solid #e5e7eb;margin-bottom:1.5rem;">
             ${effectiveHourly ? `<tr><td style="padding:0.875rem 1rem;border-bottom:1px solid #e5e7eb;">
               <span style="color:#6b7280;font-size:0.8125rem;">Effective Hourly Rate</span><br>
-              <span style="color:#1f6e43;font-weight:700;font-size:1rem;">${fmt(effectiveHourly)}</span>
+              <span style="color:#0f3d2e;font-weight:700;font-size:1rem;">${fmt(effectiveHourly)}</span>
             </td></tr>` : ""}
             ${gapVsMedian ? `<tr><td style="padding:0.875rem 1rem;border-bottom:1px solid #e5e7eb;">
               <span style="color:#6b7280;font-size:0.8125rem;">Gap vs. Market Median</span><br>
@@ -1442,14 +1442,14 @@ function buildCalculatorResultsEmail(results: Record<string, any>): string {
             </td></tr>` : ""}
             ${groupRevenue ? `<tr><td style="padding:0.875rem 1rem;">
               <span style="color:#6b7280;font-size:0.8125rem;">Estimated Group RVU Revenue</span><br>
-              <span style="color:#1f6e43;font-weight:700;font-size:1rem;">${fmt(groupRevenue)}</span>
+              <span style="color:#0f3d2e;font-weight:700;font-size:1rem;">${fmt(groupRevenue)}</span>
             </td></tr>` : ""}
           </table>
 
           <table cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:1.5rem;">
             <tr><td align="center">
               <a href="https://medcontractintel.com/analyzer"
-                 style="display:inline-block;background:#c9a84c;color:#1f6e43;font-weight:700;font-size:0.9375rem;padding:0.875rem 2rem;border-radius:8px;text-decoration:none;">
+                 style="display:inline-block;background:#b8973b;color:#0f3d2e;font-weight:700;font-size:0.9375rem;padding:0.875rem 2rem;border-radius:8px;text-decoration:none;">
                 Analyze My Contract — $97 →
               </a>
             </td></tr>
@@ -1462,9 +1462,9 @@ function buildCalculatorResultsEmail(results: Record<string, any>): string {
             Also check the <a href="https://medcontractintel.com/checklist" style="color:#1a9090;">Free Red Flag Checklist</a> — 15 clauses to verify before you sign.
           </p>
         </td></tr>
-        <tr><td style="background:#1f6e43;border-radius:0 0 12px 12px;padding:1.25rem 2rem;text-align:center;">
+        <tr><td style="background:#0f3d2e;border-radius:0 0 12px 12px;padding:1.25rem 2rem;text-align:center;">
           <p style="color:rgba(255,255,255,0.4);font-size:0.75rem;margin:0 0 0.25rem;">
-            MedContractIntel™ · <a href="mailto:service@medcontractintel.com" style="color:#2b8ac9;text-decoration:none;">service@medcontractintel.com</a>
+            MedContractIntel™ · <a href="mailto:service@medcontractintel.com" style="color:#1a9090;text-decoration:none;">service@medcontractintel.com</a>
           </p>
           <p style="color:rgba(255,255,255,0.25);font-size:0.7rem;margin:0;">Educational purposes only — not legal advice.</p>
         </td></tr>

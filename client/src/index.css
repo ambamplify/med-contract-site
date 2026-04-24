@@ -27,7 +27,7 @@ body {
   overflow-y: auto;
 }
 .section-nav::-webkit-scrollbar { width: 3px; }
-.section-nav::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 4px; }
+.section-nav::-webkit-scrollbar-thumb { background: #b8973b; border-radius: 4px; }
 
 /* Slide-up animation for email banner */
 @keyframes slideUp {
@@ -74,7 +74,7 @@ body {
   .bg-yellow-50 { background-color: #fefce8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
   /* Header prints clean */
-  .bg-\[\\#1f6e43\] { background-color: #1f6e43 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .bg-\[\\#0f3d2e\] { background-color: #0f3d2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
   /* Page margins */
   @page { margin: 0.75in; }

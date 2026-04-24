@@ -12,13 +12,16 @@ import re
 import tempfile
 from PIL import Image, ImageDraw, ImageFont
 
-# ── Colors ───────────────────────────────────────────────────────────────
-NAVY        = (15,  30,  61)   # #1f6e43
-NAVY_LIGHT  = (26,  39,  68)   # #1f6e43
-GOLD        = (201, 168,  76)  # #c9a84c
-TEAL        = (26,  144, 144)  # #1a9090
+# ── Colors (v2 palette — dark green + dark gold + teal, no blue) ─────────
+GREEN       = (15,  61,  46)   # #0f3d2e — primary deep forest
+GREEN_LIGHT = (31, 110, 67)    # #1f6e43 — primary-mid
+GOLD        = (184, 151, 59)   # #b8973b — heritage dark gold
+TEAL        = (26,  144, 144)  # #1a9090 — teal accent
 WHITE       = (255, 255, 255)
 WHITE70     = (255, 255, 255, 178)
+# Legacy aliases so existing call sites keep working
+NAVY        = GREEN
+NAVY_LIGHT  = GREEN_LIGHT
 
 W, H = 1280, 720
 BAR_H = 64
@@ -60,8 +63,8 @@ def load_font(path, size):
 
 # ── Approved brand hexagon image path ────────────────────────────────────
 BRAND_MARK_PATH = (
-    "/Users/ambamplify/Desktop/Claude Video productions/"
-    "em-contract-videos/public/brand_mark.png"
+    "/Users/ambamplify/MedContractIntel/med-contract-site/"
+    "public/assets/images/brand_mark.png"
 )
 
 # ── Main ──────────────────────────────────────────────────────────────────
@@ -116,5 +119,5 @@ def make_thumbnail(out_path):
     print(f"Saved thumbnail: {out_path} ({W}x{H})")
 
 if __name__ == "__main__":
-    out = "/Users/ambamplify/Desktop/med-contract-site/public/images/video-1-thumbnail.png"
+    out = "/Users/ambamplify/MedContractIntel/med-contract-site/public/images/video-1-thumbnail.png"
     make_thumbnail(out)

@@ -9,11 +9,13 @@ import tempfile
 import urllib.request
 from PIL import Image, ImageDraw, ImageFont
 
-# ── Colors ───────────────────────────────────────────────────────────────
-NAVY   = (15,  30,  61)   # #1f6e43
-GOLD   = (201, 168,  76)  # #c9a84c
-TEAL   = (26,  144, 144)  # #1a9090
+# ── Colors (v2 palette — dark green + dark gold + teal, no blue) ─────────
+GREEN  = (15,  61,  46)   # #0f3d2e — primary deep forest
+GOLD   = (184, 151, 59)   # #b8973b — heritage dark gold
+TEAL   = (26,  144, 144)  # #1a9090 — teal accent
 WHITE  = (255, 255, 255)
+# Legacy alias so existing call sites keep working
+NAVY   = GREEN
 
 W, H = 1200, 630
 
@@ -119,9 +121,9 @@ def make_og_image(out_path):
     # "Contract Intelligence for Internal Medicine & Hospitalist Physicians" — white/70%, 22px
     f_sub = load_font(regular_path, 22)
     sub_color = (255, 255, 255)  # use full white (Pillow RGB doesn't support alpha in text)
-    draw.text((TEXT_X, y), "Contract Intelligence for", font=f_sub, fill=(180, 190, 210))
+    draw.text((TEXT_X, y), "Contract Intelligence for", font=f_sub, fill=(220, 215, 200))
     y += 30
-    draw.text((TEXT_X, y), "Internal Medicine & Hospitalist Physicians", font=f_sub, fill=(180, 190, 210))
+    draw.text((TEXT_X, y), "Internal Medicine & Hospitalist Physicians", font=f_sub, fill=(220, 215, 200))
     y += 50
 
     # "medcontractintel.com" — teal, bottom right, 20px
@@ -135,5 +137,5 @@ def make_og_image(out_path):
     print(f"Saved OG image: {out_path} ({W}x{H})")
 
 if __name__ == "__main__":
-    out = "/Users/ambamplify/Desktop/med-contract-site/public/images/og-image.jpg"
+    out = "/Users/ambamplify/MedContractIntel/med-contract-site/public/images/og-image.jpg"
     make_og_image(out)
