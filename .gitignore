@@ -9,3 +9,4 @@ dist/
 
 # Logo v1 backups from 2026-04-23 palette migration — kept locally, not committed
 *.v1.bak
+_palette_preview.*

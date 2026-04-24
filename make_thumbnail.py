@@ -13,10 +13,10 @@ import tempfile
 from PIL import Image, ImageDraw, ImageFont
 
 # ── Colors (v2 palette — dark green + dark gold + teal, no blue) ─────────
-GREEN       = (15,  61,  46)   # #0f3d2e — primary deep forest
-GREEN_LIGHT = (31, 110, 67)    # #1f6e43 — primary-mid
-GOLD        = (184, 151, 59)   # #b8973b — heritage dark gold
-TEAL        = (26,  144, 144)  # #1a9090 — teal accent
+GREEN       = (15,  61,  46)   # #0a2d20 — primary deep forest
+GREEN_LIGHT = (31, 110, 67)    # #0a2d20 — primary-mid
+GOLD        = (184, 151, 59)   # #9c7e2e — heritage dark gold
+TEAL        = (26,  144, 144)  # #1db5b5 — teal accent
 WHITE       = (255, 255, 255)
 WHITE70     = (255, 255, 255, 178)
 # Legacy aliases so existing call sites keep working

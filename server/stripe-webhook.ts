@@ -647,26 +647,26 @@ function buildProductEmailHtml(firstName: string, productName: string, isBundle:
       <table width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
 
         <!-- Header -->
-        <tr><td style="background:#0f3d2e;border-radius:12px 12px 0 0;padding:1.5rem 2rem;text-align:center;">
-          <p style="color:#b8973b;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin:0 0 0.5rem;">MedContractIntel</p>
+        <tr><td style="background:#0a2d20;border-radius:12px 12px 0 0;padding:1.5rem 2rem;text-align:center;">
+          <p style="color:#9c7e2e;font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin:0 0 0.5rem;">MedContractIntel</p>
           <p style="color:rgba(255,255,255,0.5);font-size:0.75rem;margin:0;">DATA · LEVERAGE · FAIR PAY</p>
         </td></tr>
 
         <!-- Body -->
         <tr><td style="background:#ffffff;padding:2rem;border-left:1px solid #e5e7eb;border-right:1px solid #e5e7eb;">
-          <p style="color:#0f3d2e;font-size:1rem;margin:0 0 1rem;">Hi ${firstName},</p>
+          <p style="color:#0a2d20;font-size:1rem;margin:0 0 1rem;">Hi ${firstName},</p>
           <p style="color:#374151;font-size:0.9375rem;line-height:1.7;margin:0 0 1rem;">
             Thank you for your purchase. Your ${isBundle ? "guides are" : "guide is"} attached to this email as ${isBundle ? "PDF files" : "a PDF"}.
           </p>
           <p style="color:#374151;font-size:0.9375rem;line-height:1.7;margin:0 0 1.5rem;">
-            <strong style="color:#0f3d2e;">${productName}</strong> — open the ${isBundle ? "attachments" : "attachment"} below to get started.
+            <strong style="color:#0a2d20;">${productName}</strong> — open the ${isBundle ? "attachments" : "attachment"} below to get started.
           </p>
 
           <!-- CTA -->
           <table cellpadding="0" cellspacing="0" width="100%" style="margin:1.5rem 0;">
             <tr><td align="center">
               <a href="https://medcontractintel.com/analyzer"
-                 style="display:inline-block;background:#b8973b;color:#0f3d2e;font-weight:700;font-size:0.9375rem;padding:0.875rem 2rem;border-radius:8px;text-decoration:none;">
+                 style="display:inline-block;background:#9c7e2e;color:#0a2d20;font-weight:700;font-size:0.9375rem;padding:0.875rem 2rem;border-radius:8px;text-decoration:none;">
                 Analyze My Contract — $97 →
               </a>
             </td></tr>
@@ -678,9 +678,9 @@ function buildProductEmailHtml(firstName: string, productName: string, isBundle:
         </td></tr>
 
         <!-- Footer -->
-        <tr><td style="background:#0f3d2e;border-radius:0 0 12px 12px;padding:1.25rem 2rem;text-align:center;">
+        <tr><td style="background:#0a2d20;border-radius:0 0 12px 12px;padding:1.25rem 2rem;text-align:center;">
           <p style="color:rgba(255,255,255,0.4);font-size:0.75rem;margin:0 0 0.5rem;">
-            MedContractIntel · <a href="mailto:service@medcontractintel.com" style="color:#1a9090;text-decoration:none;">service@medcontractintel.com</a>
+            MedContractIntel · <a href="mailto:service@medcontractintel.com" style="color:#1db5b5;text-decoration:none;">service@medcontractintel.com</a>
           </p>
           <p style="color:rgba(255,255,255,0.25);font-size:0.7rem;margin:0;">
             This content is for educational purposes only and does not constitute legal advice.

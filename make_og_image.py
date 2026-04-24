@@ -10,9 +10,9 @@ import urllib.request
 from PIL import Image, ImageDraw, ImageFont
 
 # ── Colors (v2 palette — dark green + dark gold + teal, no blue) ─────────
-GREEN  = (15,  61,  46)   # #0f3d2e — primary deep forest
-GOLD   = (184, 151, 59)   # #b8973b — heritage dark gold
-TEAL   = (26,  144, 144)  # #1a9090 — teal accent
+GREEN  = (15,  61,  46)   # #0a2d20 — primary deep forest
+GOLD   = (184, 151, 59)   # #9c7e2e — heritage dark gold
+TEAL   = (26,  144, 144)  # #1db5b5 — teal accent
 WHITE  = (255, 255, 255)
 # Legacy alias so existing call sites keep working
 NAVY   = GREEN

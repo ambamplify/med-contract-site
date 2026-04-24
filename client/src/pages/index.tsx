@@ -78,7 +78,7 @@ const SelectField = ({ label, value, onChange, options, placeholder }: {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full appearance-none rounded-lg border border-gray-300 bg-white px-4 py-2.5 pr-10 text-base sm:text-sm focus:border-[#0f3d2e] focus:ring-1 focus:ring-[#0f3d2e] outline-none"
+        className="w-full appearance-none rounded-lg border border-gray-300 bg-white px-4 py-2.5 pr-10 text-base sm:text-sm focus:border-[#0a2d20] focus:ring-1 focus:ring-[#0a2d20] outline-none"
       >
         <option value="">{placeholder}</option>
         {options.map((o) => (
@@ -235,7 +235,7 @@ export default function IntakePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0f3d2e] to-[#0f3d2e]">
+    <div className="min-h-screen bg-gradient-to-b from-[#0a2d20] to-[#0a2d20]">
 
       {/* Subtle back link */}
       <div className="px-4 pt-4 pb-1">
@@ -252,14 +252,14 @@ export default function IntakePage() {
               <BrandMark size={80} />
             </div>
             <h1 className="text-3xl font-bold text-white mb-1">MedContractIntel<sup style={{ fontSize: "0.5em", verticalAlign: "super" }}>™</sup></h1>
-            <p className="text-[11px] text-[#b8973b] font-semibold tracking-[0.25em] uppercase mb-3">DATA · LEVERAGE · FAIR PAY</p>
-            <div className="w-16 h-0.5 bg-[#1a9090] mx-auto mb-3 rounded-full" />
+            <p className="text-[11px] text-[#9c7e2e] font-semibold tracking-[0.25em] uppercase mb-3">DATA · LEVERAGE · FAIR PAY</p>
+            <div className="w-16 h-0.5 bg-[#1db5b5] mx-auto mb-3 rounded-full" />
             <p className="text-gray-300 text-sm">
               Upload your internal medicine and hospitalist employment contract for a comprehensive contract analysis
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-xl p-6 space-y-6 border border-[#1a9090]/10">
+          <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-xl p-6 space-y-6 border border-[#1db5b5]/10">
             {/* Contract Upload */}
             <div>
               <label className="block text-sm font-semibold text-gray-800 mb-2">Contract Document</label>
@@ -272,10 +272,10 @@ export default function IntakePage() {
                 onClick={() => fileInputRef.current?.click()}
                 className={`relative border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
                   dragOver
-                    ? "border-[#b8973b] bg-yellow-50"
+                    ? "border-[#9c7e2e] bg-yellow-50"
                     : fileName
                     ? "border-green-400 bg-green-50"
-                    : "border-gray-300 hover:border-[#1a9090] hover:bg-[#1a9090]/5"
+                    : "border-gray-300 hover:border-[#1db5b5] hover:bg-[#1db5b5]/5"
                 }`}
               >
                 <input
@@ -305,7 +305,7 @@ export default function IntakePage() {
                   </div>
                 ) : (
                   <>
-                    <Upload className="h-10 w-10 text-[#b8973b]/60 mx-auto mb-2" />
+                    <Upload className="h-10 w-10 text-[#9c7e2e]/60 mx-auto mb-2" />
                     <p className="text-gray-600 font-medium">Drop your contract PDF here, or click to browse</p>
                     <p className="text-gray-400 text-sm mt-1">PDF or TXT files up to 10MB</p>
                   </>
@@ -340,9 +340,9 @@ export default function IntakePage() {
 
               {/* OR divider */}
               <div className="flex items-center gap-3 my-4">
-                <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[#1a9090]/30" />
-                <span className="text-xs text-[#b8973b] font-medium tracking-wide uppercase">or paste contract text</span>
-                <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#1a9090]/30" />
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[#1db5b5]/30" />
+                <span className="text-xs text-[#9c7e2e] font-medium tracking-wide uppercase">or paste contract text</span>
+                <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#1db5b5]/30" />
               </div>
 
               {/* Text input */}
@@ -360,12 +360,12 @@ export default function IntakePage() {
                 }}
                 placeholder="Paste your full contract text here..."
                 rows={6}
-                className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base sm:text-sm focus:border-[#0f3d2e] focus:ring-1 focus:ring-[#0f3d2e] outline-none resize-y"
+                className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base sm:text-sm focus:border-[#0a2d20] focus:ring-1 focus:ring-[#0a2d20] outline-none resize-y"
               />
             </div>
 
             {/* Context Fields */}
-            <div className="border-t border-[#1a9090]/20 pt-6">
+            <div className="border-t border-[#1db5b5]/20 pt-6">
               <h2 className="text-sm font-semibold text-gray-800 mb-4">Contract Context</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <SelectField label="Who is this contract with?" value={employerType} onChange={setEmployerType} options={EMPLOYERS} placeholder="Select employer type..." />
@@ -382,7 +382,7 @@ export default function IntakePage() {
             </div>
 
             {/* Optional phone */}
-            <div className="border-t border-[#1a9090]/20 pt-5">
+            <div className="border-t border-[#1db5b5]/20 pt-5">
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Phone Number <span className="text-gray-400 font-normal">(optional)</span>
               </label>
@@ -391,18 +391,18 @@ export default function IntakePage() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="(555) 555-5555"
-                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-base sm:text-sm focus:border-[#0f3d2e] focus:ring-1 focus:ring-[#0f3d2e] outline-none"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-base sm:text-sm focus:border-[#0a2d20] focus:ring-1 focus:ring-[#0a2d20] outline-none"
               />
               <p className="text-xs text-gray-400 mt-1">For SMS updates on your analysis. We never share your number.</p>
             </div>
 
             {/* FIX 4 (2026-04-15): Bundle redemption — now prominent. Gold-accent
                 banner above submit so bundle buyers don't accidentally pay twice. */}
-            <div className="rounded-xl p-5 border-2 border-[#b8973b]/70 bg-gradient-to-br from-[#fffaf0] to-[#fff5d9] shadow-sm">
-              <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#b8973b] mb-1.5">
+            <div className="rounded-xl p-5 border-2 border-[#9c7e2e]/70 bg-gradient-to-br from-[#fffaf0] to-[#fff5d9] shadow-sm">
+              <p className="text-[11px] font-bold tracking-[0.15em] uppercase text-[#9c7e2e] mb-1.5">
                 Purchased the Complete Bundle?
               </p>
-              <label className="block text-lg font-bold text-[#0f3d2e] mb-1">
+              <label className="block text-lg font-bold text-[#0a2d20] mb-1">
                 Redeem your included analysis
               </label>
               <p className="text-sm text-gray-700 mb-3">
@@ -413,7 +413,7 @@ export default function IntakePage() {
                 value={bundleEmail}
                 onChange={(e) => setBundleEmail(e.target.value)}
                 placeholder="you@email.com"
-                className="w-full rounded-lg border-2 border-[#b8973b]/40 bg-white px-4 py-3 text-base sm:text-sm font-medium focus:border-[#b8973b] focus:ring-2 focus:ring-[#b8973b]/30 outline-none"
+                className="w-full rounded-lg border-2 border-[#9c7e2e]/40 bg-white px-4 py-3 text-base sm:text-sm font-medium focus:border-[#9c7e2e] focus:ring-2 focus:ring-[#9c7e2e]/30 outline-none"
               />
               <p className="text-xs text-gray-500 mt-2">
                 Don't have a bundle? Leave this blank — you'll checkout at $97 below. If the email has no credit, we'll send you to checkout automatically.
@@ -432,7 +432,7 @@ export default function IntakePage() {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full bg-[#b8973b] text-[#0f3d2e] font-bold py-3.5 rounded-lg hover:bg-[#b8973b] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
+              className="w-full bg-[#9c7e2e] text-[#0a2d20] font-bold py-3.5 rounded-lg hover:bg-[#9c7e2e] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
             >
               {submitting ? "Submitting..." : "Analyze Contract"}
             </button>
@@ -445,15 +445,15 @@ export default function IntakePage() {
             {/* Trust signals row */}
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs text-gray-500 -mt-2">
               <span className="inline-flex items-center gap-1">
-                <svg className="h-3.5 w-3.5 text-[#1a9090]" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4L8.5 12l6.8-6.7a1 1 0 0 1 1.4 0z" clipRule="evenodd"/></svg>
+                <svg className="h-3.5 w-3.5 text-[#1db5b5]" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4L8.5 12l6.8-6.7a1 1 0 0 1 1.4 0z" clipRule="evenodd"/></svg>
                 Encrypted upload
               </span>
               <span className="inline-flex items-center gap-1">
-                <svg className="h-3.5 w-3.5 text-[#1a9090]" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4L8.5 12l6.8-6.7a1 1 0 0 1 1.4 0z" clipRule="evenodd"/></svg>
+                <svg className="h-3.5 w-3.5 text-[#1db5b5]" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4L8.5 12l6.8-6.7a1 1 0 0 1 1.4 0z" clipRule="evenodd"/></svg>
                 Report in under 5 minutes
               </span>
               <span className="inline-flex items-center gap-1">
-                <svg className="h-3.5 w-3.5 text-[#1a9090]" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4L8.5 12l6.8-6.7a1 1 0 0 1 1.4 0z" clipRule="evenodd"/></svg>
+                <svg className="h-3.5 w-3.5 text-[#1db5b5]" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4L8.5 12l6.8-6.7a1 1 0 0 1 1.4 0z" clipRule="evenodd"/></svg>
                 Refund if analysis fails
               </span>
             </div>

@@ -3,7 +3,7 @@
 
 v2 palette directive (2026-04-23): remove all blue from brand assets. Gold frame
 and teal EKG trace are preserved; only dark-blue pixels in the hex interior get
-remapped to #0f3d2e (deep forest green).
+remapped to #0a2d20 (deep forest green).
 
 Run:
     python3 recolor_logo.py
@@ -29,8 +29,10 @@ LOGO_FILES = [
     ROOT / "public" / "assets" / "images" / "brand_symbol.png",
 ]
 
-# Target green: #0f3d2e (15, 61, 46)
-TARGET_R, TARGET_G, TARGET_B = 0x0F, 0x3D, 0x2E
+# Target green: #0a2d20 (10, 45, 32) — v3 near-black forest, matches banner primary
+TARGET_R, TARGET_G, TARGET_B = 0x0A, 0x2D, 0x20
+# Darker tier for the deepest navy pixels (#051a12)
+DARK_R, DARK_G, DARK_B = 0x05, 0x1A, 0x12
 
 
 def is_navy_pixel(r: int, g: int, b: int) -> bool:
@@ -67,12 +69,11 @@ def recolor(src: Path) -> None:
                 # We map to a green shade that keeps the hex interior readable
                 # but sits in the primary/primary-dark range.
                 darkness = (r + g + b) / 3.0  # 0-255 (lower = darker)
-                # Blend between primary-dark (#0a2d20) and primary (#0f3d2e)
-                # Darker source → closer to #0a2d20, lighter → closer to #0f3d2e
+                # Darker navy → #051a12, lighter navy → primary #0a2d20
                 t = min(max((darkness - 20) / 80.0, 0.0), 1.0)
-                r_out = round(0x0A + t * (TARGET_R - 0x0A))
-                g_out = round(0x2D + t * (TARGET_G - 0x2D))
-                b_out = round(0x20 + t * (TARGET_B - 0x20))
+                r_out = round(DARK_R + t * (TARGET_R - DARK_R))
+                g_out = round(DARK_G + t * (TARGET_G - DARK_G))
+                b_out = round(DARK_B + t * (TARGET_B - DARK_B))
                 pixels[x, y] = (r_out, g_out, b_out)
                 changed += 1
 

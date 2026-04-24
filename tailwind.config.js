@@ -1,30 +1,30 @@
 /** @type {import('tailwindcss').Config} */
-// MedContractIntel brand tokens v2. Source of truth: /Users/ambamplify/MedContractIntel/med-contract-ops/state/brand-palette.md
-// v2 (2026-04-23): removed all blue; dark-green primary, dark-gold secondary, teal accent.
+// MedContractIntel brand tokens v3. Source of truth: /Users/ambamplify/MedContractIntel/med-contract-ops/state/brand-palette.md
+// v3 (2026-04-23 PM): single-tier near-black forest green primary + bronzed gold + vivid teal.
 export default {
   content: ["./client/**/*.{html,tsx,ts}"],
   theme: {
     extend: {
       colors: {
-        // Primary — Deep Forest Green (dark-green per owner directive)
+        // Primary — Near-black forest green. Single tier; darker variant for hover only.
         brand: {
-          DEFAULT: "#0f3d2e",
-          dark: "#0a2d20",
-          mid: "#1f6e43",
+          DEFAULT: "#0a2d20",
+          dark: "#051a12",
+          mid: "#0a2d20",
         },
-        // Secondary — Heritage Dark Gold
+        // Secondary — Bronzed heritage gold (less yellow, more metallic)
         gold: {
-          DEFAULT: "#b8973b",
-          bright: "#c9a84c",
-          dark: "#8f7020",
+          DEFAULT: "#9c7e2e",
+          bright: "#b89a3e",
+          dark: "#6e5a20",
         },
-        // Accent — Teal (replaces all blue)
+        // Accent — Vivid teal
         teal: {
-          DEFAULT: "#1a9090",
-          light: "#25b0a3",
+          DEFAULT: "#1db5b5",
+          light: "#2dd4bf",
         },
         // Warm Cream background
-        cream: "#faf7f0",
+        cream: "#f7f4ec",
         // Ink (green-shifted near-black)
         ink: "#0a1f14",
         muted: "#5a6b60",
