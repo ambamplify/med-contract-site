@@ -94,8 +94,11 @@ if (process.env.NODE_ENV === "production") {
   app.get("/checklist/", noCache, (_req, res) => res.sendFile(path.join(publicDir, "checklist", "index.html")));
   app.get("/calculator", noCache, (_req, res) => res.sendFile(path.join(publicDir, "calculator", "index.html")));
   app.get("/calculator/", noCache, (_req, res) => res.sendFile(path.join(publicDir, "calculator", "index.html")));
-  app.get("/refund", noCache, (_req, res) => res.sendFile(path.join(publicDir, "refund", "index.html")));
-  app.get("/refund/", noCache, (_req, res) => res.sendFile(path.join(publicDir, "refund", "index.html")));
+  // Clean-URL aliases for legal pages (map /privacy → /pages/privacy.html, etc.)
+  app.get("/privacy", noCache, (_req, res) => res.sendFile(path.join(publicDir, "pages", "privacy.html")));
+  app.get("/terms", noCache, (_req, res) => res.sendFile(path.join(publicDir, "pages", "terms.html")));
+  app.get("/disclaimer", noCache, (_req, res) => res.sendFile(path.join(publicDir, "pages", "disclaimer.html")));
+  app.get("/dmca", noCache, (_req, res) => res.sendFile(path.join(publicDir, "pages", "dmca.html")));
   app.get("/thank-you", noCache, (_req, res) => res.sendFile(path.join(publicDir, "thank-you", "index.html")));
   app.get("/thank-you/", noCache, (_req, res) => res.sendFile(path.join(publicDir, "thank-you", "index.html")));
   app.get("/checklist-thank-you", noCache, (_req, res) => res.sendFile(path.join(publicDir, "checklist-thank-you", "index.html")));

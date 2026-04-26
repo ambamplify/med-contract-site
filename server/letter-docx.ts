@@ -58,7 +58,7 @@ export async function generateLetterDocx(
           ],
           spacing: { after: 160 },
           border: {
-            bottom: { style: BorderStyle.SINGLE, size: 1, color: "C9A84C" },
+            bottom: { style: BorderStyle.SINGLE, size: 1, color: "9C7E2E" },
           },
         })
       );
@@ -190,7 +190,7 @@ export async function generateLetterDocx(
           run: {
             font: "Calibri",
             size: 24,
-            color: "1a2744",
+            color: "0A1F14",
           },
           paragraph: {
             spacing: { line: 276 }, // 1.15 line spacing

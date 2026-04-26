@@ -1,16 +1,17 @@
 import { jsPDF } from "jspdf";
 import type { AnalysisResult } from "../shared/schema.js";
 
+// Brand palette v3.1 — source of truth: med-contract-ops/state/brand-palette.md
 const COLORS = {
-  navy: [31, 110, 67] as [number, number, number],
-  gold: [201, 168, 76] as [number, number, number],
-  darkGray: [51, 51, 51] as [number, number, number],
-  medGray: [102, 102, 102] as [number, number, number],
-  lightGray: [245, 245, 245] as [number, number, number],
+  navy: [6, 30, 21] as [number, number, number],       // #061e15 primary forest
+  gold: [156, 126, 46] as [number, number, number],    // #9c7e2e bronzed heritage gold
+  darkGray: [10, 31, 20] as [number, number, number],  // #0a1f14 ink
+  medGray: [90, 107, 96] as [number, number, number],  // #5a6b60 muted
+  lightGray: [247, 244, 236] as [number, number, number], // #f7f4ec cream
   white: [255, 255, 255] as [number, number, number],
-  red: [220, 53, 69] as [number, number, number],
-  yellow: [255, 193, 7] as [number, number, number],
-  green: [40, 167, 69] as [number, number, number],
+  red: [220, 53, 69] as [number, number, number],      // severity (universal)
+  yellow: [255, 193, 7] as [number, number, number],   // severity (universal)
+  green: [40, 167, 69] as [number, number, number],    // severity (universal)
 };
 
 const PAGE_WIDTH = 210;
